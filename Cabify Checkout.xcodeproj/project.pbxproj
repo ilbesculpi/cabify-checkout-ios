@@ -24,6 +24,7 @@
 		19BE74F322EB3C7C0053F005 /* ProductListMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F222EB3C7C0053F005 /* ProductListMocks.swift */; };
 		19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F422EB3CEE0053F005 /* UIStoryboard_Extension.swift */; };
 		19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F622EB4BA20053F005 /* UIColor_Extension.swift */; };
+		19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F822EB56D10053F005 /* ProductListItemCell.swift */; };
 		402F2B438AC493B2160FF326 /* Pods_Cabify_CheckoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */; };
 		726D804CE5F3EA31EFC01846 /* Pods_Cabify_CheckoutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		19BE74F222EB3C7C0053F005 /* ProductListMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListMocks.swift; sourceTree = "<group>"; };
 		19BE74F422EB3CEE0053F005 /* UIStoryboard_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard_Extension.swift; sourceTree = "<group>"; };
 		19BE74F622EB4BA20053F005 /* UIColor_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Extension.swift; sourceTree = "<group>"; };
+		19BE74F822EB56D10053F005 /* ProductListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListItemCell.swift; sourceTree = "<group>"; };
 		4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
 		643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_CheckoutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_Checkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 				19BE74DC22EB2D160053F005 /* ProductListViewController.swift */,
 				19BE74EC22EB35A00053F005 /* ProductListPresenter.swift */,
 				19BE74EE22EB35AE0053F005 /* ProductListRouter.swift */,
+				19BE74F822EB56D10053F005 /* ProductListItemCell.swift */,
 			);
 			path = ProductList;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 			files = (
 				19BE74E622EB320A0053F005 /* ProductListContracts.swift in Sources */,
 				19BE74EF22EB35AE0053F005 /* ProductListRouter.swift in Sources */,
+				19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */,
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
 				19BE74E922EB33610053F005 /* Product.swift in Sources */,
 				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,

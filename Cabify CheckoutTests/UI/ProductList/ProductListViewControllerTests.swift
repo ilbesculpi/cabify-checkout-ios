@@ -24,10 +24,21 @@ class ProductListViewControllerTests: XCTestCase {
         controller = nil;
         presenterMock = nil;
     }
+    
+    func testOutlets() {
+        
+        // When: controller loads view
+        let _ = controller.view;
+        
+        // Expect: table outlets should be created
+        XCTAssertNotNil(controller.tableView);
+        XCTAssertNotNil(controller.tableView.dataSource);
+        XCTAssertNotNil(controller.tableView.delegate);
+    }
 
     func testLoadView() {
         
-        // When: view loads
+        // When: controller loads view
         let _ = controller.view;
         
         // Expect: should call presenter onViewCreated
