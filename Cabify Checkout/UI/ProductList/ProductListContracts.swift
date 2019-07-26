@@ -7,19 +7,26 @@
 
 import Foundation
 
-protocol ProductListViewContract {
+protocol ProductListViewContract : class {
+    
+    var presenter: ProductListPresenterContract! { get set }
+    var router: ProductListRouterContract! { get set }
     
     func displayProducts(_ products: [Product])
     
 }
 
-protocol ProductListPresenterContract {
+protocol ProductListPresenterContract : class {
+    
+    var view: ProductListViewContract! { get set }
     
     func onViewCreated()
     func fetchProducts()
     
 }
 
-protocol ProductListRouterContract {
+protocol ProductListRouterContract : class {
+    
+    var view: ProductListViewContract! { get set }
     
 }

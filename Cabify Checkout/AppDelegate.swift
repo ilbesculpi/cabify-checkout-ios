@@ -7,32 +7,47 @@
 //
 
 import UIKit
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let container: Container = {
+       return UIContainer.container
+    }()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        
         configureRootController();
+        
         return true;
     }
 
+    /**
+     Creates and configures the controller to be presented at launch.
+     */
     func configureRootController() {
         
+        // Instantiate a window.
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        self.window = window
+        
         // Instantiate ProductList controller
-        let storyboard = UIStoryboard.init(name: "Products", bundle: nil);
-        let productListController = storyboard.instantiateViewController(withIdentifier: "ProductList");
+        guard let productListController = container.resolve(ProductListViewController.self) else {
+            fatalError("Unable to instantiate root view controller");
+        }
         
         // Embed in a navigation controller
         let navigationController = UINavigationController(rootViewController: productListController);
         
         // Set as root view controller
-        window = UIWindow(frame: UIScreen.main.bounds);
-        window?.rootViewController = navigationController;
-        window?.makeKeyAndVisible();
+        window.rootViewController = navigationController;
     }
 
 

@@ -7,19 +7,31 @@
 //
 
 import XCTest
+@testable import Cabify_Checkout
 
 class ProductListViewControllerTests: XCTestCase {
+    
+    var controller: ProductListViewController!
+    var presenterMock: ProductListMocks.Presenter!
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        controller = UIStoryboard.Scene.Products.productList;
+        presenterMock = ProductListMocks.Presenter(view: controller);
+        controller.presenter = presenterMock;
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        controller = nil;
+        presenterMock = nil;
     }
 
-    func testDummy() {
-        XCTAssertTrue(1 == 1)
+    func testLoadView() {
+        
+        // When: view loads
+        let _ = controller.view;
+        
+        // Expect: should call presenter onViewCreated
+        XCTAssertTrue(presenterMock.onViewCreatedCalled, "controller should call presenter::onViewCreated()");
     }
 
 }
