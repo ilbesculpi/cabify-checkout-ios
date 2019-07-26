@@ -44,4 +44,17 @@ class AppDelegateTests: XCTestCase {
         XCTAssertTrue(rootViewController.viewControllers.first is ProductListViewController, "first controller should be a ProductListController");
     }
     
+    func testConfigureAppearance() {
+        
+        // When: application launches
+        
+        // Then: call configureAppearance()
+        appDelegate.configureAppearance();
+        
+        // Expect: navigation bar global appearance should be set
+        XCTAssertEqual(UIColor.white, UINavigationBar.appearance().tintColor);
+        XCTAssertEqual(UIColor.Scheme.primaryDark, UINavigationBar.appearance().barTintColor);
+        
+    }
+    
 }
