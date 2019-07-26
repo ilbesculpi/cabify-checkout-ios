@@ -20,5 +20,16 @@ class ProductListMocks {
         }
         
     }
+    
+    class TableView : UITableView {
+        
+        var reloadDataCalled: Bool = false;
+        
+        override func reloadData() {
+            super.reloadData();
+            reloadDataCalled = true;
+        }
+        
+    }
 
 }
