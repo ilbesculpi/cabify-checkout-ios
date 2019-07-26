@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F08E6C75BBC0D47C89EE94D /* Pods_Cabify_Checkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
-		19BE74AD22EB29ED0053F005 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AC22EB29ED0053F005 /* ViewController.swift */; };
 		19BE74B022EB29ED0053F005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74AE22EB29ED0053F005 /* Main.storyboard */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
 		19BE74C022EB29FB0053F005 /* Cabify_CheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74BF22EB29FB0053F005 /* Cabify_CheckoutTests.swift */; };
 		19BE74CB22EB29FB0053F005 /* Cabify_CheckoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74CA22EB29FB0053F005 /* Cabify_CheckoutUITests.swift */; };
+		402F2B438AC493B2160FF326 /* Pods_Cabify_CheckoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */; };
+		726D804CE5F3EA31EFC01846 /* Pods_Cabify_CheckoutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutUITests.debug.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutUITests/Pods-Cabify CheckoutUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		07919D045E4AA00DD5628310 /* Pods-Cabify Checkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.release.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.release.xcconfig"; sourceTree = "<group>"; };
+		162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug.xcconfig"; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19BE74AC22EB29ED0053F005 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		19BE74AF22EB29ED0053F005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19BE74B422EB29FB0053F005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,12 @@
 		19BE74C622EB29FB0053F005 /* Cabify CheckoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cabify CheckoutUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74CA22EB29FB0053F005 /* Cabify_CheckoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cabify_CheckoutUITests.swift; sourceTree = "<group>"; };
 		19BE74CC22EB29FB0053F005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
+		643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_CheckoutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_Checkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85102F53E5CF7F3B786D611 /* Pods-Cabify CheckoutUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutUITests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutUITests/Pods-Cabify CheckoutUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_CheckoutUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F85B92C689D7385CC9411B05 /* Pods-Cabify CheckoutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.debug.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F08E6C75BBC0D47C89EE94D /* Pods_Cabify_Checkout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				402F2B438AC493B2160FF326 /* Pods_Cabify_CheckoutTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726D804CE5F3EA31EFC01846 /* Pods_Cabify_CheckoutUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +94,8 @@
 				19BE74BE22EB29FB0053F005 /* Cabify CheckoutTests */,
 				19BE74C922EB29FB0053F005 /* Cabify CheckoutUITests */,
 				19BE74A822EB29ED0053F005 /* Products */,
+				5618AE68B9A2279223D8C80A /* Pods */,
+				CE2513C4F50B7B44BAA83C5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,10 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				19BE74AA22EB29ED0053F005 /* AppDelegate.swift */,
-				19BE74AC22EB29ED0053F005 /* ViewController.swift */,
-				19BE74AE22EB29ED0053F005 /* Main.storyboard */,
+				19BE74D822EB2A230053F005 /* Storyboards */,
 				19BE74B122EB29FB0053F005 /* Assets.xcassets */,
-				19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */,
 				19BE74B622EB29FB0053F005 /* Info.plist */,
 			);
 			path = "Cabify Checkout";
@@ -125,6 +138,39 @@
 			path = "Cabify CheckoutUITests";
 			sourceTree = "<group>";
 		};
+		19BE74D822EB2A230053F005 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */,
+				19BE74AE22EB29ED0053F005 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5618AE68B9A2279223D8C80A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */,
+				07919D045E4AA00DD5628310 /* Pods-Cabify Checkout.release.xcconfig */,
+				F85B92C689D7385CC9411B05 /* Pods-Cabify CheckoutTests.debug.xcconfig */,
+				4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */,
+				06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */,
+				D85102F53E5CF7F3B786D611 /* Pods-Cabify CheckoutUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE2513C4F50B7B44BAA83C5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */,
+				643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */,
+				ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +178,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19BE74CF22EB29FB0053F005 /* Build configuration list for PBXNativeTarget "Cabify Checkout" */;
 			buildPhases = (
+				5BDAF9660B5E7CDC08B9C362 /* [CP] Check Pods Manifest.lock */,
 				19BE74A322EB29ED0053F005 /* Sources */,
 				19BE74A422EB29ED0053F005 /* Frameworks */,
 				19BE74A522EB29ED0053F005 /* Resources */,
@@ -149,6 +196,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19BE74D222EB29FB0053F005 /* Build configuration list for PBXNativeTarget "Cabify CheckoutTests" */;
 			buildPhases = (
+				F73509DD61956894B472129B /* [CP] Check Pods Manifest.lock */,
 				19BE74B722EB29FB0053F005 /* Sources */,
 				19BE74B822EB29FB0053F005 /* Frameworks */,
 				19BE74B922EB29FB0053F005 /* Resources */,
@@ -167,6 +215,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19BE74D522EB29FB0053F005 /* Build configuration list for PBXNativeTarget "Cabify CheckoutUITests" */;
 			buildPhases = (
+				54B8ED3378017F80CAC374CB /* [CP] Check Pods Manifest.lock */,
 				19BE74C222EB29FB0053F005 /* Sources */,
 				19BE74C322EB29FB0053F005 /* Frameworks */,
 				19BE74C422EB29FB0053F005 /* Resources */,
@@ -251,12 +300,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		54B8ED3378017F80CAC374CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cabify CheckoutUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BDAF9660B5E7CDC08B9C362 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cabify Checkout-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F73509DD61956894B472129B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cabify CheckoutTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		19BE74A322EB29ED0053F005 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19BE74AD22EB29ED0053F005 /* ViewController.swift in Sources */,
 				19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +547,7 @@
 		};
 		19BE74D022EB29FB0053F005 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +566,7 @@
 		};
 		19BE74D122EB29FB0053F005 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07919D045E4AA00DD5628310 /* Pods-Cabify Checkout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +585,7 @@
 		};
 		19BE74D322EB29FB0053F005 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F85B92C689D7385CC9411B05 /* Pods-Cabify CheckoutTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +607,7 @@
 		};
 		19BE74D422EB29FB0053F005 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +629,7 @@
 		};
 		19BE74D622EB29FB0053F005 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +650,7 @@
 		};
 		19BE74D722EB29FB0053F005 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D85102F53E5CF7F3B786D611 /* Pods-Cabify CheckoutUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
