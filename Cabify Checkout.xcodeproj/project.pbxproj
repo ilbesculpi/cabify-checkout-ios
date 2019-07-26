@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		0F08E6C75BBC0D47C89EE94D /* Pods_Cabify_Checkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
-		19BE74B022EB29ED0053F005 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74AE22EB29ED0053F005 /* Main.storyboard */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
-		19BE74C022EB29FB0053F005 /* Cabify_CheckoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74BF22EB29FB0053F005 /* Cabify_CheckoutTests.swift */; };
 		19BE74CB22EB29FB0053F005 /* Cabify_CheckoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74CA22EB29FB0053F005 /* Cabify_CheckoutUITests.swift */; };
+		19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74DC22EB2D160053F005 /* ProductListViewController.swift */; };
+		19BE74E022EB2D2A0053F005 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74DE22EB2D2A0053F005 /* Products.storyboard */; };
+		19BE74E422EB2DB30053F005 /* ProductListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74E322EB2DB30053F005 /* ProductListViewControllerTests.swift */; };
 		402F2B438AC493B2160FF326 /* Pods_Cabify_CheckoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */; };
 		726D804CE5F3EA31EFC01846 /* Pods_Cabify_CheckoutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */; };
 /* End PBXBuildFile section */
@@ -41,16 +42,17 @@
 		162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug.xcconfig"; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19BE74AF22EB29ED0053F005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19BE74B422EB29FB0053F005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19BE74B622EB29FB0053F005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19BE74BB22EB29FB0053F005 /* Cabify CheckoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cabify CheckoutTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		19BE74BF22EB29FB0053F005 /* Cabify_CheckoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cabify_CheckoutTests.swift; sourceTree = "<group>"; };
 		19BE74C122EB29FB0053F005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19BE74C622EB29FB0053F005 /* Cabify CheckoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cabify CheckoutUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74CA22EB29FB0053F005 /* Cabify_CheckoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cabify_CheckoutUITests.swift; sourceTree = "<group>"; };
 		19BE74CC22EB29FB0053F005 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19BE74DC22EB2D160053F005 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		19BE74DF22EB2D2A0053F005 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Products.storyboard; sourceTree = "<group>"; };
+		19BE74E322EB2DB30053F005 /* ProductListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewControllerTests.swift; sourceTree = "<group>"; };
 		4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
 		643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_CheckoutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_Checkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				19BE74AA22EB29ED0053F005 /* AppDelegate.swift */,
+				19BE74D922EB2CE30053F005 /* Domain */,
+				19BE74DA22EB2CED0053F005 /* UI */,
 				19BE74D822EB2A230053F005 /* Storyboards */,
 				19BE74B122EB29FB0053F005 /* Assets.xcassets */,
 				19BE74B622EB29FB0053F005 /* Info.plist */,
@@ -123,7 +127,7 @@
 		19BE74BE22EB29FB0053F005 /* Cabify CheckoutTests */ = {
 			isa = PBXGroup;
 			children = (
-				19BE74BF22EB29FB0053F005 /* Cabify_CheckoutTests.swift */,
+				19BE74E122EB2D6C0053F005 /* UI */,
 				19BE74C122EB29FB0053F005 /* Info.plist */,
 			);
 			path = "Cabify CheckoutTests";
@@ -142,9 +146,48 @@
 			isa = PBXGroup;
 			children = (
 				19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */,
-				19BE74AE22EB29ED0053F005 /* Main.storyboard */,
+				19BE74DE22EB2D2A0053F005 /* Products.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		19BE74D922EB2CE30053F005 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		19BE74DA22EB2CED0053F005 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				19BE74DB22EB2CF90053F005 /* ProductList */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		19BE74DB22EB2CF90053F005 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				19BE74DC22EB2D160053F005 /* ProductListViewController.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		19BE74E122EB2D6C0053F005 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				19BE74E222EB2D720053F005 /* ProductList */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		19BE74E222EB2D720053F005 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				19BE74E322EB2DB30053F005 /* ProductListViewControllerTests.swift */,
+			);
+			path = ProductList;
 			sourceTree = "<group>";
 		};
 		5618AE68B9A2279223D8C80A /* Pods */ = {
@@ -157,7 +200,6 @@
 				06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */,
 				D85102F53E5CF7F3B786D611 /* Pods-Cabify CheckoutUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +287,7 @@
 					};
 					19BE74BA22EB29FB0053F005 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 19BE74A622EB29ED0053F005;
 					};
 					19BE74C522EB29FB0053F005 = {
@@ -280,7 +323,7 @@
 			files = (
 				19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */,
 				19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */,
-				19BE74B022EB29ED0053F005 /* Main.storyboard in Resources */,
+				19BE74E022EB2D2A0053F005 /* Products.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,
 				19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19BE74C022EB29FB0053F005 /* Cabify_CheckoutTests.swift in Sources */,
+				19BE74E422EB2DB30053F005 /* ProductListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,20 +454,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		19BE74AE22EB29ED0053F005 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				19BE74AF22EB29ED0053F005 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				19BE74B422EB29FB0053F005 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		19BE74DE22EB2D2A0053F005 /* Products.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19BE74DF22EB2D2A0053F005 /* Base */,
+			);
+			name = Products.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -553,6 +597,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGA9HU8SL2;
 				INFOPLIST_FILE = "Cabify Checkout/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGA9HU8SL2;
 				INFOPLIST_FILE = "Cabify Checkout/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,6 +635,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGA9HU8SL2;
 				INFOPLIST_FILE = "Cabify CheckoutTests/Info.plist";
@@ -599,6 +646,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ilbesculpi.Cabify-CheckoutTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cabify Checkout.app/Cabify Checkout";
@@ -611,6 +659,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGA9HU8SL2;
 				INFOPLIST_FILE = "Cabify CheckoutTests/Info.plist";
