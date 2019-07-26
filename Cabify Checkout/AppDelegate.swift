@@ -23,11 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         
+        configureAppearance();
+        
         configureRootController();
         
         return true;
     }
-
+    
+    
     /**
      Creates and configures the controller to be presented at launch.
      */
@@ -49,6 +52,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set as root view controller
         window.rootViewController = navigationController;
     }
+    
+    
+    // MARK: - Appearance
+    
+    /**
+     Defines the global appearance for some UI Components.
+     */
+    func configureAppearance() {
+        
+        configureNavigationBarAppearance();
+        
+    }
+    
+    private func configureNavigationBarAppearance()  {
+        
+        // Title Color
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18),
+            NSAttributedString.Key.foregroundColor : UIColor.white
+        ];
+        
+        // Controls Color
+        UINavigationBar.appearance().tintColor = UIColor.white;
+        
+        // Bar Color
+        UINavigationBar.appearance().barTintColor = UIColor.Scheme.primaryDark;
+        
+    }
+    
+
+    
 
 
 }

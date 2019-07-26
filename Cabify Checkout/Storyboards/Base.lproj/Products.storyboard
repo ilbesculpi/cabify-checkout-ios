@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Product List View Controller-->
+        <!--Product List-->
         <scene sceneID="Wwn-OM-rLj">
             <objects>
                 <viewController storyboardIdentifier="ProductList" id="qeh-Zd-dy6" customClass="ProductListViewController" customModule="Cabify_Checkout" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRODUCTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujh-Oc-aAU">
-                                <rect key="frame" x="161.5" y="150" width="91" height="21"/>
+                                <rect key="frame" x="161.5" y="194" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,10 +32,48 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3bN-FW-Lcx"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Product List" id="Gab-aE-uZe"/>
+                    <connections>
+                        <segue destination="Ndq-81-1MR" kind="show" id="i0E-uU-BCz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDW-us-nA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="145"/>
+            <point key="canvasLocation" x="1050.7246376811595" y="144.64285714285714"/>
+        </scene>
+        <!--Checkout-->
+        <scene sceneID="Vrt-kp-q1c">
+            <objects>
+                <viewController title="Checkout" id="Ndq-81-1MR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qkB-rU-Qdp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FCQ-tT-eId"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8P-zq-Iio" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2316" y="145"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="s0b-hv-Yoh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ENv-OC-4SR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xzp-XC-a5o">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.90588235294117647" green="0.94901960784313721" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qeh-Zd-dy6" kind="relationship" relationship="rootViewController" id="T9e-x4-kia"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYe-GZ-kiQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-296" y="145"/>
         </scene>
     </scenes>
 </document>
