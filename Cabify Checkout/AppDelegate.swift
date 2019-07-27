@@ -22,10 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
-        
         configureAppearance();
         
-        configureRootController();
+        // configure root view controller
+        if NSClassFromString("XCTestCase") == nil {
+            configureRootController();
+        }
         
         return true;
     }
