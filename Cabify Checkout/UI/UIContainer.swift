@@ -9,7 +9,7 @@
 import UIKit
 import Swinject
 
-class UIContainer {
+final class UIContainer {
     
     static let container: Container = {
         

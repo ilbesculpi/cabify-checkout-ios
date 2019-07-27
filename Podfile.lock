@@ -1,16 +1,28 @@
 PODS:
+  - Alamofire (5.0.0-beta.5)
+  - PromisesObjC (1.2.7)
+  - PromisesSwift (1.2.7):
+    - PromisesObjC (= 1.2.7)
   - Swinject (2.6.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.5)
+  - PromisesSwift
   - Swinject
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - PromisesObjC
+    - PromisesSwift
     - Swinject
 
 SPEC CHECKSUMS:
+  Alamofire: 9afb08f7f43efcc71c072374e720fcf67521317d
+  PromisesObjC: 7b28ddd1e78cce8f80f1ada927d2217663a9c672
+  PromisesSwift: b27f410f9ea693753cfd4cfd8ac1c60a471f137b
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: 68bb0e1c5c9d381e2bcadf265c3a7d51cbc704f8
+PODFILE CHECKSUM: 0d744e7204f8f4667464692f18fa8dbdb11007a5
 
 COCOAPODS: 1.6.1

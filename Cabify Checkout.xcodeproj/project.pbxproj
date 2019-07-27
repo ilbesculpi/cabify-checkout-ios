@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0F08E6C75BBC0D47C89EE94D /* Pods_Cabify_Checkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */; };
 		192E8D2622EB67C2007D348A /* ProductListFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2522EB67C2007D348A /* ProductListFixture.swift */; };
+		192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2922EB8F13007D348A /* ProductRepository.swift */; };
+		192E8D2D22EC862E007D348A /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2C22EC862E007D348A /* ProductService.swift */; };
+		192E8D3122EC880C007D348A /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3022EC880C007D348A /* ProductServiceTests.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -52,6 +55,9 @@
 		07919D045E4AA00DD5628310 /* Pods-Cabify Checkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.release.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.release.xcconfig"; sourceTree = "<group>"; };
 		162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug.xcconfig"; sourceTree = "<group>"; };
 		192E8D2522EB67C2007D348A /* ProductListFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListFixture.swift; sourceTree = "<group>"; };
+		192E8D2922EB8F13007D348A /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
+		192E8D2C22EC862E007D348A /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		192E8D3022EC880C007D348A /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +117,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192E8D2722EB8EDD007D348A /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				192E8D2822EB8F01007D348A /* Contracts */,
+				192E8D2B22EB8F16007D348A /* Services */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		192E8D2822EB8F01007D348A /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				192E8D2922EB8F13007D348A /* ProductRepository.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		192E8D2B22EB8F16007D348A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				192E8D2C22EC862E007D348A /* ProductService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		192E8D2E22EC87ED007D348A /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				192E8D2F22EC87F9007D348A /* Services */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		192E8D2F22EC87F9007D348A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				192E8D3022EC880C007D348A /* ProductServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		19BE749E22EB29ED0053F005 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +186,7 @@
 				19BE74AA22EB29ED0053F005 /* AppDelegate.swift */,
 				19BE74D922EB2CE30053F005 /* Domain */,
 				19BE74DA22EB2CED0053F005 /* UI */,
+				192E8D2722EB8EDD007D348A /* Persistence */,
 				19BE74D822EB2A230053F005 /* Storyboards */,
 				19BE74B122EB29FB0053F005 /* Assets.xcassets */,
 				19BE74B622EB29FB0053F005 /* Info.plist */,
@@ -151,6 +199,7 @@
 			children = (
 				19BE74F022EB3A940053F005 /* AppDelegateTests.swift */,
 				19BE74E122EB2D6C0053F005 /* UI */,
+				192E8D2E22EC87ED007D348A /* Persistence */,
 				19BE74C122EB29FB0053F005 /* Info.plist */,
 			);
 			path = "Cabify CheckoutTests";
@@ -439,12 +488,18 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,8 +541,10 @@
 				19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */,
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
 				19BE74E922EB33610053F005 /* Product.swift in Sources */,
+				192E8D2D22EC862E007D348A /* ProductService.swift in Sources */,
 				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,
 				19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */,
+				192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */,
 				19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */,
 				19BE74ED22EB35A00053F005 /* ProductListPresenter.swift in Sources */,
 				19BE74EB22EB34F60053F005 /* UIContainer.swift in Sources */,
@@ -499,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19BE74F122EB3A940053F005 /* AppDelegateTests.swift in Sources */,
+				192E8D3122EC880C007D348A /* ProductServiceTests.swift in Sources */,
 				19BE74E422EB2DB30053F005 /* ProductListViewControllerTests.swift in Sources */,
 				19BE74F322EB3C7C0053F005 /* ProductListMocks.swift in Sources */,
 				192E8D2622EB67C2007D348A /* ProductListFixture.swift in Sources */,

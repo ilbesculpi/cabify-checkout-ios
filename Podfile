@@ -5,19 +5,23 @@ target 'Cabify Checkout' do
   
   use_frameworks!
 
+  
   # Pods for Cabify Checkout
-  
-  
+  pod 'Alamofire', '~> 5.0.0-beta.5'
+  pod 'PromisesSwift'
   pod 'Swinject'
 
+  
+  # Pods for unit tests
   target 'Cabify CheckoutTests' do
     inherit! :search_paths
-    # Pods for testing
   end
 
+  
+  # Pods for UI tests
   target 'Cabify CheckoutUITests' do
     inherit! :search_paths
-    # Pods for testing
   end
+  
 
 end
