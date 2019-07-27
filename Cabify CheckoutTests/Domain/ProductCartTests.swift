@@ -94,8 +94,87 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(0, cart.discount, "discount should be 0.00");
         XCTAssertEqual(80.0, cart.total, "total should be 22.50");
         
+    }
+    
+    func testAddPromotion2x1() {
+        
+        // When: cart is empty 2x1 with discounts in MUG
+        cart.addDiscount(code: "MUG", name: "MUG 2x1", type: .combo(quantity: 2, free: 1));
+        let mug = fixture.getProduct(code: "MUG")!
+        
+        // Then: add 1 MUG
+        cart.addProduct(mug);
+        
+        // Expect: (1x7.5) = 7.5
+        XCTAssertEqual(1, cart.itemCount, "cart should have 1 item");
+        XCTAssertEqual(0, cart.discount, "discount should be 0.00");
+        XCTAssertEqual(7.5, cart.total, "total should be 7.5");
+        
+        // Then: add 1 MUG
+        cart.addProduct(mug);
+        
+        // Expect: Apply 2x1: [2x1](1x7.5) = 7.5
+        XCTAssertEqual(2, cart.itemCount, "cart should have 2 items");
+        XCTAssertEqual(7.5, cart.discount, "discount should be 7.5");
+        XCTAssertEqual(7.5, cart.total, "total should be 7.5");
+        
+        // Then: add 1 MUG
+        cart.addProduct(mug);
+        
+        // Expect: Apply 2x1: [2x1](1x7.5) + (1x7.5) = 7.5
+        XCTAssertEqual(3, cart.itemCount, "cart should have 3 items");
+        XCTAssertEqual(7.5, cart.discount, "discount should be 7.5");
+        XCTAssertEqual(15.0, cart.total, "total should be 15.0");
+        
+        // Then: add 1 MUG
+        cart.addProduct(mug);
+        
+        // Expect: Apply 2x1: [2x1](1x7.5) + [2x1](1x7.5) = 15.0
+        XCTAssertEqual(4, cart.itemCount, "cart should have 4 items");
+        XCTAssertEqual(15.0, cart.discount, "discount should be 15.0");
+        XCTAssertEqual(15.0, cart.total, "total should be 15.0");
+        
+        // Then: add 1 MUG
+        cart.addProduct(mug);
+        
+        // Expect: Apply 2x1: [2x1](1x7.5) + [2x1](1x7.5) + (1x7.5) = 22.5
+        XCTAssertEqual(5, cart.itemCount, "cart should have 5 items");
+        XCTAssertEqual(15.0, cart.discount, "discount should be 15.00");
+        XCTAssertEqual(22.5, cart.total, "total should be 22.50");
+        
+    }
+
+    func testBulkPromotion() {
+        
+        // When: cart is empty with bulk discounts in VOUCHER
+        cart.addDiscount(code: "VOUCHER", name: "VOUCHER 6+", type: .bulk(quantity: 6, price: 4.0));
+        
+        let voucher = fixture.getProduct(code: "VOUCHER")!
+        
+        // Then: add 4 VOUCHER
+        cart.addProduct(voucher, quantity: 4);
+        
+        // Expect: 4x5.0 = 20.0
+        XCTAssertEqual(4, cart.itemCount, "cart should have 4 items");
+        XCTAssertEqual(0, cart.discount, "discount should be 0.00");
+        XCTAssertEqual(20.0, cart.total, "total should be 20.0");
+        
+        // Then: add 2 VOUCHER
+        cart.addProduct(voucher, quantity: 2);
+        
+        // Expect: 6x4.0 = 24.0
+        XCTAssertEqual(6, cart.itemCount, "cart should have 6 items");
+        XCTAssertEqual(6.0, cart.discount, "discount should be 6.00");
+        XCTAssertEqual(24.0, cart.total, "total should be 24.00");
+        
+        // Then: add 6 VOUCHER
+        cart.addProduct(voucher, quantity: 6);
+        
+        // Expect: 12x4.0 = 48.0
+        XCTAssertEqual(12, cart.itemCount, "cart should have 12 items");
+        XCTAssertEqual(12.0, cart.discount, "discount should be 12.00");
+        XCTAssertEqual(48.0, cart.total, "total should be 48.00");
         
     }
     
-
 }
