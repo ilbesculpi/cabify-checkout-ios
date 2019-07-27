@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductListViewController: UIViewController, ProductListViewContract {
+class ProductListViewController: BaseViewController, ProductListViewContract {
 
     
     // MARK: - Properties
@@ -16,6 +16,7 @@ class ProductListViewController: UIViewController, ProductListViewContract {
     var router: ProductListRouterContract!
     var products: [Product]? {
         didSet {
+            refreshControl.endRefreshing()
             tableView.reloadData();
         }
     }
@@ -23,7 +24,7 @@ class ProductListViewController: UIViewController, ProductListViewContract {
     
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
-    
+    var refreshControl: UIRefreshControl!
     
     // MARK: - UIViewController
     
@@ -38,36 +39,34 @@ class ProductListViewController: UIViewController, ProductListViewContract {
     }
     
     private func configureTableView() {
+        
         tableView.tableFooterView = UIView();
+        
+        // DataSource & Delegate
         tableView.dataSource = self;
         tableView.delegate = self;
+        
+        // Cell configuration
         tableView.rowHeight = 112.0;
         //tableView.estimatedRowHeight = 112.0;
+        
+        // Pull to refresh
+        refreshControl = UIRefreshControl();
+        refreshControl.addTarget(self, action: #selector(reload), for: .valueChanged);
+        tableView.refreshControl = refreshControl;
     }
     
     
     // MARK: - ProductListViewContract
     
-    func showLoadingView() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true;
-    }
     
-    func hideLoadingView() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false;
-    }
-    
-    func displayError(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert);
-        alert.addAction(UIAlertAction(
-            title: "Dismiss",
-            style: .default,
-            handler: nil
-        ));
-        present(alert, animated: false, completion: nil);
-    }
     
     func displayProducts(_ products: [Product]) {
         self.products = products;
+    }
+    
+    @objc func reload() {
+        presenter.fetchProducts();
     }
     
 

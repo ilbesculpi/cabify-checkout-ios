@@ -13,6 +13,10 @@
 		192E8D2D22EC862E007D348A /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2C22EC862E007D348A /* ProductService.swift */; };
 		192E8D3122EC880C007D348A /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3022EC880C007D348A /* ProductServiceTests.swift */; };
 		192E8D3322EC8F85007D348A /* UIContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3222EC8F85007D348A /* UIContainerTests.swift */; };
+		192E8D3622EC9C82007D348A /* BaseContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3522EC9C82007D348A /* BaseContracts.swift */; };
+		192E8D3822EC9CC4007D348A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3722EC9CC4007D348A /* BaseViewController.swift */; };
+		192E8D3A22EC9D94007D348A /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3922EC9D94007D348A /* BasePresenter.swift */; };
+		192E8D3C22EC9DC1007D348A /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3B22EC9DC1007D348A /* BaseRouter.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -60,6 +64,10 @@
 		192E8D2C22EC862E007D348A /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		192E8D3022EC880C007D348A /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
 		192E8D3222EC8F85007D348A /* UIContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIContainerTests.swift; sourceTree = "<group>"; };
+		192E8D3522EC9C82007D348A /* BaseContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContracts.swift; sourceTree = "<group>"; };
+		192E8D3722EC9CC4007D348A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		192E8D3922EC9D94007D348A /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		192E8D3B22EC9DC1007D348A /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +168,17 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		192E8D3422EC9C6E007D348A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				192E8D3522EC9C82007D348A /* BaseContracts.swift */,
+				192E8D3722EC9CC4007D348A /* BaseViewController.swift */,
+				192E8D3922EC9D94007D348A /* BasePresenter.swift */,
+				192E8D3B22EC9DC1007D348A /* BaseRouter.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		19BE749E22EB29ED0053F005 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +258,7 @@
 				19BE74EA22EB34F60053F005 /* UIContainer.swift */,
 				19BE74F422EB3CEE0053F005 /* UIStoryboard_Extension.swift */,
 				19BE74F622EB4BA20053F005 /* UIColor_Extension.swift */,
+				192E8D3422EC9C6E007D348A /* Base */,
 				19BE74DB22EB2CF90053F005 /* ProductList */,
 			);
 			path = UI;
@@ -563,9 +583,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				19BE74E622EB320A0053F005 /* ProductListContracts.swift in Sources */,
+				192E8D3A22EC9D94007D348A /* BasePresenter.swift in Sources */,
+				192E8D3622EC9C82007D348A /* BaseContracts.swift in Sources */,
 				19BE74EF22EB35AE0053F005 /* ProductListRouter.swift in Sources */,
 				19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */,
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
+				192E8D3822EC9CC4007D348A /* BaseViewController.swift in Sources */,
+				192E8D3C22EC9DC1007D348A /* BaseRouter.swift in Sources */,
 				19BE74E922EB33610053F005 /* Product.swift in Sources */,
 				192E8D2D22EC862E007D348A /* ProductService.swift in Sources */,
 				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,

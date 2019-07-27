@@ -8,12 +8,13 @@
 import UIKit
 import Promises
 
-class ProductListPresenter: ProductListPresenterContract {
+class ProductListPresenter: BasePresenter, ProductListPresenterContract {
+    
     
     // MARK: - Properties
     weak var view: ProductListViewContract!
     var productRepository: ProductRepository!
-    
+    var isLoading: Bool = false;
     
     // MARK: - Initialization
     
@@ -26,21 +27,30 @@ class ProductListPresenter: ProductListPresenterContract {
     
     func onViewCreated() {
         print("[DEBUG] ProductList::onViewCreated()");
+        fetchProducts();
+    }
+    
+    func fetchProducts() {
+        
+        if isLoading {
+            return;
+        }
+        
+        print("[DEBUG] ProductList::fetchProducts()");
+        
         view.showLoadingView();
+        
         productRepository.fetchProducts()
             .then { [weak self] (products) in
+                self?.isLoading = false;
                 self?.view.hideLoadingView();
                 self?.view.displayProducts(products);
             }
             .catch { [weak self] (error) in
+                self?.isLoading = false;
                 self?.view.hideLoadingView();
                 self?.view.displayError(message: "Failed to retrieve the product list.");
             }
-        
-    }
-    
-    func fetchProducts() {
-        print("[DEBUG] ProductList::fetchProducts()");
     }
     
 }

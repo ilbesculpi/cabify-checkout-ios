@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductListRouter: ProductListRouterContract {
+class ProductListRouter: BaseRouter, ProductListRouterContract {
 
     weak var view: ProductListViewContract!
     
