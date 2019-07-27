@@ -12,6 +12,7 @@
 		192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2922EB8F13007D348A /* ProductRepository.swift */; };
 		192E8D2D22EC862E007D348A /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2C22EC862E007D348A /* ProductService.swift */; };
 		192E8D3122EC880C007D348A /* ProductServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3022EC880C007D348A /* ProductServiceTests.swift */; };
+		192E8D3322EC8F85007D348A /* UIContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3222EC8F85007D348A /* UIContainerTests.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -58,6 +59,7 @@
 		192E8D2922EB8F13007D348A /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		192E8D2C22EC862E007D348A /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		192E8D3022EC880C007D348A /* ProductServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceTests.swift; sourceTree = "<group>"; };
+		192E8D3222EC8F85007D348A /* UIContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIContainerTests.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		19BE74E122EB2D6C0053F005 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				192E8D3222EC8F85007D348A /* UIContainerTests.swift */,
 				19BE74E222EB2D720053F005 /* ProductList */,
 			);
 			path = UI;
@@ -333,6 +336,7 @@
 				19BE74B722EB29FB0053F005 /* Sources */,
 				19BE74B822EB29FB0053F005 /* Frameworks */,
 				19BE74B922EB29FB0053F005 /* Resources */,
+				1110600FF00A0010F915B956 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -435,6 +439,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1110600FF00A0010F915B956 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		54B8ED3378017F80CAC374CB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -558,6 +584,7 @@
 				19BE74F122EB3A940053F005 /* AppDelegateTests.swift in Sources */,
 				192E8D3122EC880C007D348A /* ProductServiceTests.swift in Sources */,
 				19BE74E422EB2DB30053F005 /* ProductListViewControllerTests.swift in Sources */,
+				192E8D3322EC8F85007D348A /* UIContainerTests.swift in Sources */,
 				19BE74F322EB3C7C0053F005 /* ProductListMocks.swift in Sources */,
 				192E8D2622EB67C2007D348A /* ProductListFixture.swift in Sources */,
 			);

@@ -15,6 +15,7 @@ target 'Cabify Checkout' do
   # Pods for unit tests
   target 'Cabify CheckoutTests' do
     inherit! :search_paths
+    pod 'Swinject'
   end
 
   

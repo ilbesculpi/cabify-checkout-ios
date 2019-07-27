@@ -41,12 +41,30 @@ class ProductListViewController: UIViewController, ProductListViewContract {
         tableView.tableFooterView = UIView();
         tableView.dataSource = self;
         tableView.delegate = self;
-        tableView.rowHeight = 108.0
+        tableView.rowHeight = 112.0;
         //tableView.estimatedRowHeight = 112.0;
     }
     
     
     // MARK: - ProductListViewContract
+    
+    func showLoadingView() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true;
+    }
+    
+    func hideLoadingView() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false;
+    }
+    
+    func displayError(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert);
+        alert.addAction(UIAlertAction(
+            title: "Dismiss",
+            style: .default,
+            handler: nil
+        ));
+        present(alert, animated: false, completion: nil);
+    }
     
     func displayProducts(_ products: [Product]) {
         self.products = products;
