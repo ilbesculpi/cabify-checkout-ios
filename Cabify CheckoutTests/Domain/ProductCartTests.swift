@@ -96,7 +96,7 @@ class ProductCartTests: XCTestCase {
         
     }
     
-    func testAddPromotion2x1() {
+    func testPromotion2x1() {
         
         // When: cart is empty 2x1 with discounts in MUG
         cart.addDiscount(code: "MUG", name: "MUG 2x1", type: .combo(quantity: 2, free: 1));
@@ -175,6 +175,81 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(12.0, cart.discount, "discount should be 12.00");
         XCTAssertEqual(48.0, cart.total, "total should be 48.00");
         
+    }
+    
+    func testMixedPromotions1() {
+        
+        let voucher = fixture.getProduct(code: "VOUCHER")!
+        let tshirt = fixture.getProduct(code: "TSHIRT")!
+        let mug = fixture.getProduct(code: "MUG")!
+        
+        // When: cart is empty
+        // Promotion #1: 2x1 VOUCHER
+        cart.addDiscount(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
+        // Promotion #2: Bulk TSHIRT
+        cart.addDiscount(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
+        
+        
+        // Then: Add Items: VOUCHER, TSHIRT, MUG
+        cart.addProduct(voucher);
+        cart.addProduct(tshirt);
+        cart.addProduct(mug);
+        
+        // Expect: (1x5.0) + (1x20.0) + (1x7.5) = 32.50
+        XCTAssertEqual(3, cart.itemCount, "cart should have 3 items");
+        XCTAssertEqual(0, cart.discount, "discount should be 0.00");
+        XCTAssertEqual(32.5, cart.total, "total should be 32.50");
+        
+    }
+    
+    func testMixedPromotions2() {
+        
+        let voucher = fixture.getProduct(code: "VOUCHER")!
+        let tshirt = fixture.getProduct(code: "TSHIRT")!
+        let mug = fixture.getProduct(code: "MUG")!
+        
+        // When: cart is empty
+        // Promotion #1: 2x1 VOUCHER
+        cart.addDiscount(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
+        // Promotion #2: Bulk TSHIRT
+        cart.addDiscount(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
+        
+        
+        // Then: Add Items: VOUCHER, TSHIRT, VOUCHER
+        cart.addProduct(voucher);
+        cart.addProduct(tshirt);
+        cart.addProduct(voucher);
+        
+        // Expect: [2x1](1x5.0) + (2x20.0) = 25.00
+        XCTAssertEqual(3, cart.itemCount, "cart should have 3 items");
+        XCTAssertEqual(5.0, cart.discount, "discount should be 0.00");
+        XCTAssertEqual(25.00, cart.total, "total should be 25.00");
+    }
+    
+    func testMixedPromotions3() {
+        
+        let voucher = fixture.getProduct(code: "VOUCHER")!
+        let tshirt = fixture.getProduct(code: "TSHIRT")!
+        let mug = fixture.getProduct(code: "MUG")!
+        
+        // When: cart is empty
+        // Promotion #1: 2x1 VOUCHER
+        cart.addDiscount(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
+        // Promotion #2: Bulk TSHIRT
+        cart.addDiscount(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
+        
+        
+        // Then: Add Items: TSHIRT, TSHIRT, TSHIRT, VOUCHER, TSHIRT
+        cart.addProduct(tshirt);
+        cart.addProduct(tshirt);
+        cart.addProduct(tshirt);
+        cart.addProduct(voucher);
+        cart.addProduct(tshirt);
+        
+        // Expect: (1x5.0) + (4x19.0) = 81.00
+        XCTAssertEqual(5, cart.itemCount, "cart should have 5 items");
+        XCTAssertEqual(4.0, cart.discount, "discount should be 0.00");
+        XCTAssertEqual(81.00, cart.total, "total should be 25.00");
     }
     
 }
