@@ -15,11 +15,21 @@ final class UIContainer {
         
         let container = Container();
         
+        // Configure Repositories
+        container.register(ProductRepository.self) { r in
+            return ProductService();
+        }
+        
         // Instantiate and configure the ProductList controller
         container.register(ProductListViewController.self) { r in
+            
             let controller = UIStoryboard.Scene.Products.productList;
-            controller.presenter = ProductListPresenter(view: controller);
             controller.router = ProductListRouter(view: controller);
+            
+            let presenter = ProductListPresenter(view: controller);
+            presenter.productRepository = r.resolve(ProductRepository.self);
+            controller.presenter = presenter;
+            
             return controller;
         }
         

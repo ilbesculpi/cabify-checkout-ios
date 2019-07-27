@@ -2,33 +2,55 @@
 //  ProductListPresenter.swift
 //  Cabify Checkout
 //
-//  Created by Ilbert Esculpi on 7/26/19.
-//  Copyright © 2019 Cabify. All rights reserved.
+//  Handles the behavior of the ProductList Screen.
 //
 
 import UIKit
+import Promises
 
-class ProductListPresenter: ProductListPresenterContract {
+class ProductListPresenter: BasePresenter, ProductListPresenterContract {
     
+    
+    // MARK: - Properties
     weak var view: ProductListViewContract!
+    var productRepository: ProductRepository!
+    var isLoading: Bool = false;
     
-    var products: [Product] = [
-        Product(code: "VOUCHER", name: "Cabify Voucher", price: 5.0),
-        Product(code: "TSHIRT", name: "Cabify T-Shirt", price: 20.0),
-        Product(code: "MUG", name: "Cabify Coffee Mug", price: 7.5),
-    ];
+    // MARK: - Initialization
     
     init(view: ProductListViewContract) {
         self.view = view;
     }
 
+    
+    // MARK: - ProductListPresenter
+    
     func onViewCreated() {
         print("[DEBUG] ProductList::onViewCreated()");
-        view.displayProducts(products);
+        fetchProducts();
     }
     
     func fetchProducts() {
+        
+        if isLoading {
+            return;
+        }
+        
         print("[DEBUG] ProductList::fetchProducts()");
+        
+        view.showLoadingView();
+        
+        productRepository.fetchProducts()
+            .then { [weak self] (products) in
+                self?.isLoading = false;
+                self?.view.hideLoadingView();
+                self?.view.displayProducts(products);
+            }
+            .catch { [weak self] (error) in
+                self?.isLoading = false;
+                self?.view.hideLoadingView();
+                self?.view.displayError(message: "Failed to retrieve the product list.");
+            }
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductListViewController: UIViewController, ProductListViewContract {
+class ProductListViewController: BaseViewController, ProductListViewContract {
 
     
     // MARK: - Properties
@@ -16,6 +16,7 @@ class ProductListViewController: UIViewController, ProductListViewContract {
     var router: ProductListRouterContract!
     var products: [Product]? {
         didSet {
+            refreshControl.endRefreshing()
             tableView.reloadData();
         }
     }
@@ -23,7 +24,7 @@ class ProductListViewController: UIViewController, ProductListViewContract {
     
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
-    
+    var refreshControl: UIRefreshControl!
     
     // MARK: - UIViewController
     
@@ -38,18 +39,34 @@ class ProductListViewController: UIViewController, ProductListViewContract {
     }
     
     private func configureTableView() {
+        
         tableView.tableFooterView = UIView();
+        
+        // DataSource & Delegate
         tableView.dataSource = self;
         tableView.delegate = self;
-        tableView.rowHeight = 108.0
+        
+        // Cell configuration
+        tableView.rowHeight = 112.0;
         //tableView.estimatedRowHeight = 112.0;
+        
+        // Pull to refresh
+        refreshControl = UIRefreshControl();
+        refreshControl.addTarget(self, action: #selector(reload), for: .valueChanged);
+        tableView.refreshControl = refreshControl;
     }
     
     
     // MARK: - ProductListViewContract
     
+    
+    
     func displayProducts(_ products: [Product]) {
         self.products = products;
+    }
+    
+    @objc func reload() {
+        presenter.fetchProducts();
     }
     
 
