@@ -21,3 +21,22 @@ class Product {
     }
     
 }
+
+extension Product {
+    
+    class func list(json: [[String: Any]]) throws -> [Product] {
+        return try json.map({ (item) -> Product in
+            return try Product.from(json: item);
+        });
+    }
+    
+    class func from(json: [String : Any]) throws -> Product {
+        let product = Product(
+            code: json["code"] as! String,
+            name: json["name"] as! String,
+            price: json["price"] as! Float
+        );
+        return product;
+    }
+    
+}
