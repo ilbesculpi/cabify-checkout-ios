@@ -16,7 +16,6 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
     var router: ProductListRouterContract!
     var products: [Product]? {
         didSet {
-            refreshControl.endRefreshing()
             tableView.reloadData();
         }
     }
@@ -25,6 +24,7 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
+    
     
     // MARK: - UIViewController
     
@@ -59,7 +59,10 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
     
     // MARK: - ProductListViewContract
     
-    
+    override func hideLoadingView() {
+        super.hideLoadingView();
+        refreshControl.endRefreshing();
+    }
     
     func displayProducts(_ products: [Product]) {
         self.products = products;

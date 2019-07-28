@@ -20,6 +20,10 @@
 		192E8D3E22ECA423007D348A /* ProductCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D3D22ECA423007D348A /* ProductCart.swift */; };
 		192E8D4122ECA5FE007D348A /* ProductCartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D4022ECA5FE007D348A /* ProductCartTests.swift */; };
 		192E8D4322ECA761007D348A /* ProductCartFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D4222ECA761007D348A /* ProductCartFixture.swift */; };
+		192E8D4522EDC835007D348A /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192E8D4422EDC835007D348A /* Settings.plist */; };
+		192E8D4722EDC889007D348A /* Promotions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192E8D4622EDC889007D348A /* Promotions.plist */; };
+		192E8D4922EDC981007D348A /* CartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D4822EDC981007D348A /* CartRepository.swift */; };
+		192E8D4B22EDCA32007D348A /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D4A22EDCA32007D348A /* CartService.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -74,6 +78,10 @@
 		192E8D3D22ECA423007D348A /* ProductCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCart.swift; sourceTree = "<group>"; };
 		192E8D4022ECA5FE007D348A /* ProductCartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartTests.swift; sourceTree = "<group>"; };
 		192E8D4222ECA761007D348A /* ProductCartFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartFixture.swift; sourceTree = "<group>"; };
+		192E8D4422EDC835007D348A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		192E8D4622EDC889007D348A /* Promotions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Promotions.plist; sourceTree = "<group>"; };
+		192E8D4822EDC981007D348A /* CartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepository.swift; sourceTree = "<group>"; };
+		192E8D4A22EDCA32007D348A /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				192E8D2922EB8F13007D348A /* ProductRepository.swift */,
+				192E8D4822EDC981007D348A /* CartRepository.swift */,
 			);
 			path = Contracts;
 			sourceTree = "<group>";
@@ -154,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				192E8D2C22EC862E007D348A /* ProductService.swift */,
+				192E8D4A22EDCA32007D348A /* CartService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -226,6 +236,8 @@
 				19BE74D822EB2A230053F005 /* Storyboards */,
 				19BE74B122EB29FB0053F005 /* Assets.xcassets */,
 				19BE74B622EB29FB0053F005 /* Info.plist */,
+				192E8D4422EDC835007D348A /* Settings.plist */,
+				192E8D4622EDC889007D348A /* Promotions.plist */,
 			);
 			path = "Cabify Checkout";
 			sourceTree = "<group>";
@@ -454,6 +466,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */,
+				192E8D4522EDC835007D348A /* Settings.plist in Resources */,
+				192E8D4722EDC889007D348A /* Promotions.plist in Resources */,
 				19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */,
 				19BE74E022EB2D2A0053F005 /* Products.storyboard in Resources */,
 			);
@@ -606,8 +620,10 @@
 				19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */,
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
 				192E8D3822EC9CC4007D348A /* BaseViewController.swift in Sources */,
+				192E8D4B22EDCA32007D348A /* CartService.swift in Sources */,
 				192E8D3C22EC9DC1007D348A /* BaseRouter.swift in Sources */,
 				19BE74E922EB33610053F005 /* Product.swift in Sources */,
+				192E8D4922EDC981007D348A /* CartRepository.swift in Sources */,
 				192E8D3E22ECA423007D348A /* ProductCart.swift in Sources */,
 				192E8D2D22EC862E007D348A /* ProductService.swift in Sources */,
 				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,
