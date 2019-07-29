@@ -27,6 +27,8 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     
     func onViewCreated() {
         print("[DEBUG] CartPresenter::onViewCreated()");
+        view.displayProducts(cart.cartItems);
     }
+    
     
 }

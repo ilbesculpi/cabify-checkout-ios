@@ -2,15 +2,15 @@
 //  ProductCart.swift
 //  Cabify Checkout
 //
-//  Created by Ilbert Esculpi on 7/27/19.
-//  Copyright © 2019 Cabify. All rights reserved.
+//  Product Cart Model.
+//  Handles the logic of adding/removing products to the shopping cart.
 //
 
 import UIKit
 
 class ProductCart: NSObject {
 
-    private var items: [ProductItem] = [];
+    private var items: [ProductCartItem] = [];
     private var promotions: [Promotion] = [];
     private var _discount: Float = 0;
     private var _total: Float = 0;
@@ -37,6 +37,10 @@ class ProductCart: NSObject {
         return _total;
     }
     
+    var cartItems: [ProductCartItem] {
+        return items;
+    }
+    
     
     // MARK: - Products
     
@@ -45,7 +49,7 @@ class ProductCart: NSObject {
             current.quantity += quantity;
         }
         else {
-            let newItem = ProductItem(code: product.code, price: product.price, quantity: quantity);
+            let newItem = ProductCartItem(product: product, quantity: quantity);
             items.append(newItem);
         }
         calculate();
@@ -101,7 +105,7 @@ class ProductCart: NSObject {
      Evaluate the promotion.
      - Return: tuple with price to be applied and the discount obtained.
      */
-    private func applyPromotion(to item: ProductItem, promotion: Promotion) -> (price: Float, discount: Float) {
+    private func applyPromotion(to item: ProductCartItem, promotion: Promotion) -> (price: Float, discount: Float) {
         
         let noDiscountPrice: Float = ( item.price * Float(item.quantity) );
         
@@ -133,27 +137,6 @@ class ProductCart: NSObject {
         
         // Don't apply discount
         return (price: noDiscountPrice, discount: 0);
-        
-    }
-    
-    
-    // MARK: - Definitions
-    
-    class ProductItem : Equatable {
-        
-        var quantity: Int = 0;
-        var price: Float = 0;
-        var code: String;
-        
-        init(code: String, price: Float, quantity: Int) {
-            self.code = code;
-            self.price = price;
-            self.quantity = quantity;
-        }
-        
-        static func == (lhs: ProductItem, rhs: ProductItem) -> Bool {
-            return lhs.code == rhs.code;
-        }
         
     }
     

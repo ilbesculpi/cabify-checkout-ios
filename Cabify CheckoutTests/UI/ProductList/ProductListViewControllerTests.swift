@@ -37,6 +37,7 @@ class ProductListViewControllerTests: XCTestCase {
         XCTAssertNotNil(controller.tableView);
         XCTAssertNotNil(controller.tableView.dataSource);
         XCTAssertNotNil(controller.tableView.delegate);
+        XCTAssertFalse(controller.tableView.allowsSelection);
     }
 
     func testLoadView() {

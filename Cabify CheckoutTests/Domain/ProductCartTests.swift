@@ -248,8 +248,8 @@ class ProductCartTests: XCTestCase {
         
         // Expect: (1x5.0) + (4x19.0) = 81.00
         XCTAssertEqual(5, cart.itemCount, "cart should have 5 items");
-        XCTAssertEqual(4.0, cart.discount, "discount should be 0.00");
-        XCTAssertEqual(81.00, cart.total, "total should be 25.00");
+        XCTAssertEqual(4.0, cart.discount, "discount should be 4.00");
+        XCTAssertEqual(81.00, cart.total, "total should be 81.00");
     }
     
 }

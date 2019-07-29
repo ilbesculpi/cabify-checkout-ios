@@ -63,6 +63,7 @@ class ProductListPresenter: BasePresenter, ProductListPresenterContract {
     }
     
     func addProduct(product: Product) {
+        print("[DEBUG] ProductList::addProduct(\(product.code))");
         cart.addProduct(product);
     }
     

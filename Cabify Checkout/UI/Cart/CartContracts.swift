@@ -13,6 +13,8 @@ protocol CartViewContract : BaseViewContract {
     var presenter: CartPresenterContract! { get set }
     var router: CartRouterContract! { get set }
     
+    func displayProducts(_ products: [ProductCartItem]);
+    
 }
 
 protocol CartPresenterContract : BasePresenterContract {

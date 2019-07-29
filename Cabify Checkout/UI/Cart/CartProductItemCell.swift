@@ -1,19 +1,18 @@
 //
-//  ProductListItemCell.swift
+//  CartProductItemCell.swift
 //  Cabify Checkout
 //
-//  Displays a single Product on the Product List
+//  Displays a single added Product to the shopping cart.
 //
 
 import UIKit
 
-class ProductListItemCell: UITableViewCell {
+class CartProductItemCell: UITableViewCell {
     
     
     // MARK: - Properties
-    weak var delegate: ProductListItemDelegate?
-    private var product: Product!
-    
+    private var product: ProductCartItem!
+
     
     // MARK: - IBOutlet
     @IBOutlet weak var productImage: UIImageView!
@@ -21,7 +20,8 @@ class ProductListItemCell: UITableViewCell {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var buttonAdd: UIButton!
-
+    @IBOutlet weak var buttonMinus: UIButton!
+    @IBOutlet weak var buttonRemove: UIButton!
     
     
     // MARK: - UITableViewCell
@@ -32,11 +32,11 @@ class ProductListItemCell: UITableViewCell {
     
     
     // MARK: - Display
-
+    
     /**
-     Display a single Product on the cell.
-    */
-    func display(_ product: Product) {
+     Display a single Product.
+     */
+    func display(_ product: ProductCartItem) {
         
         self.product = product;
         
@@ -49,20 +49,13 @@ class ProductListItemCell: UITableViewCell {
         formatter.currencySymbol = "€";
         formatter.decimalSeparator = ".";
         formatter.maximumFractionDigits = 2;
-        labelPrice.text = formatter.string(from: NSNumber(value: product.price));
+        if let formattedPrice = formatter.string(from: NSNumber(value: product.price)) {
+            labelPrice.text = "\(product.quantity) x \(formattedPrice)";
+        }
+        else {
+            print("[WARN] invalid price for product \(product.code)");
+            labelPrice.text = "";
+        }
     }
-    
-    
-    // MARK: - IBAction
-    
-    @IBAction func addProductTapped(_ sender: UIButton) {
-        delegate?.didAddProduct(product: self.product);
-    }
-
-}
-
-protocol ProductListItemDelegate : class {
-    
-    func didAddProduct(product: Product)
     
 }
