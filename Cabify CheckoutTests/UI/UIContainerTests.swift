@@ -56,6 +56,37 @@ class UIContainerTests: XCTestCase {
         
     }
     
+    func testProductListAndCartControllerShouldBeGivenTheSameProductCartInstance() {
+        
+        
+        // When: asked container to provide ProductList and Cart controllers...
+        guard let productListController = container.resolve(ProductListViewController.self),
+            let cartController = container.resolve(ProductListViewController.self) else {
+            XCTFail("Unable to instantiate ProductList and Cart controllers");
+            return;
+        }
+        
+        let productListCart = productListController.presenter.cart;
+        let cartCart = cartController.presenter.cart;
+        
+        // Expect: both variables should be equals
+        XCTAssertNotNil(productListController.presenter.cart);
+        XCTAssertNotNil(cartController.presenter.cart);
+        XCTAssertEqual(productListCart, cartCart, "cart instances should be the same");
+        
+        // When: Cart is empty
+        XCTAssertTrue(productListCart.isEmpty);
+        
+        // Then: Add a product to productListCart
+        let mug = ProductCartFixture().getProduct(code: "MUG")!
+        productListCart.addProduct(mug);
+        
+        // Expect: both carts should contain the MUG
+        XCTAssertEqual(1, productListCart.itemCount);
+        XCTAssertEqual(1, cartCart.itemCount);
+        
+    }
+    
     func testCheckoutController() {
         
         guard let controller = container.resolve(CheckoutViewController.self) else {
