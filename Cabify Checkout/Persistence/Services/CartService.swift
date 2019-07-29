@@ -22,6 +22,10 @@ class CartService: CartRepository {
         
     }
     
+    /**
+     Get the list of promotions stored on the device.
+     The promotions are stored on a single file called 'Promotions.plist'.
+    */
     func loadPromotions() -> Promise<[ProductCart.Discount]> {
         
         let promise = Promise<[ProductCart.Discount]> { (resolve, reject) in
