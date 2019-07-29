@@ -16,6 +16,6 @@ enum CartError : Error {
 
 protocol CartRepository {
     
-    func loadPromotions() -> Promise<[ProductCart.Discount]>
+    func loadPromotions() -> Promise<[Promotion]>
     
 }

@@ -24,6 +24,7 @@
 		192E8D4722EDC889007D348A /* Promotions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 192E8D4622EDC889007D348A /* Promotions.plist */; };
 		192E8D4922EDC981007D348A /* CartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D4822EDC981007D348A /* CartRepository.swift */; };
 		192E8D4B22EDCA32007D348A /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D4A22EDCA32007D348A /* CartService.swift */; };
+		192E8D4D22EF1BEC007D348A /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D4C22EF1BEC007D348A /* Promotion.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -82,6 +83,7 @@
 		192E8D4622EDC889007D348A /* Promotions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Promotions.plist; sourceTree = "<group>"; };
 		192E8D4822EDC981007D348A /* CartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepository.swift; sourceTree = "<group>"; };
 		192E8D4A22EDCA32007D348A /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		192E8D4C22EF1BEC007D348A /* Promotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			children = (
 				19BE74E822EB33610053F005 /* Product.swift */,
 				192E8D3D22ECA423007D348A /* ProductCart.swift */,
+				192E8D4C22EF1BEC007D348A /* Promotion.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */,
 				192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */,
 				19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */,
+				192E8D4D22EF1BEC007D348A /* Promotion.swift in Sources */,
 				19BE74ED22EB35A00053F005 /* ProductListPresenter.swift in Sources */,
 				19BE74EB22EB34F60053F005 /* UIContainer.swift in Sources */,
 			);

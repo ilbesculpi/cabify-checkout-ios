@@ -11,7 +11,7 @@ import UIKit
 class ProductCart: NSObject {
 
     private var items: [ProductItem] = [];
-    private var discounts: [Discount] = [];
+    private var promotions: [Promotion] = [];
     private var _discount: Float = 0;
     private var _total: Float = 0;
     
@@ -37,6 +37,9 @@ class ProductCart: NSObject {
         return _total;
     }
     
+    
+    // MARK: - Products
+    
     func addProduct(_ product: Product, quantity: Int = 1) {
         if let current = items.first(where: { return $0.code == product.code }) {
             current.quantity += quantity;
@@ -48,9 +51,18 @@ class ProductCart: NSObject {
         calculate();
     }
     
-    func addDiscount(code: String, name: String, type: DiscountType) {
-        let discount = Discount(name: name, code: code, type: type);
-        discounts.append(discount);
+    func empty() {
+        items = [];
+        _total = 0;
+        _discount = 0;
+    }
+    
+    
+    // MARK: - Promotions
+    
+    func addDiscount(code: String, name: String, type: PromotionType) {
+        let discount = Promotion(name: name, code: code, type: type);
+        promotions.append(discount);
     }
     
     
@@ -58,64 +70,69 @@ class ProductCart: NSObject {
     
     func calculate() {
         
-        var sum: Float = 0;
-        
-        _discount = 0;
+        var totalPrice: Float = 0;
+        var cartDiscount: Float = 0;
         
         for item in items {
             
-            // Check if there are discounts for the current product
-            let itemDiscounts = discounts.filter({ return $0.code == item.code })
+            // Check if there are promotions for the current product
+            let itemPromotions = promotions.filter({ return $0.code == item.code })
             
-            if itemDiscounts.isEmpty {
+            if itemPromotions.isEmpty {
                 // Return default calculation: total = price x quantity
-                sum += ( item.price * Float(item.quantity) );
+                totalPrice += ( item.price * Float(item.quantity) );
             }
             else {
                 
-                // Apply discounts
-                for discount in itemDiscounts {
-                    sum += applyDiscount(to: item, discount: discount);
+                // Apply promotions
+                for promotion in itemPromotions {
+                    let promo = applyPromotion(to: item, promotion: promotion);
+                    totalPrice += promo.price;
+                    cartDiscount += promo.discount;
                 }
             }
         }
         
-        _total = sum;
+        _total = totalPrice;
+        _discount = cartDiscount;
     }
     
     /**
-     Evaluate the discount.
-     - TODO: don't update discount as part of the state. It's better to return a tuple
+     Evaluate the promotion.
+     - Return: tuple with price to be applied and the discount obtained.
      */
-    private func applyDiscount(to item: ProductItem, discount: Discount) -> Float {
+    private func applyPromotion(to item: ProductItem, promotion: Promotion) -> (price: Float, discount: Float) {
         
         let noDiscountPrice: Float = ( item.price * Float(item.quantity) );
         
-        switch( discount.type ) {
+        if( !promotion.isActive ) {
+            // Don't apply discount
+            return (price: noDiscountPrice, discount: 0);
+        }
+        
+        switch( promotion.type ) {
             
             case .combo(let quantity, let freeItems):
                 if item.quantity >= quantity {
                     // Apply combo by reducing free items from the quantity
                     let totalFreeItems = (item.quantity / quantity) * freeItems
                     let price = ( item.price * Float(item.quantity - totalFreeItems) );
-                    // Update discount
-                    _discount += (noDiscountPrice - price);
-                    return price;
+                    let discount = (noDiscountPrice - price);
+                    return (price: price, discount: discount);
                 }
             
             case .bulk(let quantity, let discountPrice):
                 if item.quantity >= quantity {
                     // If item quantity is over discount rule quantity, use the discount price
                     let price = ( Float(item.quantity) * discountPrice);
-                    // Update discount
-                    _discount += (noDiscountPrice - price);
-                    return price;
+                    let discount = (noDiscountPrice - price);
+                    return (price: price, discount: discount);
                 }
         
         }
         
         // Don't apply discount
-        return noDiscountPrice;
+        return (price: noDiscountPrice, discount: 0);
         
     }
     
@@ -140,25 +157,5 @@ class ProductCart: NSObject {
         
     }
     
-    enum DiscountType {
-        
-        case combo(quantity: Int, free: Int)
-        case bulk(quantity: Int, price: Float)
-        
-    }
-    
-    class Discount {
-    
-        var name: String
-        var code: String
-        var type: DiscountType
-        
-        init(name: String, code: String, type: DiscountType) {
-            self.name = name;
-            self.code = code;
-            self.type = type;
-        }
-        
-    }
     
 }

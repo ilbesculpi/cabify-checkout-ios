@@ -11,7 +11,7 @@ import Promises
 
 class CartService: CartRepository {
     
-    struct Promotion : Codable {
+    struct PromotionEntry : Codable {
         
         var code: String;
         var type: String;
@@ -26,9 +26,9 @@ class CartService: CartRepository {
      Get the list of promotions stored on the device.
      The promotions are stored on a single file called 'Promotions.plist'.
     */
-    func loadPromotions() -> Promise<[ProductCart.Discount]> {
+    func loadPromotions() -> Promise<[Promotion]> {
         
-        let promise = Promise<[ProductCart.Discount]> { (resolve, reject) in
+        let promise = Promise<[Promotion]> { (resolve, reject) in
             
             guard let fileUrl = Bundle.main.url(forResource: "Promotions", withExtension: "plist") else {
                 print("[ERROR] Error loading Promotions.plist");
@@ -41,8 +41,8 @@ class CartService: CartRepository {
                 let data = try Data(contentsOf: fileUrl);
                 let decoder = PropertyListDecoder();
                 
-                let localPromotions = try decoder.decode([Promotion].self, from: data)
-                var promotions: [ProductCart.Discount] = [];
+                let localPromotions = try decoder.decode([PromotionEntry].self, from: data)
+                var promotions: [Promotion] = [];
                 
                 for item in localPromotions {
                     
@@ -67,7 +67,7 @@ class CartService: CartRepository {
         return promise;
     }
     
-    private func getDiscount(from item: Promotion) throws -> ProductCart.Discount {
+    private func getDiscount(from item: PromotionEntry) throws -> Promotion {
         
         if item.type.lowercased() == "combo" {
             
@@ -78,8 +78,8 @@ class CartService: CartRepository {
             }
             
             let freeItems = item.quantity - paidItems;
-            let promoType = ProductCart.DiscountType.combo(quantity: item.quantity, free: freeItems);
-            let promotion = ProductCart.Discount(name: item.name, code: item.code, type: promoType);
+            let promoType = PromotionType.combo(quantity: item.quantity, free: freeItems);
+            let promotion = Promotion(name: item.name, code: item.code, type: promoType);
             return promotion;
         }
         
@@ -91,8 +91,8 @@ class CartService: CartRepository {
                 throw error;
             }
             
-            let promoType = ProductCart.DiscountType.bulk(quantity: item.quantity, price: price);
-            let promotion = ProductCart.Discount(name: item.name, code: item.code, type: promoType);
+            let promoType = PromotionType.bulk(quantity: item.quantity, price: price);
+            let promotion = Promotion(name: item.name, code: item.code, type: promoType);
             return promotion;
         }
         
