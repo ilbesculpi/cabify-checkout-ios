@@ -11,9 +11,9 @@ class CheckoutViewController: BaseViewController, CheckoutViewContract {
     
     
     // MARK: - Properties
-    
     var presenter: CheckoutPresenterContract!
     var router: CheckoutRouterContract!
+    
     
     // MARK: - UIViewController
 

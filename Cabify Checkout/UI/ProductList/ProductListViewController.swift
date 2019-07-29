@@ -71,6 +71,13 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
         presenter.fetchProducts();
     }
     
+    
+    // MARK: - IBAction
+    
+    @IBAction func toggleCart(_ sender: Any) {
+        drawerController.toggle(.right, animated: true, completion: nil);
+    }
+    
 
 }
 

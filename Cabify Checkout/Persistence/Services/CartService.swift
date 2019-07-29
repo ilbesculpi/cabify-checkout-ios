@@ -22,6 +22,20 @@ class CartService: CartRepository {
         
     }
     
+    private static var defaultCartInstance: ProductCart!
+    
+    static var defaultCart: ProductCart {
+        get {
+            if( defaultCartInstance == nil ) {
+                defaultCartInstance = ProductCart();
+            }
+            return defaultCartInstance;
+        }
+        set {
+            defaultCartInstance = newValue;
+        }
+    }
+    
     /**
      Get the list of promotions stored on the device.
      The promotions are stored on a single file called 'Promotions.plist'.

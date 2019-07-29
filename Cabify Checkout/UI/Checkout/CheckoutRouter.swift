@@ -15,6 +15,7 @@ class CheckoutRouter: BaseRouter, CheckoutRouterContract {
     
     
     // MARK: - Initialization
+    
     init(view: CheckoutViewContract) {
         self.view = view;
     }

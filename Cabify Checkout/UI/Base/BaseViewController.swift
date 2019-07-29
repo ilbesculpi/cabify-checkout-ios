@@ -6,9 +6,21 @@
 //
 
 import UIKit
+import MMDrawerController
 
 class BaseViewController: UIViewController, BaseViewContract {
 
+    
+    // MARK: - Properties
+    
+    var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate;
+    }
+    
+    var drawerController: MMDrawerController {
+        return appDelegate.drawerController;
+    }
+    
     
     // MARK: - UIViewController
     

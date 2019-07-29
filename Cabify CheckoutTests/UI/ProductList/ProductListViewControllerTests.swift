@@ -17,7 +17,7 @@ class ProductListViewControllerTests: XCTestCase {
 
     override func setUp() {
         controller = UIStoryboard.Scene.Products.productList;
-        presenterMock = ProductListMocks.Presenter(view: controller);
+        presenterMock = ProductListMocks.Presenter(view: controller, cart: ProductCart());
         controller.presenter = presenterMock;
         fixture = ProductListFixture();
     }

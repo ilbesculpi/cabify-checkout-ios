@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import MMDrawerController
 @testable import Cabify_Checkout
 
 class AppDelegateTests: XCTestCase {
@@ -36,12 +37,22 @@ class AppDelegateTests: XCTestCase {
         
         // Expect: root controller should be created
         XCTAssertNotNil(appDelegate.window?.rootViewController, "rootViewController should be created");
-        guard let rootViewController = appDelegate.window?.rootViewController as? UINavigationController else {
-            XCTFail("rootViewController should be a UINavigationController");
+        guard let rootViewController = appDelegate.window?.rootViewController as? MMDrawerController else {
+            XCTFail("rootViewController should be a MMDrawerController");
             return;
         }
-        XCTAssertNotNil(rootViewController.viewControllers.first);
-        XCTAssertTrue(rootViewController.viewControllers.first is ProductListViewController, "first controller should be a ProductListController");
+        
+        if let centerController = rootViewController.centerViewController as? UINavigationController {
+            XCTAssertNotNil(centerController.viewControllers.first);
+            XCTAssertTrue(centerController.viewControllers.first is ProductListViewController, "first controller should be a ProductListController");
+        }
+        else {
+            XCTFail("centerController should be a UINavigationController");
+        }
+        
+        XCTAssertNotNil(rootViewController.rightDrawerViewController);
+        XCTAssertTrue(rootViewController.rightDrawerViewController is CartViewController, "right controller should be a CartViewController");
+        
     }
     
     func testConfigureAppearance() {

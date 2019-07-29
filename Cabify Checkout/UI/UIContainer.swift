@@ -20,14 +20,30 @@ final class UIContainer {
             return ProductService();
         }
         
+        container.register(CartRepository.self) { r in
+            return CartService();
+        }
+        
         // Instantiate and configure the ProductList controller
         container.register(ProductListViewController.self) { r in
             
             let controller = UIStoryboard.Scene.Products.productList;
             controller.router = ProductListRouter(view: controller);
             
-            let presenter = ProductListPresenter(view: controller);
+            let presenter = ProductListPresenter(view: controller, cart: CartService.defaultCart);
             presenter.productRepository = r.resolve(ProductRepository.self);
+            controller.presenter = presenter;
+            
+            return controller;
+        }
+        
+        // Instantiate and configure the Cart controller
+        container.register(CartViewController.self) { r in
+            
+            let controller = UIStoryboard.Scene.Products.cart;
+            controller.router = CartRouter(view: controller);
+            
+            let presenter = CartPresenter(view: controller, cart: CartService.defaultCart);
             controller.presenter = presenter;
             
             return controller;

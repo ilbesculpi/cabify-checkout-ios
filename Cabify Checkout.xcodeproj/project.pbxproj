@@ -30,6 +30,10 @@
 		192E8D5622EF27EF007D348A /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D5522EF27EF007D348A /* CheckoutViewController.swift */; };
 		192E8D5822EF29EC007D348A /* CheckoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D5722EF29EC007D348A /* CheckoutPresenter.swift */; };
 		192E8D5A22EF2B21007D348A /* CheckoutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D5922EF2B21007D348A /* CheckoutRouter.swift */; };
+		192E8D5E22EF2D1D007D348A /* CartContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D5D22EF2D1D007D348A /* CartContracts.swift */; };
+		192E8D6022EF2D7A007D348A /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D5F22EF2D7A007D348A /* CartViewController.swift */; };
+		192E8D6222EF2D88007D348A /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D6122EF2D88007D348A /* CartPresenter.swift */; };
+		192E8D6422EF2D97007D348A /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D6322EF2D97007D348A /* CartRouter.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -94,6 +98,10 @@
 		192E8D5522EF27EF007D348A /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		192E8D5722EF29EC007D348A /* CheckoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPresenter.swift; sourceTree = "<group>"; };
 		192E8D5922EF2B21007D348A /* CheckoutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRouter.swift; sourceTree = "<group>"; };
+		192E8D5D22EF2D1D007D348A /* CartContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartContracts.swift; sourceTree = "<group>"; };
+		192E8D5F22EF2D7A007D348A /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		192E8D6122EF2D88007D348A /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		192E8D6322EF2D97007D348A /* CartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRouter.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,6 +236,17 @@
 			path = Checkout;
 			sourceTree = "<group>";
 		};
+		192E8D5C22EF2D0E007D348A /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				192E8D5D22EF2D1D007D348A /* CartContracts.swift */,
+				192E8D5F22EF2D7A007D348A /* CartViewController.swift */,
+				192E8D6122EF2D88007D348A /* CartPresenter.swift */,
+				192E8D6322EF2D97007D348A /* CartRouter.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		19BE749E22EB29ED0053F005 = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +331,7 @@
 				19BE74F622EB4BA20053F005 /* UIColor_Extension.swift */,
 				192E8D3422EC9C6E007D348A /* Base */,
 				19BE74DB22EB2CF90053F005 /* ProductList */,
+				192E8D5C22EF2D0E007D348A /* Cart */,
 				192E8D5222EF2741007D348A /* Checkout */,
 			);
 			path = UI;
@@ -592,6 +612,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MMDrawerController/MMDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -601,6 +622,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -645,8 +667,10 @@
 				19BE74EF22EB35AE0053F005 /* ProductListRouter.swift in Sources */,
 				19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */,
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
+				192E8D6022EF2D7A007D348A /* CartViewController.swift in Sources */,
 				192E8D5A22EF2B21007D348A /* CheckoutRouter.swift in Sources */,
 				192E8D3822EC9CC4007D348A /* BaseViewController.swift in Sources */,
+				192E8D5E22EF2D1D007D348A /* CartContracts.swift in Sources */,
 				192E8D4B22EDCA32007D348A /* CartService.swift in Sources */,
 				192E8D3C22EC9DC1007D348A /* BaseRouter.swift in Sources */,
 				19BE74E922EB33610053F005 /* Product.swift in Sources */,
@@ -655,8 +679,10 @@
 				192E8D5822EF29EC007D348A /* CheckoutPresenter.swift in Sources */,
 				192E8D2D22EC862E007D348A /* ProductService.swift in Sources */,
 				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,
+				192E8D6422EF2D97007D348A /* CartRouter.swift in Sources */,
 				19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */,
 				192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */,
+				192E8D6222EF2D88007D348A /* CartPresenter.swift in Sources */,
 				192E8D5622EF27EF007D348A /* CheckoutViewController.swift in Sources */,
 				19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */,
 				192E8D5422EF2755007D348A /* CheckoutContracts.swift in Sources */,

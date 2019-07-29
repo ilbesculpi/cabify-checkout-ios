@@ -14,6 +14,8 @@ class ProductListPresenter: BasePresenter, ProductListPresenterContract {
     // MARK: - Properties
     weak var view: ProductListViewContract!
     var productRepository: ProductRepository!
+    var cart: ProductCart;
+    
     var isLoading: Bool = false {
         didSet {
             if isLoading {
@@ -25,10 +27,12 @@ class ProductListPresenter: BasePresenter, ProductListPresenterContract {
         }
     }
     
+    
     // MARK: - Initialization
     
-    init(view: ProductListViewContract) {
+    init(view: ProductListViewContract, cart: ProductCart) {
         self.view = view;
+        self.cart = cart;
     }
 
     
@@ -56,6 +60,10 @@ class ProductListPresenter: BasePresenter, ProductListPresenterContract {
                 self?.isLoading = false;
                 self?.view.displayError(message: "Failed to retrieve the product list.");
             }
+    }
+    
+    func addProduct(product: Product) {
+        cart.addProduct(product);
     }
     
 }

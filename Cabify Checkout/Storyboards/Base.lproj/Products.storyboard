@@ -100,31 +100,62 @@
                         <viewLayoutGuide key="safeArea" id="3bN-FW-Lcx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Product List" id="Gab-aE-uZe">
-                        <barButtonItem key="rightBarButtonItem" title="Cart" image="cart_icon" id="yZb-PK-sCZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cart" image="cart_icon" id="yZb-PK-sCZ">
+                            <connections>
+                                <action selector="toggleCart:" destination="qeh-Zd-dy6" id="MOX-eM-5kp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lXV-TR-yl9" id="0Ie-dl-Kd3"/>
-                        <segue destination="Ndq-81-1MR" kind="show" id="i0E-uU-BCz"/>
+                        <segue destination="Z6U-ao-wcZ" kind="show" id="ovs-H3-q4G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDW-us-nA8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050.7246376811595" y="144.64285714285714"/>
         </scene>
-        <!--Checkout-->
+        <!--My Cart-->
         <scene sceneID="Vrt-kp-q1c">
             <objects>
-                <viewController storyboardIdentifier="Checkout" title="Checkout" id="Ndq-81-1MR" customClass="CheckoutViewController" customModule="Cabify_Checkout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Cart" title="My Cart" id="Ndq-81-1MR" customClass="CartViewController" customModule="Cabify_Checkout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qkB-rU-Qdp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ8-TY-Ruc">
+                                <rect key="frame" x="173.5" y="68" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vZ8-TY-Ruc" firstAttribute="centerX" secondItem="qkB-rU-Qdp" secondAttribute="centerX" id="XBe-OX-gSU"/>
+                            <constraint firstItem="vZ8-TY-Ruc" firstAttribute="top" secondItem="FCQ-tT-eId" secondAttribute="top" constant="24" id="XH8-rf-iJ8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FCQ-tT-eId"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8P-zq-Iio" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="145"/>
+            <point key="canvasLocation" x="1051" y="935"/>
+        </scene>
+        <!--Checkout-->
+        <scene sceneID="y78-Jk-dq1">
+            <objects>
+                <viewController storyboardIdentifier="Checkout" title="Checkout" id="Z6U-ao-wcZ" customClass="CheckoutViewController" customModule="Cabify_Checkout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DDU-fE-hVd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="scI-2H-FjN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0v-6z-fZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2551" y="145"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s0b-hv-Yoh">

@@ -21,12 +21,4 @@ class ProductListRouter: BaseRouter, ProductListRouterContract {
     }
     
     
-    // MARK: - Router
-    
-    func displayCheckoutScreen() {
-        if let checkoutController = UIContainer.container.resolve(CheckoutViewController.self) {
-            (view as! UIViewController).navigationController?.pushViewController(checkoutController, animated: true);
-        }
-    }
-    
 }
