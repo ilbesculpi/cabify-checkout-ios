@@ -36,6 +36,28 @@ class Promotion {
     
     var isActive: Bool {
         get {
+            
+            if start == nil && end == nil {
+                return true;
+            }
+            
+            let current = Date();
+            
+            if let startDate = start, let endDate = end {
+                // if start and end exists, current should be between both
+                return (startDate <= current) && (endDate >= current);
+            }
+            
+            if let startDate = start {
+                // promotion is active if startDate is in the past
+                return startDate <= current;
+            }
+            
+            if let endDate = end {
+                // promotion is active if endDate is in the future
+                return endDate >= current;
+            }
+            
             return true;
         }
     }
