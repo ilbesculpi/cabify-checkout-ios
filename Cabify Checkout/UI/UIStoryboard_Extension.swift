@@ -21,6 +21,10 @@ extension UIStoryboard {
                 return storyboard.instantiateViewController(withIdentifier: "ProductList") as! ProductListViewController;
             }
             
+            static var checkout : CheckoutViewController {
+                return storyboard.instantiateViewController(withIdentifier: "Checkout") as! CheckoutViewController;
+            }
+            
         }
         
     }

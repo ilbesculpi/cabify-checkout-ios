@@ -30,4 +30,6 @@ protocol ProductListRouterContract : BaseRouterContract {
     
     var view: ProductListViewContract! { get set }
     
+    func displayCheckoutScreen();
+    
 }

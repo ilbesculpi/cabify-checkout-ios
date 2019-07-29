@@ -2,8 +2,7 @@
 //  ProductListViewController.swift
 //  Cabify Checkout
 //
-//  Created by Ilbert Esculpi on 7/26/19.
-//  Copyright © 2019 Cabify. All rights reserved.
+//  Display the product list and allow to add to cart.
 //
 
 import UIKit

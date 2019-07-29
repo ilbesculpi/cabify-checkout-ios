@@ -35,6 +35,24 @@ class UIContainerTests: XCTestCase {
         XCTAssertNotNil(controller.presenter.view, "container should wire presenter's view");
         XCTAssertNotNil(controller.presenter.productRepository, "container should provide a repository");
         
+        XCTAssertNotNil(controller.router.view, "container should wire router's view");
+        
+    }
+    
+    func testCheckoutController() {
+        
+        guard let controller = container.resolve(CheckoutViewController.self) else {
+            XCTFail("Unable to instantiate ProductList controller");
+            return;
+        }
+        
+        XCTAssertNotNil(controller.presenter, "container should provide a presenter");
+        XCTAssertNotNil(controller.router, "container should provide a router");
+        
+        XCTAssertNotNil(controller.presenter.view, "container should wire presenter's view");
+        
+        XCTAssertNotNil(controller.router.view, "container should wire router's view");
+        
     }
 
 }

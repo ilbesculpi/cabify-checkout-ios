@@ -10,10 +10,23 @@ import UIKit
 
 class ProductListRouter: BaseRouter, ProductListRouterContract {
 
+    
+    // MARK: - Properties
     weak var view: ProductListViewContract!
     
+    
+    // MARK: - Initialization
     init(view: ProductListViewContract) {
         self.view = view;
+    }
+    
+    
+    // MARK: - Router
+    
+    func displayCheckoutScreen() {
+        if let checkoutController = UIContainer.container.resolve(CheckoutViewController.self) {
+            (view as! UIViewController).navigationController?.pushViewController(checkoutController, animated: true);
+        }
     }
     
 }

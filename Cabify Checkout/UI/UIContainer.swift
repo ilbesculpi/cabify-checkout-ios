@@ -33,6 +33,19 @@ final class UIContainer {
             return controller;
         }
         
+        // Instantiate and configure the Checkout controller
+        container.register(CheckoutViewController.self) { r in
+            
+            let controller = UIStoryboard.Scene.Products.checkout;
+            controller.router = CheckoutRouter(view: controller);
+            
+            let presenter = CheckoutPresenter(view: controller);
+            //presenter.productRepository = r.resolve(ProductRepository.self);
+            controller.presenter = presenter;
+            
+            return controller;
+        }
+        
         return container;
         
     }()

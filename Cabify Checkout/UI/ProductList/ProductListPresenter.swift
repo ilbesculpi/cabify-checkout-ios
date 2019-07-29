@@ -14,7 +14,16 @@ class ProductListPresenter: BasePresenter, ProductListPresenterContract {
     // MARK: - Properties
     weak var view: ProductListViewContract!
     var productRepository: ProductRepository!
-    var isLoading: Bool = false;
+    var isLoading: Bool = false {
+        didSet {
+            if isLoading {
+                self.view.showLoadingView();
+            }
+            else {
+                self.view.hideLoadingView();
+            }
+        }
+    }
     
     // MARK: - Initialization
     
@@ -36,19 +45,15 @@ class ProductListPresenter: BasePresenter, ProductListPresenterContract {
             return;
         }
         
-        print("[DEBUG] ProductList::fetchProducts()");
-        
-        view.showLoadingView();
+        isLoading = true;
         
         productRepository.fetchProducts()
             .then { [weak self] (products) in
                 self?.isLoading = false;
-                self?.view.hideLoadingView();
                 self?.view.displayProducts(products);
             }
             .catch { [weak self] (error) in
                 self?.isLoading = false;
-                self?.view.hideLoadingView();
                 self?.view.displayError(message: "Failed to retrieve the product list.");
             }
     }
