@@ -142,7 +142,7 @@
                                 <rect key="frame" x="0.0" y="157" width="375" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCartItem" rowHeight="148" id="6DD-L9-2h6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCartItem" rowHeight="148" id="6DD-L9-2h6" customClass="CartProductItemCell" customModule="Cabify_Checkout" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6DD-L9-2h6" id="8pa-q1-rP7">
@@ -224,6 +224,16 @@
                                                 <constraint firstItem="uF9-O2-TWE" firstAttribute="leading" secondItem="vyg-Zw-drS" secondAttribute="leading" id="qkI-SR-ZLF"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buttonAdd" destination="unC-oO-4JU" id="pQj-sT-rl7"/>
+                                            <outlet property="buttonMinus" destination="pQt-3F-zkI" id="GGN-Le-Oz4"/>
+                                            <outlet property="buttonRemove" destination="Kmm-DK-pcW" id="bFL-i0-9Zf"/>
+                                            <outlet property="labelCode" destination="zMS-2H-j59" id="XnG-XV-fTI"/>
+                                            <outlet property="labelPrice" destination="2Ii-wt-8Pw" id="ERl-Jc-RlR"/>
+                                            <outlet property="labelQuantity" destination="uF9-O2-TWE" id="zca-9a-MLf"/>
+                                            <outlet property="labelTitle" destination="vyg-Zw-drS" id="J2L-iw-G0z"/>
+                                            <outlet property="productImage" destination="qrz-AH-Ubt" id="HNn-bb-KkG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -250,6 +260,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Cart" id="E2G-hS-H6Y"/>
                     <connections>
+                        <outlet property="labelTotalPrice" destination="FKX-gY-Ukb" id="zJl-Yf-pQt"/>
+                        <outlet property="labelTotalUnits" destination="8fe-Z5-eFU" id="jwE-40-Vu1"/>
                         <outlet property="tableView" destination="daH-gR-8gM" id="ORz-v1-J5p"/>
                     </connections>
                 </viewController>

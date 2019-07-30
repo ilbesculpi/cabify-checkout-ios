@@ -26,6 +26,10 @@ class ProductCartItem : Equatable {
         return product.price;
     }
     
+    var totalPrice: Float {
+        return Float(quantity) * price;
+    }
+    
     
     // MARK: - Initialization
     

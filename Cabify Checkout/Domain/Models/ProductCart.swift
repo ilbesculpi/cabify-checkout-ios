@@ -19,6 +19,8 @@ class ProductCart: NSObject {
     private var _total: Float = 0;
     private var observableChanges: Observable<Void>
     
+    @objc dynamic var updatedAt = Date();
+    
     var isEmpty: Bool {
         get {
             return items.isEmpty;
@@ -70,6 +72,7 @@ class ProductCart: NSObject {
             items.append(newItem);
         }
         calculate();
+        updatedAt = Date();
     }
     
     func empty() {

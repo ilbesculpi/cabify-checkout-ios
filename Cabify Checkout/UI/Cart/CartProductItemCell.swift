@@ -19,6 +19,7 @@ class CartProductItemCell: UITableViewCell {
     @IBOutlet weak var labelCode: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelQuantity: UILabel!
     @IBOutlet weak var buttonAdd: UIButton!
     @IBOutlet weak var buttonMinus: UIButton!
     @IBOutlet weak var buttonRemove: UIButton!
@@ -43,19 +44,11 @@ class CartProductItemCell: UITableViewCell {
         labelCode.text = product.code;
         labelTitle.text = product.name;
         
-        let formatter = NumberFormatter();
-        //formatter.locale = Locale(identifier: "es_ES");
-        formatter.numberStyle = .currency;
-        formatter.currencySymbol = "€";
-        formatter.decimalSeparator = ".";
-        formatter.maximumFractionDigits = 2;
-        if let formattedPrice = formatter.string(from: NSNumber(value: product.price)) {
-            labelPrice.text = "\(product.quantity) x \(formattedPrice)";
-        }
-        else {
-            print("[WARN] invalid price for product \(product.code)");
-            labelPrice.text = "";
-        }
+        let unitPrice = String.format(amount: product.price, currency: "€");
+        labelQuantity.text = "\(product.quantity) x \(unitPrice)";
+        
+        let totalPrice = String.format(amount: product.totalPrice, currency: "€");
+        labelPrice.text = totalPrice;
     }
     
 }

@@ -23,6 +23,8 @@ class CartViewController: BaseViewController, CartViewContract {
     
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelTotalUnits: UILabel!
+    @IBOutlet weak var labelTotalPrice: UILabel!
     
     
     // MARK: - UIViewController
@@ -52,6 +54,14 @@ class CartViewController: BaseViewController, CartViewContract {
     
     
     // MARK: - CartViewContract
+    
+    func displayTotal(price: Float) {
+        labelTotalPrice.text = String.format(amount: price, currency: "€");
+    }
+    
+    func displayItemCount(_ count: Int) {
+        labelTotalUnits.text = "Total (\(count)) items:";
+    }
     
     func displayProducts(_ products: [ProductCartItem]) {
         self.products = products;

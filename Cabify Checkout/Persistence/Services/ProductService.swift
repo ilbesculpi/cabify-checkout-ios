@@ -2,8 +2,7 @@
 //  ProductService.swift
 //  Cabify Checkout
 //
-//  Created by Ilbert Esculpi on 7/27/19.
-//  Copyright © 2019 Cabify. All rights reserved.
+//  Provides services for storing/retrieving the Products.
 //
 
 import Foundation

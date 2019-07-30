@@ -37,19 +37,10 @@ class ProductListItemCell: UITableViewCell {
      Display a single Product on the cell.
     */
     func display(_ product: Product) {
-        
         self.product = product;
-        
         labelCode.text = product.code;
         labelTitle.text = product.name;
-        
-        let formatter = NumberFormatter();
-        //formatter.locale = Locale(identifier: "es_ES");
-        formatter.numberStyle = .currency;
-        formatter.currencySymbol = "€";
-        formatter.decimalSeparator = ".";
-        formatter.maximumFractionDigits = 2;
-        labelPrice.text = formatter.string(from: NSNumber(value: product.price));
+        labelPrice.text = String.format(amount: product.price, currency: "€")
     }
     
     
