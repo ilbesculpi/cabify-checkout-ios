@@ -8,14 +8,16 @@ target 'Cabify Checkout' do
   
   # Pods for Cabify Checkout
   pod 'Alamofire', '~> 5.0.0-beta.5'
+  pod 'MMDrawerController', '~> 0.5.7'
   pod 'PromisesSwift'
   pod 'Swinject'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
 
   
   # Pods for unit tests
   target 'Cabify CheckoutTests' do
     inherit! :search_paths
-    pod 'Swinject'
   end
 
   

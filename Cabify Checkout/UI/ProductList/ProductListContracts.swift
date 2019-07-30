@@ -20,9 +20,11 @@ protocol ProductListPresenterContract : BasePresenterContract {
     
     var view: ProductListViewContract! { get set }
     var productRepository: ProductRepository! { get set }
+    var cart: ProductCart { get set }
     
     func onViewCreated()
     func fetchProducts()
+    func addProduct(product: Product)
     
 }
 

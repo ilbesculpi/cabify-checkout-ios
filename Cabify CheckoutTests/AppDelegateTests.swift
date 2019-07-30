@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Swinject
 @testable import Cabify_Checkout
 
 class AppDelegateTests: XCTestCase {
@@ -23,6 +24,13 @@ class AppDelegateTests: XCTestCase {
 
     func testConfigureRootController() {
         
+        let containerMock = Container();
+        let tabControllerSpy = UITabBarController();
+        containerMock.register(UITabBarController.self) { r in
+            return tabControllerSpy;
+        }
+        appDelegate.container = containerMock;
+        
         // When: application launches
         
         // Expect: window should not exist
@@ -34,14 +42,10 @@ class AppDelegateTests: XCTestCase {
         // Expect: window should be created
         XCTAssertNotNil(appDelegate.window);
         
-        // Expect: root controller should be created
+        // Expect: appDelegate should ask UIContainer to provide a UITabBarController
         XCTAssertNotNil(appDelegate.window?.rootViewController, "rootViewController should be created");
-        guard let rootViewController = appDelegate.window?.rootViewController as? UINavigationController else {
-            XCTFail("rootViewController should be a UINavigationController");
-            return;
-        }
-        XCTAssertNotNil(rootViewController.viewControllers.first);
-        XCTAssertTrue(rootViewController.viewControllers.first is ProductListViewController, "first controller should be a ProductListController");
+        XCTAssertEqual(appDelegate.window?.rootViewController, tabControllerSpy);
+        
     }
     
     func testConfigureAppearance() {

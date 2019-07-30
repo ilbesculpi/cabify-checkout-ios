@@ -1,28 +1,57 @@
 PODS:
   - Alamofire (5.0.0-beta.5)
+  - MMDrawerController (0.5.7):
+    - MMDrawerController/Core (= 0.5.7)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.5.7)
+    - MMDrawerController/MMDrawerVisualStates (= 0.5.7)
+    - MMDrawerController/Subclass (= 0.5.7)
+  - MMDrawerController/Core (0.5.7)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.7):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.7):
+    - MMDrawerController/Core
   - PromisesObjC (1.2.7)
   - PromisesSwift (1.2.7):
     - PromisesObjC (= 1.2.7)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
   - Swinject (2.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.5)
+  - MMDrawerController (~> 0.5.7)
   - PromisesSwift
+  - RxCocoa (~> 5)
+  - RxSwift (~> 5)
   - Swinject
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - MMDrawerController
     - PromisesObjC
     - PromisesSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - Swinject
 
 SPEC CHECKSUMS:
   Alamofire: 9afb08f7f43efcc71c072374e720fcf67521317d
+  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
   PromisesObjC: 7b28ddd1e78cce8f80f1ada927d2217663a9c672
   PromisesSwift: b27f410f9ea693753cfd4cfd8ac1c60a471f137b
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: 9da275f11733afb2ff1c2ae6f9845cfcfe649902
+PODFILE CHECKSUM: ccfb99c1db2a26dea2cffa17549497cd9d513111
 
 COCOAPODS: 1.6.1

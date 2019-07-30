@@ -2,8 +2,7 @@
 //  ProductListViewController.swift
 //  Cabify Checkout
 //
-//  Created by Ilbert Esculpi on 7/26/19.
-//  Copyright © 2019 Cabify. All rights reserved.
+//  Display the product list and allow to add to cart.
 //
 
 import UIKit
@@ -14,9 +13,9 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
     // MARK: - Properties
     var presenter: ProductListPresenterContract!
     var router: ProductListRouterContract!
+    
     var products: [Product]? {
         didSet {
-            refreshControl.endRefreshing()
             tableView.reloadData();
         }
     }
@@ -25,6 +24,7 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
+    
     
     // MARK: - UIViewController
     
@@ -47,6 +47,7 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
         tableView.delegate = self;
         
         // Cell configuration
+        tableView.allowsSelection = false;
         tableView.rowHeight = 112.0;
         //tableView.estimatedRowHeight = 112.0;
         
@@ -59,7 +60,10 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
     
     // MARK: - ProductListViewContract
     
-    
+    override func hideLoadingView() {
+        super.hideLoadingView();
+        refreshControl.endRefreshing();
+    }
     
     func displayProducts(_ products: [Product]) {
         self.products = products;
@@ -69,12 +73,19 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
         presenter.fetchProducts();
     }
     
+    
+    // MARK: - IBAction
+    
+    @IBAction func toggleCart(_ sender: Any) {
+        
+    }
+    
 
 }
 
 // MARK: - UITableView
 
-extension ProductListViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProductListViewController: UITableViewDataSource, UITableViewDelegate, ProductListItemDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products?.count ?? 0;
@@ -95,10 +106,17 @@ extension ProductListViewController: UITableViewDataSource, UITableViewDelegate 
         }
         
         // Ask the cell to display the product
+        cell.delegate = self;
         cell.display(product);
         
         // Return the cell
         return cell;
     }
     
+    func didAddProduct(product: Product) {
+        presenter.addProduct(product: product);
+    }
+    
 }
+
+

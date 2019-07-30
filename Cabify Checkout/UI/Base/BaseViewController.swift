@@ -10,6 +10,13 @@ import UIKit
 class BaseViewController: UIViewController, BaseViewContract {
 
     
+    // MARK: - Properties
+    
+    var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate;
+    }
+    
+    
     // MARK: - UIViewController
     
     override func viewDidLoad() {

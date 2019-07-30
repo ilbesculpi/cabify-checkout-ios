@@ -12,45 +12,57 @@ import Swinject
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    // MARK: - Properties
+    
     var window: UIWindow?
     
-    let container: Container = {
+    var container: Container = {
        return UIContainer.container
-    }()
+    }();
 
-
+    
+    // MARK: - AppDelegate Events
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
-        
         configureAppearance();
+        configureShoppingCart();
         
-        configureRootController();
+        // configure root view controller
+        if NSClassFromString("XCTestCase") == nil {
+            configureRootController();
+        }
         
         return true;
     }
     
     
+    
+    // MARK: - UI Configuration
+    
     /**
      Creates and configures the controller to be presented at launch.
+     -> UITabBarController [
+        [0] -> UINavigationController -> ProductListController
+        [1] -> UINavigationController -> CartController
+     ]
      */
     func configureRootController() {
         
         // Instantiate a window.
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.makeKeyAndVisible()
-        self.window = window
+        let window = UIWindow(frame: UIScreen.main.bounds);
+        window.makeKeyAndVisible();
+        self.window = window;
         
-        // Instantiate ProductList controller
-        guard let productListController = container.resolve(ProductListViewController.self) else {
-            fatalError("Unable to instantiate root view controller");
+        // Instantiate RootController
+        guard let rootController = container.resolve(UITabBarController.self) else {
+            fatalError("Unable to instantiate Root controller");
         }
         
-        // Embed in a navigation controller
-        let navigationController = UINavigationController(rootViewController: productListController);
-        
         // Set as root view controller
-        window.rootViewController = navigationController;
+        window.rootViewController = rootController;
     }
     
     
@@ -81,8 +93,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-
     
+    // MARK: - App Configuration
+    
+    /**
+     Load the stored promotions and setup default shopping cart
+     */
+    func configureShoppingCart() {
+        let service = container.resolve(CartRepository.self);
+        service?.loadPromotions()
+            .then { (promotions) in
+                CartService.defaultCart.addPromotions(promotions);
+        }
+    }
 
 
 }

@@ -2,8 +2,7 @@
 //  ProductRepository.swift
 //  Cabify Checkout
 //
-//  Created by Ilbert Esculpi on 7/26/19.
-//  Copyright © 2019 Cabify. All rights reserved.
+//  Define ProductRepository public interface
 //
 
 import Foundation

@@ -10,10 +10,15 @@ import UIKit
 
 class ProductListRouter: BaseRouter, ProductListRouterContract {
 
+    
+    // MARK: - Properties
     weak var view: ProductListViewContract!
     
+    
+    // MARK: - Initialization
     init(view: ProductListViewContract) {
         self.view = view;
     }
+    
     
 }
