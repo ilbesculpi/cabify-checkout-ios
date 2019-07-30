@@ -82,7 +82,7 @@ class ProductCart: NSObject {
         updatedAt = Date();
     }
     
-    func increaseProduct(_ product: ProductCartItem) {
+    func increaseProduct(_ product: Product) {
         if let current = items.first(where: { return $0.code == product.code }) {
             current.quantity += 1;
             calculate();
@@ -90,7 +90,7 @@ class ProductCart: NSObject {
         }
     }
     
-    func decreaseProduct(_ product: ProductCartItem) {
+    func decreaseProduct(_ product: Product) {
         if let current = items.first(where: { return $0.code == product.code }) {
             if current.quantity > 1 {
                 current.quantity -= 1;
@@ -100,7 +100,7 @@ class ProductCart: NSObject {
         }
     }
     
-    func removeProduct(_ product: ProductCartItem) {
+    func removeProduct(_ product: Product) {
         items.removeAll(where: { return $0.code == product.code });
         calculate();
         updatedAt = Date();

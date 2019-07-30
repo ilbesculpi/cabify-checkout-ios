@@ -40,15 +40,15 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     }
     
     func increaseProduct(_ product: ProductCartItem) {
-        cart.increaseProduct(product);
+        cart.increaseProduct(product.product);
     }
     
     func decreaseProduct(_ product: ProductCartItem) {
-        cart.decreaseProduct(product);
+        cart.decreaseProduct(product.product);
     }
     
     func removeProduct(_ product: ProductCartItem) {
-        cart.removeProduct(product);
+        cart.removeProduct(product.product);
     }
     
 }

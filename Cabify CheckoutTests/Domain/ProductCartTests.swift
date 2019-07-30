@@ -12,17 +12,23 @@ import XCTest
 class ProductCartTests: XCTestCase {
 
     var cart: ProductCart!
-    var fixture: ProductCartFixture = ProductCartFixture();
+    let fixture: ProductCartFixture = ProductCartFixture();
+    var VOUCHER: Product!
+    var TSHIRT: Product!
+    var MUG: Product!
     
     override func setUp() {
         cart = ProductCart();
+        VOUCHER = fixture.getProduct(code: "VOUCHER")!
+        TSHIRT = fixture.getProduct(code: "TSHIRT")!
+        MUG = fixture.getProduct(code: "MUG")!
     }
 
     override func tearDown() {
         cart = nil;
     }
 
-    func testEmptyCart() {
+    func testNewCartShouldBeEmpty() {
         
         // When: cart is empty
         
@@ -34,13 +40,29 @@ class ProductCartTests: XCTestCase {
         
     }
     
+    func testEmptyCart() {
+        
+        // When: add items
+        cart.addProduct(MUG, quantity: 2);
+        
+        // Then: call empty()
+        XCTAssertFalse(cart.isEmpty);
+        cart.empty();
+        
+        // Expect: cart should be empty
+        XCTAssertTrue(cart.isEmpty);
+        XCTAssertEqual(0, cart.itemCount);
+        XCTAssertEqual(0, cart.total);
+        XCTAssertEqual(0, cart.discount);
+        
+    }
+    
     func testAddSingleProduct() {
         
         // When: cart is empty
         
         // Then: add item MUG
-        let product = fixture.getProduct(code: "MUG")!
-        cart.addProduct(product);
+        cart.addProduct(MUG);
         
         // Expect: 1x7.5 = 7.50
         XCTAssertFalse(cart.isEmpty, "cart should not be empty");
@@ -55,8 +77,7 @@ class ProductCartTests: XCTestCase {
         // When: cart is empty
         
         // Then: add item MUG
-        var product = fixture.getProduct(code: "MUG")!
-        cart.addProduct(product);
+        cart.addProduct(MUG);
         
         // Expect: 1x7.5 = 7.50
         XCTAssertEqual(1, cart.itemCount, "cart should have 1 item");
@@ -64,8 +85,7 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(7.5, cart.total, "total should be 7.50");
         
         // Then: add item VOUCHER
-        product = fixture.getProduct(code: "VOUCHER")!
-        cart.addProduct(product);
+        cart.addProduct(VOUCHER);
         
         // Expect: (1x7.5) + (1x5.0) = 12.50
         XCTAssertEqual(2, cart.itemCount, "cart should have 2 items");
@@ -77,17 +97,13 @@ class ProductCartTests: XCTestCase {
         
         // When: cart is empty
         
-        // Then: add item MUG
-        let mug = fixture.getProduct(code: "MUG")!
-        let voucher = fixture.getProduct(code: "VOUCHER")!
-        let tshirt = fixture.getProduct(code: "TSHIRT")!
-        
-        cart.addProduct(mug);
-        cart.addProduct(voucher);
-        cart.addProduct(tshirt);
-        cart.addProduct(mug);
-        cart.addProduct(tshirt);
-        cart.addProduct(tshirt);
+        // Then: add items MUG, VOUCHER, TSHIRT, MUG, TSHIRT, TSHIRT
+        cart.addProduct(MUG);
+        cart.addProduct(VOUCHER);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(MUG);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(TSHIRT);
         
         // Expect: (2x7.5) + (1x5.0) + (3x20.0) = 80.0
         XCTAssertEqual(6, cart.itemCount, "cart should have 3 items");
@@ -100,10 +116,9 @@ class ProductCartTests: XCTestCase {
         
         // When: cart is empty 2x1 with discounts in MUG
         cart.addPromotion(code: "MUG", name: "MUG 2x1", type: .combo(quantity: 2, free: 1));
-        let mug = fixture.getProduct(code: "MUG")!
         
         // Then: add 1 MUG
-        cart.addProduct(mug);
+        cart.addProduct(MUG);
         
         // Expect: (1x7.5) = 7.5
         XCTAssertEqual(1, cart.itemCount, "cart should have 1 item");
@@ -111,7 +126,7 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(7.5, cart.total, "total should be 7.5");
         
         // Then: add 1 MUG
-        cart.addProduct(mug);
+        cart.addProduct(MUG);
         
         // Expect: Apply 2x1: [2x1](1x7.5) = 7.5
         XCTAssertEqual(2, cart.itemCount, "cart should have 2 items");
@@ -119,7 +134,7 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(7.5, cart.total, "total should be 7.5");
         
         // Then: add 1 MUG
-        cart.addProduct(mug);
+        cart.addProduct(MUG);
         
         // Expect: Apply 2x1: [2x1](1x7.5) + (1x7.5) = 7.5
         XCTAssertEqual(3, cart.itemCount, "cart should have 3 items");
@@ -127,7 +142,7 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(15.0, cart.total, "total should be 15.0");
         
         // Then: add 1 MUG
-        cart.addProduct(mug);
+        cart.addProduct(MUG);
         
         // Expect: Apply 2x1: [2x1](1x7.5) + [2x1](1x7.5) = 15.0
         XCTAssertEqual(4, cart.itemCount, "cart should have 4 items");
@@ -135,7 +150,7 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(15.0, cart.total, "total should be 15.0");
         
         // Then: add 1 MUG
-        cart.addProduct(mug);
+        cart.addProduct(MUG);
         
         // Expect: Apply 2x1: [2x1](1x7.5) + [2x1](1x7.5) + (1x7.5) = 22.5
         XCTAssertEqual(5, cart.itemCount, "cart should have 5 items");
@@ -149,10 +164,8 @@ class ProductCartTests: XCTestCase {
         // When: cart is empty with bulk discounts in VOUCHER
         cart.addPromotion(code: "VOUCHER", name: "VOUCHER 6+", type: .bulk(quantity: 6, price: 4.0));
         
-        let voucher = fixture.getProduct(code: "VOUCHER")!
-        
         // Then: add 4 VOUCHER
-        cart.addProduct(voucher, quantity: 4);
+        cart.addProduct(VOUCHER, quantity: 4);
         
         // Expect: 4x5.0 = 20.0
         XCTAssertEqual(4, cart.itemCount, "cart should have 4 items");
@@ -160,7 +173,7 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(20.0, cart.total, "total should be 20.0");
         
         // Then: add 2 VOUCHER
-        cart.addProduct(voucher, quantity: 2);
+        cart.addProduct(VOUCHER, quantity: 2);
         
         // Expect: 6x4.0 = 24.0
         XCTAssertEqual(6, cart.itemCount, "cart should have 6 items");
@@ -168,7 +181,7 @@ class ProductCartTests: XCTestCase {
         XCTAssertEqual(24.0, cart.total, "total should be 24.00");
         
         // Then: add 6 VOUCHER
-        cart.addProduct(voucher, quantity: 6);
+        cart.addProduct(VOUCHER, quantity: 6);
         
         // Expect: 12x4.0 = 48.0
         XCTAssertEqual(12, cart.itemCount, "cart should have 12 items");
@@ -179,10 +192,6 @@ class ProductCartTests: XCTestCase {
     
     func testMixedPromotions1() {
         
-        let voucher = fixture.getProduct(code: "VOUCHER")!
-        let tshirt = fixture.getProduct(code: "TSHIRT")!
-        let mug = fixture.getProduct(code: "MUG")!
-        
         // When: cart is empty
         // Promotion #1: 2x1 VOUCHER
         cart.addPromotion(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
@@ -191,9 +200,9 @@ class ProductCartTests: XCTestCase {
         
         
         // Then: Add Items: VOUCHER, TSHIRT, MUG
-        cart.addProduct(voucher);
-        cart.addProduct(tshirt);
-        cart.addProduct(mug);
+        cart.addProduct(VOUCHER);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(MUG);
         
         // Expect: (1x5.0) + (1x20.0) + (1x7.5) = 32.50
         XCTAssertEqual(3, cart.itemCount, "cart should have 3 items");
@@ -204,10 +213,6 @@ class ProductCartTests: XCTestCase {
     
     func testMixedPromotions2() {
         
-        let voucher = fixture.getProduct(code: "VOUCHER")!
-        let tshirt = fixture.getProduct(code: "TSHIRT")!
-        let mug = fixture.getProduct(code: "MUG")!
-        
         // When: cart is empty
         // Promotion #1: 2x1 VOUCHER
         cart.addPromotion(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
@@ -216,9 +221,9 @@ class ProductCartTests: XCTestCase {
         
         
         // Then: Add Items: VOUCHER, TSHIRT, VOUCHER
-        cart.addProduct(voucher);
-        cart.addProduct(tshirt);
-        cart.addProduct(voucher);
+        cart.addProduct(VOUCHER);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(VOUCHER);
         
         // Expect: [2x1](1x5.0) + (2x20.0) = 25.00
         XCTAssertEqual(3, cart.itemCount, "cart should have 3 items");
@@ -228,10 +233,6 @@ class ProductCartTests: XCTestCase {
     
     func testMixedPromotions3() {
         
-        let voucher = fixture.getProduct(code: "VOUCHER")!
-        let tshirt = fixture.getProduct(code: "TSHIRT")!
-        let mug = fixture.getProduct(code: "MUG")!
-        
         // When: cart is empty
         // Promotion #1: 2x1 VOUCHER
         cart.addPromotion(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
@@ -240,16 +241,106 @@ class ProductCartTests: XCTestCase {
         
         
         // Then: Add Items: TSHIRT, TSHIRT, TSHIRT, VOUCHER, TSHIRT
-        cart.addProduct(tshirt);
-        cart.addProduct(tshirt);
-        cart.addProduct(tshirt);
-        cart.addProduct(voucher);
-        cart.addProduct(tshirt);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(VOUCHER);
+        cart.addProduct(TSHIRT);
         
         // Expect: (1x5.0) + (4x19.0) = 81.00
         XCTAssertEqual(5, cart.itemCount, "cart should have 5 items");
         XCTAssertEqual(4.0, cart.discount, "discount should be 4.00");
         XCTAssertEqual(81.00, cart.total, "total should be 81.00");
+    }
+    
+    func testIncreaseProducts() {
+        
+        // When: cart has items
+        cart.addProduct(TSHIRT);
+        cart.addProduct(VOUCHER);
+        cart.addProduct(TSHIRT);
+        
+        var tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code })
+        var vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(2, tshirts?.quantity, "cart should contain 2 TSHIRT");
+        XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
+        // Then: increase TSHIRT
+        cart.increaseProduct(TSHIRT);
+        
+        // Expect: TSHIRT count should be 3
+        tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code });
+        vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(3, tshirts?.quantity, "cart should contain 3 TSHIRT");
+        XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
+        // Then: increase VOUCHER
+        cart.increaseProduct(VOUCHER);
+        
+        // Expect: VOUCHER count should be 2
+        tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code });
+        vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(3, tshirts?.quantity, "cart should contain 3 TSHIRT");
+        XCTAssertEqual(2, vouchers?.quantity, "cart should contain 2 VOUCHER");
+        
+    }
+    
+    func testDecreaseProducts() {
+        
+        // When: cart has items
+        cart.addProduct(TSHIRT, quantity: 3);
+        cart.addProduct(VOUCHER);
+        
+        var tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code })
+        var vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(3, tshirts?.quantity, "cart should contain 2 TSHIRT");
+        XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
+        // Then: decrease TSHIRT
+        cart.decreaseProduct(TSHIRT);
+        
+        // Expect: TSHIRT count should be 2
+        tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code });
+        vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(2, tshirts?.quantity, "cart should contain 2 TSHIRT");
+        XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
+        // Then: decrease TSHIRT
+        cart.decreaseProduct(TSHIRT);
+        
+        // Expect: TSHIRT count should be 1
+        tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code });
+        vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(1, tshirts?.quantity, "cart should contain 1 TSHIRT");
+        XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
+    }
+    
+    func testRemoveItems() {
+        
+        // When: cart has items
+        cart.addProduct(TSHIRT);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(TSHIRT);
+        cart.addProduct(VOUCHER);
+        cart.addProduct(TSHIRT);
+        
+        // Then: Remove TSHIRT
+        cart.removeProduct(TSHIRT);
+        
+        // Expect: cart should contain a single VOUCHER
+        XCTAssertEqual(1, cart.itemCount, "cart should have 1 item");
+        XCTAssertEqual(VOUCHER.code, cart.cartItems.first!.code, "cart should have 1 VOUCHER");
+        
+        // Then: Remove VOUCHER
+        cart.removeProduct(VOUCHER);
+        
+        // Expect: cart should be empty
+        XCTAssertTrue(cart.isEmpty, "cart should be empty");
+        XCTAssertEqual(0, cart.itemCount, "cart should have 0 items");
+        XCTAssertEqual(0, cart.total, "cart should have 0 items");
+        XCTAssertEqual(0, cart.discount, "cart should have 0 items");
+        
     }
     
 }
