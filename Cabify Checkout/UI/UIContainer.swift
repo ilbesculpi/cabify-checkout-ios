@@ -63,6 +63,7 @@ final class UIContainer {
             controller.router = CartRouter(view: controller);
             
             let presenter = CartPresenter(view: controller, cart: CartService.defaultCart);
+            presenter.cartService = r.resolve(CartRepository.self);
             controller.presenter = presenter;
             
             return controller;

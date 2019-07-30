@@ -7,6 +7,7 @@
 
 import Foundation
 import Promises
+import CoreData
 
 class CartService: CartRepository {
     
@@ -114,4 +115,27 @@ class CartService: CartRepository {
         throw error;
     }
 
+    
+    func saveCart(_ cart: ProductCart) -> Promise<Void> {
+        
+        let promise = Promise<Void> { (resolve, reject) in
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate;
+            let context = appDelegate.persistentContainer.viewContext;
+            
+            for item in cart.cartItems {
+                let persistentCartItem = CartItemModel(context: context);
+                persistentCartItem.code = item.code;
+                persistentCartItem.name = item.name;
+                persistentCartItem.quantity = Int32(item.quantity);
+                persistentCartItem.unitPrice = item.unitPrice;
+            }
+            
+            appDelegate.saveContext();
+            resolve(());
+        }
+        
+        return promise;
+    }
+    
 }

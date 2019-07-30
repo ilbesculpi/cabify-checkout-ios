@@ -74,6 +74,13 @@ class CartViewController: BaseViewController, CartViewContract {
     func displayProducts(_ products: [ProductCartItem]) {
         self.products = products;
     }
+    
+    
+    // MARK: - IBAction
+    
+    @IBAction func proceedToCheckout(_ sender: UIButton) {
+        presenter.onProceedToCheckout();
+    }
 
 }
 

@@ -138,7 +138,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="148" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="daH-gR-8gM">
-                                <rect key="frame" x="0.0" y="157" width="375" height="476"/>
+                                <rect key="frame" x="0.0" y="157" width="375" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCartItem" rowHeight="148" id="6DD-L9-2h6" customClass="CartProductItemCell" customModule="Cabify_Checkout" customModuleProvider="target">
@@ -366,9 +366,15 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xn7-L4-14J">
-                                <rect key="frame" x="109" y="665" width="157" height="32"/>
+                                <rect key="frame" x="32" y="653" width="311" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1N0-am-3Ge"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <state key="normal" title="Proceed to checkout"/>
+                                <connections>
+                                    <action selector="proceedToCheckout:" destination="Ndq-81-1MR" eventType="touchUpInside" id="XJa-w4-MmS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -380,8 +386,9 @@
                             <constraint firstItem="FKX-gY-Ukb" firstAttribute="leading" secondItem="8fe-Z5-eFU" secondAttribute="trailing" constant="8" id="FlP-Qn-Mmy"/>
                             <constraint firstItem="xn7-L4-14J" firstAttribute="top" secondItem="daH-gR-8gM" secondAttribute="bottom" constant="32" id="Hea-8q-lTO"/>
                             <constraint firstItem="FCQ-tT-eId" firstAttribute="bottom" secondItem="xn7-L4-14J" secondAttribute="bottom" constant="32" id="IIM-2W-phy"/>
-                            <constraint firstItem="xn7-L4-14J" firstAttribute="centerX" secondItem="qkB-rU-Qdp" secondAttribute="centerX" id="JDQ-6p-P7j"/>
                             <constraint firstItem="8fe-Z5-eFU" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" constant="20" id="Uwv-jf-31y"/>
+                            <constraint firstItem="FCQ-tT-eId" firstAttribute="trailing" secondItem="xn7-L4-14J" secondAttribute="trailing" constant="32" id="gdO-s4-Vbl"/>
+                            <constraint firstItem="xn7-L4-14J" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" constant="32" id="wvn-5Z-ZgZ"/>
                             <constraint firstItem="daH-gR-8gM" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" id="zk9-8Z-iRw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FCQ-tT-eId"/>

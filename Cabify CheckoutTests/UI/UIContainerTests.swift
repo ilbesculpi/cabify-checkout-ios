@@ -72,6 +72,7 @@ class UIContainerTests: XCTestCase {
         XCTAssertNotNil(controller.router, "container should provide a router");
         
         XCTAssertNotNil(controller.presenter.view, "container should wire presenter's view");
+        XCTAssertNotNil(controller.presenter.cartService, "container should provide repository");
         
         XCTAssertNotNil(controller.router.view, "container should wire router's view");
         

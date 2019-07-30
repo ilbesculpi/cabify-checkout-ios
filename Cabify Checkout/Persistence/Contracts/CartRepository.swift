@@ -20,4 +20,6 @@ protocol CartRepository {
     
     func loadPromotions() -> Promise<[Promotion]>
     
+    func saveCart(_ cart: ProductCart) -> Promise<Void>
+    
 }

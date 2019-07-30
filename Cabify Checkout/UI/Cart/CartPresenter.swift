@@ -13,6 +13,7 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     // MARK: - Properties
     weak var view: CartViewContract!
     @objc var cart: ProductCart
+    var cartService: CartRepository!
     
     
     // MARK: - Initialization
@@ -37,6 +38,16 @@ class CartPresenter: BasePresenter, CartPresenterContract {
         view.displayTotal(price: cart.total);
         view.displayProducts(cart.cartItems);
     }
+    
+    func onProceedToCheckout() {
+        cartService.saveCart(cart)
+            .then {
+                print("[INFO] cart saved successfully.");
+            }
+    }
+    
+    
+    // MARK: - CartListItemDelegate
     
     func increaseProduct(_ product: ProductCartItem) {
         cart.increaseProduct(code: product.code);

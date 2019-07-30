@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F08E6C75BBC0D47C89EE94D /* Pods_Cabify_Checkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */; };
+		1906FAC422F0F3770070B36C /* CabifyCheckout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */; };
 		192E8D2622EB67C2007D348A /* ProductListFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2522EB67C2007D348A /* ProductListFixture.swift */; };
 		192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2922EB8F13007D348A /* ProductRepository.swift */; };
 		192E8D2D22EC862E007D348A /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D2C22EC862E007D348A /* ProductService.swift */; };
@@ -80,6 +81,9 @@
 		06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutUITests.debug.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutUITests/Pods-Cabify CheckoutUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		07919D045E4AA00DD5628310 /* Pods-Cabify Checkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.release.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.release.xcconfig"; sourceTree = "<group>"; };
 		162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug.xcconfig"; sourceTree = "<group>"; };
+		1906FAC322F0F3770070B36C /* CabifyCheckoutModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CabifyCheckoutModel.xcdatamodel; sourceTree = "<group>"; };
+		1906FAD222F0F5D10070B36C /* CartItemModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItemModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1906FAD322F0F5D10070B36C /* CartItemModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItemModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		192E8D2522EB67C2007D348A /* ProductListFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListFixture.swift; sourceTree = "<group>"; };
 		192E8D2922EB8F13007D348A /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		192E8D2C22EC862E007D348A /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
@@ -169,9 +173,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1906FAC922F0F47D0070B36C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1906FAD222F0F5D10070B36C /* CartItemModel+CoreDataClass.swift */,
+				1906FAD322F0F5D10070B36C /* CartItemModel+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		192E8D2722EB8EDD007D348A /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				1906FAC922F0F47D0070B36C /* CoreData */,
 				192E8D2822EB8F01007D348A /* Contracts */,
 				192E8D2B22EB8F16007D348A /* Services */,
 			);
@@ -298,6 +312,7 @@
 				19BE74B622EB29FB0053F005 /* Info.plist */,
 				192E8D4422EDC835007D348A /* Settings.plist */,
 				192E8D4622EDC889007D348A /* Promotions.plist */,
+				1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */,
 			);
 			path = "Cabify Checkout";
 			sourceTree = "<group>";
@@ -656,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1906FAC422F0F3770070B36C /* CabifyCheckout.xcdatamodeld in Sources */,
 				19BE74E622EB320A0053F005 /* ProductListContracts.swift in Sources */,
 				192E8D3A22EC9D94007D348A /* BasePresenter.swift in Sources */,
 				192E8D3622EC9C82007D348A /* BaseContracts.swift in Sources */,
@@ -1035,6 +1051,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1906FAC322F0F3770070B36C /* CabifyCheckoutModel.xcdatamodel */,
+			);
+			currentVersion = 1906FAC322F0F3770070B36C /* CabifyCheckoutModel.xcdatamodel */;
+			path = CabifyCheckout.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 19BE749F22EB29ED0053F005 /* Project object */;
 }
