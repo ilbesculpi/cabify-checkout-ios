@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import RxSwift
 
 class CartPresenter: BasePresenter, CartPresenterContract {
 

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 class ProductCart: NSObject {
 
@@ -17,7 +16,6 @@ class ProductCart: NSObject {
     private var promotions: [Promotion] = [];
     private var _discount: Float = 0;
     private var _total: Float = 0;
-    private var observableChanges: Observable<Void>
     
     @objc dynamic var updatedAt = Date();
     
@@ -46,19 +44,6 @@ class ProductCart: NSObject {
     var cartItems: [ProductCartItem] {
         return items;
     }
-    
-    
-    // MARK: - Initialization
-    
-    override init() {
-        observableChanges = Observable.create { (observer) in
-            return Disposables.create();
-        }
-    }
-    
-    
-    // MARK: - Subscribe
-    
     
     
     // MARK: - Products
