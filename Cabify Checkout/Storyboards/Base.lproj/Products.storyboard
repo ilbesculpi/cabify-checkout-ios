@@ -340,12 +340,13 @@
             </objects>
             <point key="canvasLocation" x="644" y="943.5960591133005"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root View Controller-->
         <scene sceneID="OJZ-4w-Zyp">
             <objects>
-                <tabBarController storyboardIdentifier="RootController" automaticallyAdjustsScrollViewInsets="NO" id="i5Q-ql-Z2B" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootController" automaticallyAdjustsScrollViewInsets="NO" id="i5Q-ql-Z2B" customClass="RootViewController" customModule="Cabify_Checkout" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JAw-iq-0Lq">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

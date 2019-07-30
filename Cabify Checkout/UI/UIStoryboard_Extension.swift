@@ -15,8 +15,8 @@ extension UIStoryboard {
         
         enum App {
             
-            static var tabController : UITabBarController {
-                return Products.storyboard.instantiateViewController(withIdentifier: "RootController") as! UITabBarController;
+            static var root : RootViewController {
+                return Products.storyboard.instantiateViewController(withIdentifier: "RootController") as! RootViewController;
             }
             
         }

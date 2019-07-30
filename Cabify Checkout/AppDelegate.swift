@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window;
         
         // Instantiate RootController
-        guard let rootController = container.resolve(UITabBarController.self) else {
+        guard let rootController = container.resolve(RootViewController.self) else {
             fatalError("Unable to instantiate Root controller");
         }
         

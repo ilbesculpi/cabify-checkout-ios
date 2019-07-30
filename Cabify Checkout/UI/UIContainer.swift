@@ -25,9 +25,9 @@ final class UIContainer {
         }
         
         // Instantiate and configure the RootViewController
-        container.register(UITabBarController.self) { r in
+        container.register(RootViewController.self) { r in
             
-            let tabController = UIStoryboard.Scene.App.tabController;
+            let tabController = UIStoryboard.Scene.App.root;
             
             let productListController = r.resolve(ProductListViewController.self)!
             let cartController = r.resolve(CartViewController.self)!
@@ -36,6 +36,10 @@ final class UIContainer {
             let tab1 = embedInNavigation(cartController);
             
             tabController.viewControllers = [tab0, tab1];
+            
+            // set tab items
+            tabController.tabBar.items?[0].image = UIImage(named: "browse_icon");
+            tabController.tabBar.items?[1].image = UIImage(named: "cart_icon");
             return tabController;
         }
         
