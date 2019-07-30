@@ -21,6 +21,27 @@ class UIContainerTests: XCTestCase {
     override func tearDown() {
         container = nil;
     }
+    
+    func testRootControllerDependencies() {
+        
+        guard let tabController = container.resolve(UITabBarController.self) else {
+            XCTFail("Unable to instantiate UITabBarController controller");
+            return;
+        }
+        
+        XCTAssertEqual(2, tabController.viewControllers!.count, "root controller should have 2 tabs");
+        
+        let tabBrowse = tabController.viewControllers![0];
+        XCTAssertTrue(tabBrowse is UINavigationController);
+        let navBrowse = tabBrowse as! UINavigationController
+        XCTAssertTrue(navBrowse.viewControllers[0] is ProductListViewController);
+        
+        let tabCart = tabController.viewControllers![1];
+        XCTAssertTrue(tabCart is UINavigationController);
+        let navCart = tabCart as! UINavigationController;
+        XCTAssertTrue(navCart.viewControllers[0] is CartViewController);
+        
+    }
 
     func testProductListDependencies() {
         

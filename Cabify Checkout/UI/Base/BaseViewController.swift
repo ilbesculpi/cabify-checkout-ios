@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MMDrawerController
 
 class BaseViewController: UIViewController, BaseViewContract {
 
@@ -15,10 +14,6 @@ class BaseViewController: UIViewController, BaseViewContract {
     
     var appDelegate: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate;
-    }
-    
-    var drawerController: MMDrawerController {
-        return appDelegate.drawerController;
     }
     
     

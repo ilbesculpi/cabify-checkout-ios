@@ -77,7 +77,7 @@ class ProductListViewController: BaseViewController, ProductListViewContract {
     // MARK: - IBAction
     
     @IBAction func toggleCart(_ sender: Any) {
-        drawerController.toggle(.right, animated: true, completion: nil);
+        
     }
     
 

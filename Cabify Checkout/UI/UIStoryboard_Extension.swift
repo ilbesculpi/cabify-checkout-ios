@@ -13,6 +13,14 @@ extension UIStoryboard {
     
     enum Scene {
         
+        enum App {
+            
+            static var tabController : UITabBarController {
+                return Products.storyboard.instantiateViewController(withIdentifier: "RootController") as! UITabBarController;
+            }
+            
+        }
+        
         enum Products {
             
             static let storyboard = UIStoryboard(name: "Products", bundle: nil);

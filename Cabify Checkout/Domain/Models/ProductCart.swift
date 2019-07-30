@@ -6,14 +6,18 @@
 //  Handles the logic of adding/removing products to the shopping cart.
 //
 
-import UIKit
+import Foundation
+import RxSwift
 
 class ProductCart: NSObject {
 
+    
+    // MARK: - Properties
     private var items: [ProductCartItem] = [];
     private var promotions: [Promotion] = [];
     private var _discount: Float = 0;
     private var _total: Float = 0;
+    private var observableChanges: Observable<Void>
     
     var isEmpty: Bool {
         get {
@@ -40,6 +44,19 @@ class ProductCart: NSObject {
     var cartItems: [ProductCartItem] {
         return items;
     }
+    
+    
+    // MARK: - Initialization
+    
+    override init() {
+        observableChanges = Observable.create { (observer) in
+            return Disposables.create();
+        }
+    }
+    
+    
+    // MARK: - Subscribe
+    
     
     
     // MARK: - Products
@@ -99,6 +116,9 @@ class ProductCart: NSObject {
         
         _total = totalPrice;
         _discount = cartDiscount;
+        
+        // notify observers
+        
     }
     
     /**

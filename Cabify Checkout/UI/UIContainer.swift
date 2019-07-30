@@ -11,7 +11,7 @@ import Swinject
 
 final class UIContainer {
     
-    static let container: Container = {
+    static var container: Container = {
         
         let container = Container();
         
@@ -22,6 +22,21 @@ final class UIContainer {
         
         container.register(CartRepository.self) { r in
             return CartService();
+        }
+        
+        // Instantiate and configure the RootViewController
+        container.register(UITabBarController.self) { r in
+            
+            let tabController = UIStoryboard.Scene.App.tabController;
+            
+            let productListController = r.resolve(ProductListViewController.self)!
+            let cartController = r.resolve(CartViewController.self)!
+            
+            let tab0 = embedInNavigation(productListController);
+            let tab1 = embedInNavigation(cartController);
+            
+            tabController.viewControllers = [tab0, tab1];
+            return tabController;
         }
         
         // Instantiate and configure the ProductList controller
@@ -65,5 +80,9 @@ final class UIContainer {
         return container;
         
     }()
+    
+    class func embedInNavigation(_ controller: UIViewController) -> UINavigationController {
+        return UINavigationController(rootViewController: controller);
+    }
 
 }

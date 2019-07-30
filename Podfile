@@ -11,12 +11,13 @@ target 'Cabify Checkout' do
   pod 'MMDrawerController', '~> 0.5.7'
   pod 'PromisesSwift'
   pod 'Swinject'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
 
   
   # Pods for unit tests
   target 'Cabify CheckoutTests' do
     inherit! :search_paths
-    pod 'Swinject'
   end
 
   

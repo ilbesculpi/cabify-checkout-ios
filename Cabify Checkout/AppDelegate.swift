@@ -8,7 +8,6 @@
 
 import UIKit
 import Swinject
-import MMDrawerController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,12 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var drawerController: MMDrawerController!
-    
-    let container: Container = {
+    var container: Container = {
        return UIContainer.container
-    }()
-
+    }();
 
     
     // MARK: - AppDelegate Events
@@ -47,10 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /**
      Creates and configures the controller to be presented at launch.
-     -> DrawerController [
-        left: nil
-        center: NavigationController -> ProductListController
-        right: CartController
+     -> UITabBarController [
+        [0] -> UINavigationController -> ProductListController
+        [1] -> UINavigationController -> CartController
      ]
      */
     func configureRootController() {
@@ -60,23 +55,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible();
         self.window = window;
         
-        // Instantiate ProductList and Cart controller
-        guard let productListController = container.resolve(ProductListViewController.self) else {
-            fatalError("Unable to instantiate ProductList controller");
+        // Instantiate RootController
+        guard let rootController = container.resolve(UITabBarController.self) else {
+            fatalError("Unable to instantiate Root controller");
         }
-        
-        guard let cartController = container.resolve(CartViewController.self) else {
-            fatalError("Unable to instantiate Cart controller");
-        }
-        
-        // Embed in a navigation controller
-        let navigationController = UINavigationController(rootViewController: productListController);
-        
-        // Create Drawer controller
-        drawerController = MMDrawerController(center: navigationController, rightDrawerViewController: cartController);
         
         // Set as root view controller
-        window.rootViewController = drawerController;
+        window.rootViewController = rootController;
     }
     
     
@@ -106,9 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.Scheme.primaryDark;
         
     }
-    
-
-    
 
 
 }
