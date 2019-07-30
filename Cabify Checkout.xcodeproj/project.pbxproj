@@ -391,9 +391,9 @@
 			isa = PBXGroup;
 			children = (
 				19BE74E822EB33610053F005 /* Product.swift */,
-				192E8D3D22ECA423007D348A /* ProductCart.swift */,
 				192E8D4C22EF1BEC007D348A /* Promotion.swift */,
 				192E8D6522EF5AA6007D348A /* ProductCartItem.swift */,
+				192E8D3D22ECA423007D348A /* ProductCart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

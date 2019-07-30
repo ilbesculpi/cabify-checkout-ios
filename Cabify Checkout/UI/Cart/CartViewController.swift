@@ -89,16 +89,16 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "ProductCartItem";
+        // Get the product to display
+        guard let product = products?[indexPath.row] else {
+            fatalError("The product to display is not available");
+        }
+        
+        let cellIdentifier = product.hasPromotion ? "ProductCartItemPromotion" : "ProductCartItem";
         
         // Ask the tableView to provide a cell
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? CartProductItemCell else {
             fatalError("The dequeued cell is not an instance of CartProductItemCell");
-        }
-        
-        // Get the product to display
-        guard let product = products?[indexPath.row] else {
-            fatalError("The product to display is not available");
         }
         
         // Ask the cell to display the product
