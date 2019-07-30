@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var container: Container = {
        return UIContainer.container
     }();
-
+    
     
     // MARK: - AppDelegate Events
     
