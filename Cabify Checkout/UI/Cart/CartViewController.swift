@@ -94,6 +94,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         // Ask the cell to display the product
+        cell.delegate = presenter;
         cell.display(product);
         
         // Return the cell

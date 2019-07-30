@@ -187,6 +187,9 @@
                                                         <constraint firstAttribute="width" constant="28" id="wuf-4y-iTy"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="add_icon"/>
+                                                    <connections>
+                                                        <action selector="productAction:" destination="6DD-L9-2h6" eventType="touchUpInside" id="4Wu-1G-L7z"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQt-3F-zkI">
                                                     <rect key="frame" x="179" y="106" width="28" height="28"/>
@@ -195,12 +198,18 @@
                                                         <constraint firstAttribute="width" constant="28" id="Xcy-Zf-Xd2"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="minus_icon"/>
+                                                    <connections>
+                                                        <action selector="productAction:" destination="6DD-L9-2h6" eventType="touchUpInside" id="6oi-Zq-TGp"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmm-DK-pcW">
                                                     <rect key="frame" x="305" y="105" width="55" height="30"/>
                                                     <state key="normal" title="Remove">
                                                         <color key="titleColor" red="0.74569859409999995" green="0.1105845243" blue="0.38702803530000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="productAction:" destination="6DD-L9-2h6" eventType="touchUpInside" id="aAp-En-sZ7"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

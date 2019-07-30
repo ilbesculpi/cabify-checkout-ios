@@ -12,7 +12,7 @@ class CartProductItemCell: UITableViewCell {
     
     // MARK: - Properties
     private var product: ProductCartItem!
-
+    weak var delegate: CartListItemDelegate?
     
     // MARK: - IBOutlet
     @IBOutlet weak var productImage: UIImageView!
@@ -50,5 +50,47 @@ class CartProductItemCell: UITableViewCell {
         let totalPrice = String.format(amount: product.totalPrice, currency: "€");
         labelPrice.text = totalPrice;
     }
+    
+    
+    // MARK: - IBAction
+    
+    @IBAction func productAction(_ sender: UIButton) {
+        
+        UIButton.animate(
+            withDuration: 0.2,
+            animations: {
+                sender.transform = CGAffineTransform(scaleX: 1.10, y: 1.10)
+                sender.alpha = 0.5
+            },
+            completion: { finish in
+                UIButton.animate(withDuration: 0.2, animations: {
+                    sender.transform = CGAffineTransform.identity
+                    sender.alpha = 1.0
+                })
+            }
+        )
+        
+        if sender == buttonAdd {
+            delegate?.increaseProduct(self.product);
+        }
+        else if sender == buttonMinus {
+            delegate?.decreaseProduct(self.product);
+        }
+        else if sender == buttonRemove {
+            delegate?.removeProduct(self.product);
+        }
+        
+    }
+    
+    
+}
+
+
+
+protocol CartListItemDelegate : class {
+    
+    func increaseProduct(_ product: ProductCartItem);
+    func decreaseProduct(_ product: ProductCartItem);
+    func removeProduct(_ product: ProductCartItem);
     
 }

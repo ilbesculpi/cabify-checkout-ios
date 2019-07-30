@@ -63,6 +63,13 @@ class ProductCart: NSObject {
     
     // MARK: - Products
     
+    func empty() {
+        items = [];
+        _total = 0;
+        _discount = 0;
+        updatedAt = Date();
+    }
+    
     func addProduct(_ product: Product, quantity: Int = 1) {
         if let current = items.first(where: { return $0.code == product.code }) {
             current.quantity += quantity;
@@ -75,10 +82,28 @@ class ProductCart: NSObject {
         updatedAt = Date();
     }
     
-    func empty() {
-        items = [];
-        _total = 0;
-        _discount = 0;
+    func increaseProduct(_ product: ProductCartItem) {
+        if let current = items.first(where: { return $0.code == product.code }) {
+            current.quantity += 1;
+            calculate();
+            updatedAt = Date();
+        }
+    }
+    
+    func decreaseProduct(_ product: ProductCartItem) {
+        if let current = items.first(where: { return $0.code == product.code }) {
+            if current.quantity > 1 {
+                current.quantity -= 1;
+                calculate();
+                updatedAt = Date();
+            }
+        }
+    }
+    
+    func removeProduct(_ product: ProductCartItem) {
+        items.removeAll(where: { return $0.code == product.code });
+        calculate();
+        updatedAt = Date();
     }
     
     

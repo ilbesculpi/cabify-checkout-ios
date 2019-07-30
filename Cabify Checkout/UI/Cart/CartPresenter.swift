@@ -39,4 +39,16 @@ class CartPresenter: BasePresenter, CartPresenterContract {
         view.displayProducts(cart.cartItems);
     }
     
+    func increaseProduct(_ product: ProductCartItem) {
+        cart.increaseProduct(product);
+    }
+    
+    func decreaseProduct(_ product: ProductCartItem) {
+        cart.decreaseProduct(product);
+    }
+    
+    func removeProduct(_ product: ProductCartItem) {
+        cart.removeProduct(product);
+    }
+    
 }

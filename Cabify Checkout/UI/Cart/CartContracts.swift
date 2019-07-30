@@ -19,7 +19,7 @@ protocol CartViewContract : BaseViewContract {
     
 }
 
-protocol CartPresenterContract : BasePresenterContract {
+protocol CartPresenterContract : BasePresenterContract, CartListItemDelegate {
     
     var view: CartViewContract! { get set }
     var cart: ProductCart { get set }
