@@ -71,7 +71,6 @@ final class UIContainer {
             controller.router = CheckoutRouter(view: controller);
             
             let presenter = CheckoutPresenter(view: controller);
-            //presenter.productRepository = r.resolve(ProductRepository.self);
             controller.presenter = presenter;
             
             return controller;

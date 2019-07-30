@@ -84,9 +84,19 @@ class ProductCart: NSObject {
     
     // MARK: - Promotions
     
-    func addDiscount(code: String, name: String, type: PromotionType) {
-        let discount = Promotion(name: name, code: code, type: type);
-        promotions.append(discount);
+    func addPromotion(code: String, name: String, type: PromotionType) {
+        let promotion = Promotion(name: name, code: code, type: type);
+        addPromotion(promotion);
+    }
+    
+    func addPromotion(_ promotion: Promotion) {
+        promotions.append(promotion);
+    }
+    
+    func addPromotions(_ promotions: [Promotion]) {
+        for promotion in promotions {
+            addPromotion(promotion);
+        }
     }
     
     

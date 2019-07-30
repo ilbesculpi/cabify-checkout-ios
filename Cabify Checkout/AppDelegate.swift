@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         configureAppearance();
+        configureShoppingCart();
         
         // configure root view controller
         if NSClassFromString("XCTestCase") == nil {
@@ -90,6 +91,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Bar Color
         UINavigationBar.appearance().barTintColor = UIColor.Scheme.primaryDark;
         
+    }
+    
+    
+    // MARK: - App Configuration
+    
+    /**
+     Load the stored promotions and setup default shopping cart
+     */
+    func configureShoppingCart() {
+        let service = container.resolve(CartRepository.self);
+        service?.loadPromotions()
+            .then { (promotions) in
+                CartService.defaultCart.addPromotions(promotions);
+        }
     }
 
 

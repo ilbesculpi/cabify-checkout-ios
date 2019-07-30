@@ -99,7 +99,7 @@ class ProductCartTests: XCTestCase {
     func testPromotion2x1() {
         
         // When: cart is empty 2x1 with discounts in MUG
-        cart.addDiscount(code: "MUG", name: "MUG 2x1", type: .combo(quantity: 2, free: 1));
+        cart.addPromotion(code: "MUG", name: "MUG 2x1", type: .combo(quantity: 2, free: 1));
         let mug = fixture.getProduct(code: "MUG")!
         
         // Then: add 1 MUG
@@ -147,7 +147,7 @@ class ProductCartTests: XCTestCase {
     func testBulkPromotion() {
         
         // When: cart is empty with bulk discounts in VOUCHER
-        cart.addDiscount(code: "VOUCHER", name: "VOUCHER 6+", type: .bulk(quantity: 6, price: 4.0));
+        cart.addPromotion(code: "VOUCHER", name: "VOUCHER 6+", type: .bulk(quantity: 6, price: 4.0));
         
         let voucher = fixture.getProduct(code: "VOUCHER")!
         
@@ -185,9 +185,9 @@ class ProductCartTests: XCTestCase {
         
         // When: cart is empty
         // Promotion #1: 2x1 VOUCHER
-        cart.addDiscount(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
+        cart.addPromotion(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
         // Promotion #2: Bulk TSHIRT
-        cart.addDiscount(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
+        cart.addPromotion(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
         
         
         // Then: Add Items: VOUCHER, TSHIRT, MUG
@@ -210,9 +210,9 @@ class ProductCartTests: XCTestCase {
         
         // When: cart is empty
         // Promotion #1: 2x1 VOUCHER
-        cart.addDiscount(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
+        cart.addPromotion(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
         // Promotion #2: Bulk TSHIRT
-        cart.addDiscount(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
+        cart.addPromotion(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
         
         
         // Then: Add Items: VOUCHER, TSHIRT, VOUCHER
@@ -234,9 +234,9 @@ class ProductCartTests: XCTestCase {
         
         // When: cart is empty
         // Promotion #1: 2x1 VOUCHER
-        cart.addDiscount(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
+        cart.addPromotion(code: "VOUCHER", name: "2x1 VOUCHER", type: .combo(quantity: 2, free: 1));
         // Promotion #2: Bulk TSHIRT
-        cart.addDiscount(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
+        cart.addPromotion(code: "TSHIRT", name: "TSHIRT 3+", type: .bulk(quantity: 3, price: 19.0));
         
         
         // Then: Add Items: TSHIRT, TSHIRT, TSHIRT, VOUCHER, TSHIRT
