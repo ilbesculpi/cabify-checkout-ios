@@ -293,7 +293,7 @@ class ProductCartTests: XCTestCase {
         
         var tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code })
         var vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
-        XCTAssertEqual(3, tshirts?.quantity, "cart should contain 2 TSHIRT");
+        XCTAssertEqual(3, tshirts?.quantity, "cart should contain 3 TSHIRT");
         XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
         
         // Then: decrease TSHIRT
@@ -313,6 +313,32 @@ class ProductCartTests: XCTestCase {
         vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
         XCTAssertEqual(1, tshirts?.quantity, "cart should contain 1 TSHIRT");
         XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
+    }
+    
+    func testDecreaseShouldntFallBelow0() {
+        
+        // When: cart has items
+        cart.addProduct(TSHIRT, quantity: 3);
+        cart.addProduct(VOUCHER);
+        
+        var tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code })
+        var vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(3, tshirts?.quantity, "cart should contain 3 TSHIRT");
+        XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
+        // Then: decrease VOUCHER and TSHIRT
+        cart.decreaseProduct(VOUCHER);
+        cart.decreaseProduct(TSHIRT);
+        cart.decreaseProduct(TSHIRT);
+        cart.decreaseProduct(TSHIRT);
+        
+        // Expect: cart shouldn't change
+        tshirts = cart.cartItems.first(where: { return $0.code == TSHIRT.code });
+        vouchers = cart.cartItems.first(where: { return $0.code == VOUCHER.code });
+        XCTAssertEqual(1, tshirts?.quantity, "cart should contain 1 TSHIRT");
+        XCTAssertEqual(1, vouchers?.quantity, "cart should contain 1 VOUCHER");
+        
         
     }
     
