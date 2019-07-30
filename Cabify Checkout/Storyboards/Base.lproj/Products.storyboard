@@ -186,7 +186,7 @@
                                                         <constraint firstAttribute="height" constant="28" id="oEM-7A-eGF"/>
                                                         <constraint firstAttribute="width" constant="28" id="wuf-4y-iTy"/>
                                                     </constraints>
-                                                    <state key="normal" image="add_icon"/>
+                                                    <state key="normal" backgroundImage="add_icon"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQt-3F-zkI">
                                                     <rect key="frame" x="179" y="106" width="28" height="28"/>
@@ -194,7 +194,7 @@
                                                         <constraint firstAttribute="height" constant="28" id="Ijo-JY-ULx"/>
                                                         <constraint firstAttribute="width" constant="28" id="Xcy-Zf-Xd2"/>
                                                     </constraints>
-                                                    <state key="normal" image="minus_icon"/>
+                                                    <state key="normal" backgroundImage="minus_icon"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmm-DK-pcW">
                                                     <rect key="frame" x="305" y="105" width="55" height="30"/>

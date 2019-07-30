@@ -47,6 +47,19 @@ class ProductListItemCell: UITableViewCell {
     // MARK: - IBAction
     
     @IBAction func addProductTapped(_ sender: UIButton) {
+        UIButton.animate(
+            withDuration: 0.2,
+            animations: {
+                sender.transform = CGAffineTransform(scaleX: 1.10, y: 1.10)
+                sender.alpha = 0.5
+            },
+            completion: { finish in
+                UIButton.animate(withDuration: 0.2, animations: {
+                    sender.transform = CGAffineTransform.identity
+                    sender.alpha = 1.0
+                })
+            }
+        )
         delegate?.didAddProduct(product: self.product);
     }
 
