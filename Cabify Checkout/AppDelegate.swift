@@ -23,8 +23,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIContainer.dummy
     }();
     
+    var cartService: CartRepository!
+    
+    var shoppingCart: ProductCart {
+        return container.resolve(ProductCart.self)!
+    }
+    
     
     // MARK: - AppDelegate Events
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        // Ask the container to provide service dependencies
+        cartService = container.resolve(CartRepository.self);
+        
+        return true;
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -35,12 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        if let service = container.resolve(CartRepository.self) {
-            service.saveCart(CartService.defaultCart)
-                .then {
-                    print("[INFO] cart items saved.");
-                }
-        }
+        cartService.saveCart(shoppingCart).always {}
     }
     
     
@@ -87,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      */
     func configureShoppingCart() {
         if let service = container.resolve(CartRepository.self) {
-            let cart = CartService.defaultCart;
+            let cart = service.defaultCart;
             service.loadPromotions()
                 .then { (promotions) in
                     service.loadCart(into: cart)

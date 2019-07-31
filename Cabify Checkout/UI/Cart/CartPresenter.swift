@@ -44,10 +44,7 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     }
     
     func onProceedToCheckout() {
-        cartService.saveCart(cart)
-            .then {
-                print("[INFO] cart saved successfully.");
-            }
+        cartService.saveCart(cart).always {}
     }
     
     

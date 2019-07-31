@@ -24,7 +24,7 @@ class CartService: CartRepository {
     
     private static var defaultCartInstance: ProductCart!
     
-    static var defaultCart: ProductCart {
+    private static var defaultCart: ProductCart {
         get {
             if( defaultCartInstance == nil ) {
                 defaultCartInstance = ProductCart();
@@ -33,6 +33,15 @@ class CartService: CartRepository {
         }
         set {
             defaultCartInstance = newValue;
+        }
+    }
+    
+    var defaultCart: ProductCart {
+        get {
+            return CartService.defaultCart;
+        }
+        set {
+            CartService.defaultCart = newValue;
         }
     }
     
@@ -138,9 +147,12 @@ class CartService: CartRepository {
                     }
                     
                     appDelegate.saveContext();
+                    
+                    print("[INFO] cart saved successfully.");
                     resolve(());
                 }
                 .catch { (error) in
+                    print("[ERROR] cart saving items: \(error)");
                     reject(error);
                 }
         }
@@ -164,7 +176,7 @@ class CartService: CartRepository {
                 
                 let result = try context.fetch(request);
                 for row in result {
-                    print("[DEBUG] Fetched row: \(row.code) - \(row.quantity)")
+                    print("[DEBUG] Fetched row: \(row.code) (\(row.quantity))");
                     let product = Product(code: row.code, name: row.name, price: row.unitPrice);
                     cart.addProduct(product, quantity: Int(row.quantity));
                 }
@@ -172,7 +184,7 @@ class CartService: CartRepository {
                 resolve(cart);
             }
             catch {
-                print("[WARN] Error fetching product cart items: \(error)")
+                print("[WARN] Error fetching product cart items: \(error)");
                 resolve(cart);
             }
         }
