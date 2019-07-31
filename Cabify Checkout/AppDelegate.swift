@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func configureAppearance() {
         
         configureNavigationBarAppearance();
-        
+        configureTabBarAppearance();
     }
     
     private func configureNavigationBarAppearance()  {
@@ -140,10 +140,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white;
         
         // Bar Color
-        UINavigationBar.appearance().barTintColor = UIColor.Scheme.primaryDark;
+        UINavigationBar.appearance().barTintColor = UIColor(named: "PrimaryDark");
         
     }
     
+    private func configureTabBarAppearance() {
+        
+        // Controls Color
+        UITabBar.appearance().tintColor = UIColor(named: "PrimaryLight");
+        
+        // Bar Color
+        UITabBar.appearance().barTintColor = UIColor.white;
+        
+    }
 
 
     

@@ -55,9 +55,13 @@ class AppDelegateTests: XCTestCase {
         // Then: call configureAppearance()
         appDelegate.configureAppearance();
         
-        // Expect: navigation bar global appearance should be set
+        // Expect: navigation bar appearance should be set
         XCTAssertEqual(UIColor.white, UINavigationBar.appearance().tintColor);
-        XCTAssertEqual(UIColor.Scheme.primaryDark, UINavigationBar.appearance().barTintColor);
+        XCTAssertEqual(UIColor(named: "PrimaryDark"), UINavigationBar.appearance().barTintColor);
+        
+        // Expect: tab bar appearance should be set
+        XCTAssertEqual(UIColor(named: "PrimaryLight"), UITabBar.appearance().tintColor);
+        XCTAssertEqual(UIColor.white, UITabBar.appearance().barTintColor);
         
     }
     
