@@ -23,6 +23,8 @@ class CartProductItemCell: UITableViewCell {
     @IBOutlet weak var buttonAdd: UIButton!
     @IBOutlet weak var buttonMinus: UIButton!
     @IBOutlet weak var buttonRemove: UIButton!
+    @IBOutlet weak var labelPromotion: UILabel!
+    @IBOutlet weak var labelPromotionSaves: UILabel!
     
     
     // MARK: - UITableViewCell
@@ -44,11 +46,20 @@ class CartProductItemCell: UITableViewCell {
         labelCode.text = product.code;
         labelTitle.text = product.name;
         
-        let unitPrice = String.format(amount: product.price, currency: "€");
+        let unitPrice = String.format(amount: product.unitPrice, currency: "€");
         labelQuantity.text = "\(product.quantity) x \(unitPrice)";
         
         let totalPrice = String.format(amount: product.totalPrice, currency: "€");
         labelPrice.text = totalPrice;
+        
+        // item has promotion?
+        if product.hasPromotion {
+            let discountPrice = String.format(amount: product.discountPrice, currency: "€");
+            labelQuantity.text = "\(product.quantity) x \(discountPrice)";
+            labelPromotion.text = product.promotion;
+            let savings = String.format(amount: product.savings, currency: "€");
+            labelPromotionSaves.text = "You save: \(savings)";
+        }
     }
     
     

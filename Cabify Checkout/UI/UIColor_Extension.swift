@@ -16,21 +16,6 @@ extension String {
     
 }
 
-extension UIColor {
-    
-    enum Scheme {
-        
-        static let primaryDark = UIColor(hex: "#74BDCB");
-        
-        static let primaryLight = UIColor(hex: "#E7F2F8");
-        
-        static let accent = UIColor(hex: "#FFA384");
-        
-        static let secondary = UIColor(hex: "#EFE7BC");
-        
-    }
-    
-}
 
 extension UIColor {
     

@@ -25,6 +25,7 @@ class CartViewController: BaseViewController, CartViewContract {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelTotalUnits: UILabel!
     @IBOutlet weak var labelTotalPrice: UILabel!
+    @IBOutlet weak var buttonProceedToCheckout: UIButton!
     
     
     // MARK: - UIViewController
@@ -48,7 +49,6 @@ class CartViewController: BaseViewController, CartViewContract {
         
         // Cell configuration
         tableView.allowsSelection = false;
-        tableView.rowHeight = 148.0;
         
     }
     
@@ -60,11 +60,27 @@ class CartViewController: BaseViewController, CartViewContract {
     }
     
     func displayItemCount(_ count: Int) {
+        // Update label
         labelTotalUnits.text = "Total (\(count)) items:";
     }
     
     func displayProducts(_ products: [ProductCartItem]) {
         self.products = products;
+    }
+    
+    func displayCheckoutScreen() {
+        router.displayCheckoutScreen();
+    }
+    
+    func setCheckoutState(enabled: Bool) {
+        buttonProceedToCheckout.isEnabled = enabled;
+    }
+    
+    
+    // MARK: - IBAction
+    
+    @IBAction func proceedToCheckout(_ sender: UIButton) {
+        presenter.checkout();
     }
 
 }
@@ -81,16 +97,16 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "ProductCartItem";
+        // Get the product to display
+        guard let product = products?[indexPath.row] else {
+            fatalError("The product to display is not available");
+        }
+        
+        let cellIdentifier = product.hasPromotion ? "ProductCartItemPromotion" : "ProductCartItem";
         
         // Ask the tableView to provide a cell
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? CartProductItemCell else {
             fatalError("The dequeued cell is not an instance of CartProductItemCell");
-        }
-        
-        // Get the product to display
-        guard let product = products?[indexPath.row] else {
-            fatalError("The product to display is not available");
         }
         
         // Ask the cell to display the product
@@ -99,6 +115,16 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         
         // Return the cell
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        // Get the product to display
+        guard let product = products?[indexPath.row] else {
+            return 140;
+        }
+        
+        return product.hasPromotion ? 180.0 : 148.0;
     }
     
 }

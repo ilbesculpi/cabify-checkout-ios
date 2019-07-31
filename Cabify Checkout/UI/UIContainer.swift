@@ -11,11 +11,20 @@ import Swinject
 
 final class UIContainer {
     
-    static var container: Container = {
+    static var app: Container = {
         
         let container = Container();
         
+        // Shopping Cart
+        container.register(ProductCart.self) { r in
+            if let service = r.resolve(CartRepository.self) {
+                return service.defaultCart;
+            }
+            return ProductCart();
+        }
+        
         // Configure Repositories
+        
         container.register(ProductRepository.self) { r in
             return ProductService();
         }
@@ -25,9 +34,12 @@ final class UIContainer {
         }
         
         // Instantiate and configure the RootViewController
-        container.register(UITabBarController.self) { r in
+        container.register(RootViewContract.self) { r in
             
-            let tabController = UIStoryboard.Scene.App.tabController;
+            let cart = r.resolve(ProductCart.self)!
+            let tabController = UIStoryboard.Scene.App.root;
+            let presenter = RootPresenter(view: tabController, cart: cart);
+            tabController.presenter = presenter;
             
             let productListController = r.resolve(ProductListViewController.self)!
             let cartController = r.resolve(CartViewController.self)!
@@ -36,6 +48,10 @@ final class UIContainer {
             let tab1 = embedInNavigation(cartController);
             
             tabController.viewControllers = [tab0, tab1];
+            
+            // set tab items
+            tabController.tabBar.items?[0].image = UIImage(named: "browse_icon");
+            tabController.tabBar.items?[1].image = UIImage(named: "cart_icon");
             return tabController;
         }
         
@@ -45,7 +61,8 @@ final class UIContainer {
             let controller = UIStoryboard.Scene.Products.productList;
             controller.router = ProductListRouter(view: controller);
             
-            let presenter = ProductListPresenter(view: controller, cart: CartService.defaultCart);
+            let cart = r.resolve(ProductCart.self)!
+            let presenter = ProductListPresenter(view: controller, cart: cart);
             presenter.productRepository = r.resolve(ProductRepository.self);
             controller.presenter = presenter;
             
@@ -58,7 +75,9 @@ final class UIContainer {
             let controller = UIStoryboard.Scene.Products.cart;
             controller.router = CartRouter(view: controller);
             
-            let presenter = CartPresenter(view: controller, cart: CartService.defaultCart);
+            let cart = r.resolve(ProductCart.self)!
+            let presenter = CartPresenter(view: controller, cart: cart);
+            presenter.cartService = r.resolve(CartRepository.self);
             controller.presenter = presenter;
             
             return controller;
@@ -74,6 +93,23 @@ final class UIContainer {
             controller.presenter = presenter;
             
             return controller;
+        }
+        
+        return container;
+        
+    }()
+    
+    static var dummy: Container = {
+        
+        let container = UIContainer.app;
+        
+        // Override Repositories
+        container.register(ProductRepository.self) { r in
+            return DummyProductService();
+        }
+        
+        container.register(CartRepository.self) { r in
+            return CartService();
         }
         
         return container;

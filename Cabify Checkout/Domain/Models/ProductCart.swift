@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 class ProductCart: NSObject {
 
@@ -15,9 +14,6 @@ class ProductCart: NSObject {
     // MARK: - Properties
     private var items: [ProductCartItem] = [];
     private var promotions: [Promotion] = [];
-    private var _discount: Float = 0;
-    private var _total: Float = 0;
-    private var observableChanges: Observable<Void>
     
     @objc dynamic var updatedAt = Date();
     
@@ -28,19 +24,21 @@ class ProductCart: NSObject {
     }
     
     var itemCount: Int {
-        get {
-            return items.reduce(0, { (result, item) -> Int in
-                return result + item.quantity;
-            })
-        }
+        return items.reduce(0, { (result, item) -> Int in
+            return result + item.quantity;
+        })
     }
     
     var discount: Float {
-        return _discount;
+        return items.reduce(0, { (result, item) -> Float in
+            return result + item.savings;
+        })
     }
     
     var total: Float {
-        return _total;
+        return items.reduce(0, { (result, item) -> Float in
+            return result + item.totalPrice;
+        })
     }
     
     var cartItems: [ProductCartItem] {
@@ -48,29 +46,15 @@ class ProductCart: NSObject {
     }
     
     
-    // MARK: - Initialization
-    
-    override init() {
-        observableChanges = Observable.create { (observer) in
-            return Disposables.create();
-        }
-    }
-    
-    
-    // MARK: - Subscribe
-    
-    
-    
     // MARK: - Products
     
     func empty() {
         items = [];
-        _total = 0;
-        _discount = 0;
         updatedAt = Date();
     }
     
     func addProduct(_ product: Product, quantity: Int = 1) {
+        print("[INFO] Cart::addProduct \(product.code) (\(quantity))");
         if let current = items.first(where: { return $0.code == product.code }) {
             current.quantity += quantity;
         }
@@ -78,38 +62,55 @@ class ProductCart: NSObject {
             let newItem = ProductCartItem(product: product, quantity: quantity);
             items.append(newItem);
         }
+        update();
+    }
+    
+    func update() {
         calculate();
         updatedAt = Date();
     }
     
     func increaseProduct(_ product: Product) {
-        if let current = items.first(where: { return $0.code == product.code }) {
+        increaseProduct(code: product.code);
+    }
+    
+    func increaseProduct(code: String) {
+        if let current = items.first(where: { return $0.code == code }) {
+            print("[INFO] Cart::increaseProduct \(code)");
             current.quantity += 1;
-            calculate();
-            updatedAt = Date();
+            update();
         }
     }
     
     func decreaseProduct(_ product: Product) {
-        if let current = items.first(where: { return $0.code == product.code }) {
+        decreaseProduct(code: product.code);
+    }
+    
+    func decreaseProduct(code: String) {
+        if let current = items.first(where: { return $0.code == code }) {
             if current.quantity > 1 {
+                print("[INFO] Cart::decreaseProduct \(code)");
                 current.quantity -= 1;
-                calculate();
-                updatedAt = Date();
+                update();
             }
         }
     }
     
     func removeProduct(_ product: Product) {
-        items.removeAll(where: { return $0.code == product.code });
-        calculate();
-        updatedAt = Date();
+        removeProduct(code: product.code);
+    }
+    
+    func removeProduct(code: String) {
+        print("[INFO] Cart::removeProduct \(code)");
+        items.removeAll(where: { return $0.code == code });
+        update();
     }
     
     
     // MARK: - Promotions
     
     func addPromotion(code: String, name: String, type: PromotionType) {
+        print("[INFO] Cart::addPromotion \(code) - \(name) - \(type)");
         let promotion = Promotion(name: name, code: code, type: type);
         addPromotion(promotion);
     }
@@ -129,47 +130,38 @@ class ProductCart: NSObject {
     
     func calculate() {
         
-        var totalPrice: Float = 0;
-        var cartDiscount: Float = 0;
-        
         for item in items {
             
             // Check if there are promotions for the current product
             let itemPromotions = promotions.filter({ return $0.code == item.code })
             
             if itemPromotions.isEmpty {
-                // Return default calculation: total = price x quantity
-                totalPrice += ( item.price * Float(item.quantity) );
+                // Apply default price: unitPrice x quantity
+                item.totalPrice = ( item.unitPrice * Float(item.quantity) );
             }
             else {
                 
                 // Apply promotions
                 for promotion in itemPromotions {
-                    let promo = applyPromotion(to: item, promotion: promotion);
-                    totalPrice += promo.price;
-                    cartDiscount += promo.discount;
+                    applyPromotion(to: item, promotion: promotion);
                 }
             }
         }
         
-        _total = totalPrice;
-        _discount = cartDiscount;
-        
-        // notify observers
-        
     }
     
     /**
-     Evaluate the promotion.
-     - Return: tuple with price to be applied and the discount obtained.
+     Evaluate the promotion and update the item with the total/savings applied.
      */
-    private func applyPromotion(to item: ProductCartItem, promotion: Promotion) -> (price: Float, discount: Float) {
+    private func applyPromotion(to item: ProductCartItem, promotion: Promotion) {
         
-        let noDiscountPrice: Float = ( item.price * Float(item.quantity) );
+        let noDiscountPrice: Float = ( item.unitPrice * Float(item.quantity) );
+        item.totalPrice = noDiscountPrice;
+        item.savings = 0;
         
         if( !promotion.isActive ) {
             // Don't apply discount
-            return (price: noDiscountPrice, discount: 0);
+            return
         }
         
         switch( promotion.type ) {
@@ -178,9 +170,11 @@ class ProductCart: NSObject {
                 if item.quantity >= quantity {
                     // Apply combo by reducing free items from the quantity
                     let totalFreeItems = (item.quantity / quantity) * freeItems
-                    let price = ( item.price * Float(item.quantity - totalFreeItems) );
+                    let price = ( item.unitPrice * Float(item.quantity - totalFreeItems) );
                     let discount = (noDiscountPrice - price);
-                    return (price: price, discount: discount);
+                    item.discountPrice = item.unitPrice;
+                    item.totalPrice = price;
+                    item.addPromotion(promotion.name, savings: discount);
                 }
             
             case .bulk(let quantity, let discountPrice):
@@ -188,13 +182,14 @@ class ProductCart: NSObject {
                     // If item quantity is over discount rule quantity, use the discount price
                     let price = ( Float(item.quantity) * discountPrice);
                     let discount = (noDiscountPrice - price);
-                    return (price: price, discount: discount);
+                    item.discountPrice = discountPrice;
+                    item.totalPrice = price;
+                    item.addPromotion(promotion.name, savings: discount);
                 }
         
         }
         
         // Don't apply discount
-        return (price: noDiscountPrice, discount: 0);
         
     }
     

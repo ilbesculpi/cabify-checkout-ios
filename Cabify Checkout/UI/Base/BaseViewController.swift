@@ -16,6 +16,10 @@ class BaseViewController: UIViewController, BaseViewContract {
         return UIApplication.shared.delegate as! AppDelegate;
     }
     
+    var rootController: RootViewController {
+        return appDelegate.window?.rootViewController as! RootViewController;
+    }
+    
     
     // MARK: - UIViewController
     
