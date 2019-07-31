@@ -11,13 +11,59 @@ import XCTest
 
 class CartViewControllerTests: XCTestCase {
 
+    var controller: CartViewController!
+    var presenterMock: CartMocks.Presenter!
+    var fixture: CartFixture!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
+        controller = UIStoryboard.Scene.Products.cart;
+        presenterMock = CartMocks.Presenter(view: controller, cart: ProductCart());
+        controller.presenter = presenterMock;
+        fixture = CartFixture();
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        controller = nil;
+        presenterMock = nil;
+        fixture = nil;
+    }
+    
+    func testOutlets() {
+        
+        // When: controller loads view
+        let _ = controller.view;
+        
+        // Expect: table outlets should be created
+        XCTAssertNotNil(controller.tableView);
+        XCTAssertNotNil(controller.tableView.dataSource);
+        XCTAssertNotNil(controller.tableView.delegate);
+        XCTAssertFalse(controller.tableView.allowsSelection);
+    }
+    
+    func testLoadView() {
+        
+        // When: controller loads view
+        let _ = controller.view;
+        
+        // Expect: should call presenter onViewCreated
+        XCTAssertTrue(presenterMock.onViewCreatedCalled, "controller should call presenter::onViewCreated()");
+    }
+    
+    func testDisplayProducts() {
+        
+        // When: controller loads view
+        let tableSpy = ProductListMocks.TableView(frame: CGRect.zero);
+        let _ = controller.view;
+        controller.tableView = tableSpy;
+        
+        // Then: tell controller to display a list of cart items.
+        let cartItems = fixture.cartItems;
+        controller.displayProducts(cartItems)
+        
+        // Expect: tableView should display the products
+        XCTAssertTrue(tableSpy.reloadDataCalled);
+        XCTAssertEqual(2, controller.tableView(tableSpy, numberOfRowsInSection: 0));
+        
     }
 
 }
