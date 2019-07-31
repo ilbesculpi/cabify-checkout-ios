@@ -15,7 +15,7 @@ class UIContainerTests: XCTestCase {
     var container: Container!
     
     override func setUp() {
-        container = UIContainer.container;
+        container = UIContainer.app;
     }
 
     override func tearDown() {
@@ -95,17 +95,14 @@ class UIContainerTests: XCTestCase {
         XCTAssertNotNil(productListController.presenter.cart);
         XCTAssertNotNil(cartController.presenter.cart);
         XCTAssertEqual(productListCart, cartCart, "cart instances should be the same");
-        
-        // When: Cart is empty
-        XCTAssertTrue(productListCart.isEmpty);
+        XCTAssertEqual(productListCart.itemCount, cartCart.itemCount);
         
         // Then: Add a product to productListCart
         let mug = ProductCartFixture().getProduct(code: "MUG")!
         productListCart.addProduct(mug);
         
         // Expect: both carts should contain the MUG
-        XCTAssertEqual(1, productListCart.itemCount);
-        XCTAssertEqual(1, cartCart.itemCount);
+        XCTAssertEqual(cartCart.itemCount, productListCart.itemCount);
         
     }
     
