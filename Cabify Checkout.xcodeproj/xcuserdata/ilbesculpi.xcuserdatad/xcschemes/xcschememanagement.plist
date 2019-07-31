@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Cabify Checkout.xcscheme_^#shared#^_</key>
+		<key>Cabify Checkout DEV.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>7</integer>
+		</dict>
+		<key>Cabify Checkout STAGING.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>19BE74A622EB29ED0053F005</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19BE74BA22EB29FB0053F005</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19BE74C522EB29FB0053F005</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
