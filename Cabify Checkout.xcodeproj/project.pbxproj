@@ -66,6 +66,8 @@
 		19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F622EB4BA20053F005 /* UIColor_Extension.swift */; };
 		19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F822EB56D10053F005 /* ProductListItemCell.swift */; };
 		19CB0A4C22F1E8E10083502C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB0A4B22F1E8E10083502C /* Environment.swift */; };
+		19CB0A4E22F1F4B00083502C /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB0A4D22F1F4B00083502C /* RootPresenter.swift */; };
+		19CB0A5022F1F4BD0083502C /* RootContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB0A4F22F1F4BD0083502C /* RootContracts.swift */; };
 		402F2B438AC493B2160FF326 /* Pods_Cabify_CheckoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */; };
 		726D804CE5F3EA31EFC01846 /* Pods_Cabify_CheckoutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */; };
 /* End PBXBuildFile section */
@@ -157,6 +159,8 @@
 		19CB0A4922F1E4890083502C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		19CB0A4A22F1E4A20083502C /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		19CB0A4B22F1E8E10083502C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		19CB0A4D22F1F4B00083502C /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
+		19CB0A4F22F1F4BD0083502C /* RootContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContracts.swift; sourceTree = "<group>"; };
 		4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
 		51C839E6B426A559AA48745C /* Pods-Cabify Checkout.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (development).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (development).xcconfig"; sourceTree = "<group>"; };
 		5D6B3DBE0C36F6DA1EC3E9C3 /* Pods-Cabify Checkout.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (staging).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -312,7 +316,9 @@
 		192E8D6B22F07D61007D348A /* RootController */ = {
 			isa = PBXGroup;
 			children = (
+				19CB0A4F22F1F4BD0083502C /* RootContracts.swift */,
 				192E8D6C22F07D86007D348A /* RootViewController.swift */,
+				19CB0A4D22F1F4B00083502C /* RootPresenter.swift */,
 			);
 			path = RootController;
 			sourceTree = "<group>";
@@ -343,13 +349,13 @@
 			isa = PBXGroup;
 			children = (
 				19BE74AA22EB29ED0053F005 /* AppDelegate.swift */,
+				19BE74B122EB29FB0053F005 /* Assets.xcassets */,
+				1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */,
 				19CB0A4822F1E42E0083502C /* Config */,
 				19BE74D922EB2CE30053F005 /* Domain */,
 				19BE74DA22EB2CED0053F005 /* UI */,
 				192E8D2722EB8EDD007D348A /* Persistence */,
 				19BE74D822EB2A230053F005 /* Storyboards */,
-				19BE74B122EB29FB0053F005 /* Assets.xcassets */,
-				1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */,
 			);
 			path = "Cabify Checkout";
 			sourceTree = "<group>";
@@ -739,6 +745,7 @@
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
 				192E8D6022EF2D7A007D348A /* CartViewController.swift in Sources */,
 				192E8D5A22EF2B21007D348A /* CheckoutRouter.swift in Sources */,
+				19CB0A5022F1F4BD0083502C /* RootContracts.swift in Sources */,
 				192E8D3822EC9CC4007D348A /* BaseViewController.swift in Sources */,
 				192E8D5E22EF2D1D007D348A /* CartContracts.swift in Sources */,
 				192E8D4B22EDCA32007D348A /* CartService.swift in Sources */,
@@ -748,6 +755,7 @@
 				192E8D3E22ECA423007D348A /* ProductCart.swift in Sources */,
 				192E8D5822EF29EC007D348A /* CheckoutPresenter.swift in Sources */,
 				192E8D6A22F065E5007D348A /* StringUtils.swift in Sources */,
+				19CB0A4E22F1F4B00083502C /* RootPresenter.swift in Sources */,
 				1906FADF22F12D070070B36C /* CartItemModel+CoreDataClass.swift in Sources */,
 				192E8D2D22EC862E007D348A /* ProductService.swift in Sources */,
 				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,

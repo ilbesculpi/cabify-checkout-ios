@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window;
         
         // Instantiate RootController
-        guard let rootController = container.resolve(RootViewController.self) else {
+        guard let rootController = container.resolve(RootViewContract.self) as? UIViewController else {
             fatalError("Unable to instantiate Root controller");
         }
         

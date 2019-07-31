@@ -8,10 +8,28 @@
 
 import UIKit
 
-class RootViewController: UITabBarController {
+class RootViewController: UITabBarController, RootViewContract {
+    
+    
+    // MARK: - Properties
+    var presenter: RootPresenterContract!
+    
+    
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad();
+        presenter.onViewCreated();
+    }
+    
+    func displayItemCount(_ count: Int) {
+        // Update badge
+        if( count == 0 ) {
+            tabBar.items?[1].badgeValue = nil;
+        }
+        else {
+            tabBar.items?[1].badgeValue = String(count);
+        }
     }
 
 }

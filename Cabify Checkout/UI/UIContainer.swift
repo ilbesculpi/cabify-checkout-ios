@@ -34,9 +34,12 @@ final class UIContainer {
         }
         
         // Instantiate and configure the RootViewController
-        container.register(RootViewController.self) { r in
+        container.register(RootViewContract.self) { r in
             
+            let cart = r.resolve(ProductCart.self)!
             let tabController = UIStoryboard.Scene.App.root;
+            let presenter = RootPresenter(view: tabController, cart: cart);
+            tabController.presenter = presenter;
             
             let productListController = r.resolve(ProductListViewController.self)!
             let cartController = r.resolve(CartViewController.self)!

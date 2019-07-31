@@ -28,7 +28,7 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     
     func onViewCreated() {
         print("[DEBUG] CartPresenter::onViewCreated()");
-        // Add Observers to the Cart properties using KVO
+        // Observe cart updates using KVO
         addObserver(self, forKeyPath: #keyPath(cart.updatedAt), options: [.old, .new], context: nil);
         updateView();
     }

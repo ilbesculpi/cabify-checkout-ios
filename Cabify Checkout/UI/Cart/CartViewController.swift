@@ -63,13 +63,6 @@ class CartViewController: BaseViewController, CartViewContract {
     func displayItemCount(_ count: Int) {
         // Update label
         labelTotalUnits.text = "Total (\(count)) items:";
-        // Update badge
-        if( count == 0 ) {
-            rootController.tabBar.items?[1].badgeValue = nil;
-        }
-        else {
-            rootController.tabBar.items?[1].badgeValue = String(count);
-        }
     }
     
     func displayProducts(_ products: [ProductCartItem]) {

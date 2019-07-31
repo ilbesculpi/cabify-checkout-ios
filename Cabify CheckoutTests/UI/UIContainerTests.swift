@@ -24,11 +24,16 @@ class UIContainerTests: XCTestCase {
     
     func testRootControllerDependencies() {
         
-        guard let tabController = container.resolve(RootViewController.self) else {
+        guard let tabController = container.resolve(RootViewContract.self) as? RootViewController else {
             XCTFail("Unable to instantiate RootViewController controller");
             return;
         }
         
+        // Expect: tabController dependencies should be set
+        XCTAssertNotNil(tabController.presenter);
+        XCTAssertNotNil(tabController.presenter.cart);
+        
+        // Expect: tabController should have 2 tabs: [Browse, Cart]
         XCTAssertEqual(2, tabController.viewControllers!.count, "root controller should have 2 tabs");
         
         let tabBrowse = tabController.viewControllers![0];
