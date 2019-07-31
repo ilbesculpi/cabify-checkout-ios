@@ -7,6 +7,7 @@
 
 import Foundation
 import Promises
+import CoreData
 
 class CartService: CartRepository {
     
@@ -23,7 +24,7 @@ class CartService: CartRepository {
     
     private static var defaultCartInstance: ProductCart!
     
-    static var defaultCart: ProductCart {
+    private static var defaultCart: ProductCart {
         get {
             if( defaultCartInstance == nil ) {
                 defaultCartInstance = ProductCart();
@@ -32,6 +33,15 @@ class CartService: CartRepository {
         }
         set {
             defaultCartInstance = newValue;
+        }
+    }
+    
+    var defaultCart: ProductCart {
+        get {
+            return CartService.defaultCart;
+        }
+        set {
+            CartService.defaultCart = newValue;
         }
     }
     
@@ -114,4 +124,94 @@ class CartService: CartRepository {
         throw error;
     }
 
+    
+    /**
+     Stores the cart items using CoreData.
+     */
+    func saveCart(_ cart: ProductCart) -> Promise<Void> {
+        
+        let promise = Promise<Void> { (resolve, reject) in
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate;
+            let context = appDelegate.persistentContainer.viewContext;
+            
+            self.removeCart()
+                .then {
+            
+                    for item in cart.cartItems {
+                        let persistentCartItem = CartItemModel(context: context);
+                        persistentCartItem.code = item.code;
+                        persistentCartItem.name = item.name;
+                        persistentCartItem.quantity = Int32(item.quantity);
+                        persistentCartItem.unitPrice = item.unitPrice;
+                    }
+                    
+                    appDelegate.saveContext();
+                    
+                    print("[INFO] cart saved successfully.");
+                    resolve(());
+                }
+                .catch { (error) in
+                    print("[ERROR] cart saving items: \(error)");
+                    reject(error);
+                }
+        }
+        
+        return promise;
+    }
+    
+    
+    /**
+     Retrieves previously stored cart items (if any).
+     */
+    func loadCart(into cart: ProductCart) -> Promise<ProductCart> {
+ 
+        let promise = Promise<ProductCart> { (resolve, reject) in
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate;
+            let context = appDelegate.persistentContainer.viewContext;
+            let request = CartItemModel.createFetchRequest();
+            
+            do {
+                
+                let result = try context.fetch(request);
+                for row in result {
+                    print("[DEBUG] Fetched row: \(row.code) (\(row.quantity))");
+                    let product = Product(code: row.code, name: row.name, price: row.unitPrice);
+                    cart.addProduct(product, quantity: Int(row.quantity));
+                }
+                
+                resolve(cart);
+            }
+            catch {
+                print("[WARN] Error fetching product cart items: \(error)");
+                resolve(cart);
+            }
+        }
+        
+        return promise;
+        
+    }
+    
+    func removeCart() -> Promise<Void> {
+        
+        let promise = Promise<Void> { (resolve, reject) in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate;
+            let context = appDelegate.persistentContainer.viewContext;
+            let fetchRequest = CartItemModel.createFetchRequest();
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>);
+            do {
+                try context.execute(deleteRequest)
+                resolve(());
+            }
+            catch {
+                print("[ERROR] Error removing items from cart: \(error)");
+                reject(error);
+            }
+            
+        }
+        
+        return promise;
+    }
+    
 }

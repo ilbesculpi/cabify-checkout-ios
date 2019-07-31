@@ -16,8 +16,14 @@ enum CartError : Error {
 
 protocol CartRepository {
     
-    static var defaultCart: ProductCart { get set }
+    var defaultCart: ProductCart { get set }
     
     func loadPromotions() -> Promise<[Promotion]>
+    
+    func loadCart(into cart: ProductCart) -> Promise<ProductCart>
+    
+    func saveCart(_ cart: ProductCart) -> Promise<Void>
+    
+    func removeCart() -> Promise<Void>
     
 }

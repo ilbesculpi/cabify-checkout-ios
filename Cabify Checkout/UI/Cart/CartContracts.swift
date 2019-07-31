@@ -23,8 +23,10 @@ protocol CartPresenterContract : BasePresenterContract, CartListItemDelegate {
     
     var view: CartViewContract! { get set }
     var cart: ProductCart { get set }
+    var cartService: CartRepository! { get set }
     
     func onViewCreated();
+    func onProceedToCheckout();
     
 }
 

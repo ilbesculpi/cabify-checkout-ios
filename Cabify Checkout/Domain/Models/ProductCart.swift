@@ -54,6 +54,7 @@ class ProductCart: NSObject {
     }
     
     func addProduct(_ product: Product, quantity: Int = 1) {
+        print("[INFO] Cart::addProduct \(product.code) (\(quantity))");
         if let current = items.first(where: { return $0.code == product.code }) {
             current.quantity += quantity;
         }
@@ -61,6 +62,10 @@ class ProductCart: NSObject {
             let newItem = ProductCartItem(product: product, quantity: quantity);
             items.append(newItem);
         }
+        update();
+    }
+    
+    func update() {
         calculate();
         updatedAt = Date();
     }
@@ -71,9 +76,9 @@ class ProductCart: NSObject {
     
     func increaseProduct(code: String) {
         if let current = items.first(where: { return $0.code == code }) {
+            print("[INFO] Cart::increaseProduct \(code)");
             current.quantity += 1;
-            calculate();
-            updatedAt = Date();
+            update();
         }
     }
     
@@ -84,9 +89,9 @@ class ProductCart: NSObject {
     func decreaseProduct(code: String) {
         if let current = items.first(where: { return $0.code == code }) {
             if current.quantity > 1 {
+                print("[INFO] Cart::decreaseProduct \(code)");
                 current.quantity -= 1;
-                calculate();
-                updatedAt = Date();
+                update();
             }
         }
     }
@@ -96,15 +101,16 @@ class ProductCart: NSObject {
     }
     
     func removeProduct(code: String) {
+        print("[INFO] Cart::removeProduct \(code)");
         items.removeAll(where: { return $0.code == code });
-        calculate();
-        updatedAt = Date();
+        update();
     }
     
     
     // MARK: - Promotions
     
     func addPromotion(code: String, name: String, type: PromotionType) {
+        print("[INFO] Cart::addPromotion \(code) - \(name) - \(type)");
         let promotion = Promotion(name: name, code: code, type: type);
         addPromotion(promotion);
     }

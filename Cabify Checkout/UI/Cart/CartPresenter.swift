@@ -13,6 +13,7 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     // MARK: - Properties
     weak var view: CartViewContract!
     @objc var cart: ProductCart
+    var cartService: CartRepository!
     
     
     // MARK: - Initialization
@@ -27,16 +28,27 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     
     func onViewCreated() {
         print("[DEBUG] CartPresenter::onViewCreated()");
-        view.displayProducts(cart.cartItems);
         // Add Observers to the Cart properties using KVO
         addObserver(self, forKeyPath: #keyPath(cart.updatedAt), options: [.old, .new], context: nil);
+        updateView();
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        updateView();
+    }
+    
+    func updateView() {
         view.displayItemCount(cart.itemCount);
         view.displayTotal(price: cart.total);
         view.displayProducts(cart.cartItems);
     }
+    
+    func onProceedToCheckout() {
+        cartService.saveCart(cart).always {}
+    }
+    
+    
+    // MARK: - CartListItemDelegate
     
     func increaseProduct(_ product: ProductCartItem) {
         cart.increaseProduct(code: product.code);

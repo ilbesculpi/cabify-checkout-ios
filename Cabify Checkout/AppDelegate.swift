@@ -8,6 +8,7 @@
 
 import UIKit
 import Swinject
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,29 +19,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var container: Container = {
-       return UIContainer.container
+        //return UIContainer.app
+        return UIContainer.dummy
     }();
+    
+    var cartService: CartRepository!
+    
+    var shoppingCart: ProductCart {
+        return container.resolve(ProductCart.self)!
+    }
     
     
     // MARK: - AppDelegate Events
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        // Override point for customization after application launch.
-        configureAppearance();
-        configureShoppingCart();
-        
-        // configure root view controller
-        if NSClassFromString("XCTestCase") == nil {
-            configureRootController();
-        }
+        // Ask the container to provide service dependencies
+        cartService = container.resolve(CartRepository.self);
         
         return true;
     }
     
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Override point for customization after application launch.
+        bootstrap();
+        
+        return true;
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        cartService.saveCart(shoppingCart).always {}
+    }
     
     
-    // MARK: - UI Configuration
+    // MARK: - Bootstrap
+    
+    func bootstrap() {
+        
+        configureAppearance();
+        
+        // skip for Unit Testing
+        if NSClassFromString("XCTestCase") == nil {
+            configureShoppingCart();
+            configureRootController();
+        }
+        
+    }
+    
     
     /**
      Creates and configures the controller to be presented at launch.
@@ -63,6 +89,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set as root view controller
         window.rootViewController = rootController;
+    }
+    
+    /**
+     Load the stored promotions and setup default shopping cart
+     */
+    func configureShoppingCart() {
+        if let service = container.resolve(CartRepository.self) {
+            let cart = service.defaultCart;
+            service.loadPromotions()
+                .then { (promotions) in
+                    service.loadCart(into: cart)
+                        .then { (cart) in
+                            cart.addPromotions(promotions);
+                            cart.update();
+                        }
+                }
+        }
     }
     
     
@@ -93,20 +136,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+
+
     
-    // MARK: - App Configuration
+    // MARK: - CoreData Stack
     
-    /**
-     Load the stored promotions and setup default shopping cart
-     */
-    func configureShoppingCart() {
-        let service = container.resolve(CartRepository.self);
-        service?.loadPromotions()
-            .then { (promotions) in
-                CartService.defaultCart.addPromotions(promotions);
+    lazy var persistentContainer: NSPersistentContainer = {
+        
+        let container = NSPersistentContainer(name: "CabifyCheckout");
+        
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                print("[ERROR] CoreData unresolved error \(error), \(error.userInfo)");
+            }
+        }
+        
+        return container;
+    }()
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext;
+        if context.hasChanges {
+            do {
+                try context.save()
+            }
+            catch {
+                let nserror = error as NSError
+                print("[ERROR] CoreData error saving context: \(nserror), \(nserror.userInfo)");
+            }
         }
     }
-
-
+    
 }
 

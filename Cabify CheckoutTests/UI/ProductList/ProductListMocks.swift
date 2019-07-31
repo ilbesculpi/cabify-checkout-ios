@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import Promises
 @testable import Cabify_Checkout
 
 class ProductListMocks {
+    
+    class ViewController : ProductListViewController {
+        
+        var displayProductsCalled: Bool = false;
+        
+        override func displayProducts(_ products: [Product]) {
+            displayProductsCalled = true;
+            self.products = products;
+        }
+        
+    }
     
     class Presenter : ProductListPresenter {
         
@@ -28,6 +40,25 @@ class ProductListMocks {
         override func reloadData() {
             super.reloadData();
             reloadDataCalled = true;
+        }
+        
+    }
+    
+    class ProductService : Cabify_Checkout.ProductService {
+        
+        private var products: [Product] = [];
+        var fetchProductsCalled: Bool = false;
+        
+        func returnProducts(_ products: [Product]) {
+            self.products = products;
+        }
+        
+        override func fetchProducts() -> Promise<[Product]> {
+            fetchProductsCalled = true;
+            let promise = Promise<[Product]> { [unowned self] (resolve, reject) in
+                return self.products;
+            }
+            return promise;
         }
         
     }
