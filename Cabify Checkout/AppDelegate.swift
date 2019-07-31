@@ -18,10 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var container: Container = {
-        //return UIContainer.app
-        return UIContainer.dummy
-    }();
+    var container: Container!
     
     var cartService: CartRepository!
     
@@ -34,8 +31,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
+        // Configure container
+        if Environment.containerName == "development" {
+            container = UIContainer.dummy;
+        }
+        else {
+            container = UIContainer.app;
+        }
+        
         // Ask the container to provide service dependencies
         cartService = container.resolve(CartRepository.self);
+        
+        // print environment config
+        print("[INFO] Environment: \(Environment.environment)");
         
         return true;
     }

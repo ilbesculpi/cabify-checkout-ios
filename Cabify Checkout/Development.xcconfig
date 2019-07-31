@@ -11,4 +11,6 @@ SERVER_URL = https:/$()/api.myjson.com/bins/4bwec
 
 // App Settings
 APP_BUNDLE_ID = com.ilbesculpi.Cabify-Checkout.dev
-APP_CONTAINER = local
+APP_NAME = Cabify Checkout (DEV)
+APP_CONTAINER = development
+APP_ENVIRONMENT = development
