@@ -1,0 +1,14 @@
+//
+//  Staging.xcconfig
+//  Cabify Checkout
+//
+//  Created by Ilbert Esculpi on 7/31/19.
+//  Copyright © 2019 Cabify. All rights reserved.
+//
+
+// Server URL
+SERVER_URL = https:/$()/api.myjson.com/bins/4bwec
+
+// App Settings
+APP_BUNDLE_ID = com.ilbesculpi.Cabify-Checkout
+APP_CONTAINER = app
