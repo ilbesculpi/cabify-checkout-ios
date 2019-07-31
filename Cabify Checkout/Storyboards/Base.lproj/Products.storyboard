@@ -395,6 +395,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Cart" id="E2G-hS-H6Y"/>
                     <connections>
+                        <outlet property="buttonProceedToCheckout" destination="xn7-L4-14J" id="Zlp-se-OjN"/>
                         <outlet property="labelTotalPrice" destination="FKX-gY-Ukb" id="zJl-Yf-pQt"/>
                         <outlet property="labelTotalUnits" destination="8fe-Z5-eFU" id="jwE-40-Vu1"/>
                         <outlet property="tableView" destination="daH-gR-8gM" id="ORz-v1-J5p"/>

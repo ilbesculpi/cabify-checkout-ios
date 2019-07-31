@@ -25,6 +25,7 @@ class CartViewController: BaseViewController, CartViewContract {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelTotalUnits: UILabel!
     @IBOutlet weak var labelTotalPrice: UILabel!
+    @IBOutlet weak var buttonProceedToCheckout: UIButton!
     
     
     // MARK: - UIViewController
@@ -80,6 +81,7 @@ class CartViewController: BaseViewController, CartViewContract {
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
         presenter.onProceedToCheckout();
+        router.displayCheckoutScreen();
     }
 
 }

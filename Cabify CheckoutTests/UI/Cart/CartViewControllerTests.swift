@@ -13,18 +13,26 @@ class CartViewControllerTests: XCTestCase {
 
     var controller: CartViewController!
     var presenterMock: CartMocks.Presenter!
+    var routerMock: CartMocks.Router!
+    var cartServiceMock: CartMocks.CartService!
     var fixture: CartFixture!
     
     override func setUp() {
         controller = UIStoryboard.Scene.Products.cart;
         presenterMock = CartMocks.Presenter(view: controller, cart: ProductCart());
+        cartServiceMock = CartMocks.CartService();
+        presenterMock.cartService = cartServiceMock;
         controller.presenter = presenterMock;
+        routerMock = CartMocks.Router(view: controller);
+        controller.router = routerMock;
         fixture = CartFixture();
     }
 
     override func tearDown() {
         controller = nil;
         presenterMock = nil;
+        cartServiceMock = nil;
+        routerMock = nil;
         fixture = nil;
     }
     
@@ -58,11 +66,24 @@ class CartViewControllerTests: XCTestCase {
         
         // Then: tell controller to display a list of cart items.
         let cartItems = fixture.cartItems;
-        controller.displayProducts(cartItems)
+        controller.displayProducts(cartItems);
         
         // Expect: tableView should display the products
         XCTAssertTrue(tableSpy.reloadDataCalled);
         XCTAssertEqual(2, controller.tableView(tableSpy, numberOfRowsInSection: 0));
+        
+    }
+    
+    func testProceedToCheckout() {
+        
+        // When: controller loads view
+        let _ = controller.view;
+        
+        // Then: tap on "Proceed to checkout" button
+        controller.buttonProceedToCheckout.sendActions(for: .touchUpInside);
+        
+        // Expect: navigate to reset password screen
+        XCTAssertTrue(routerMock.displayCheckoutScreenCalled, "should ask router to display Checkout screen");
         
     }
 
