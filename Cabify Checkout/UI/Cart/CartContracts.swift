@@ -16,6 +16,8 @@ protocol CartViewContract : BaseViewContract {
     func displayItemCount(_ count: Int);
     func displayTotal(price: Float);
     func displayProducts(_ products: [ProductCartItem]);
+    func displayCheckoutScreen();
+    func setCheckoutState(enabled: Bool);
     
 }
 
@@ -26,7 +28,7 @@ protocol CartPresenterContract : BasePresenterContract, CartListItemDelegate {
     var cartService: CartRepository! { get set }
     
     func onViewCreated();
-    func onProceedToCheckout();
+    func checkout();
     
 }
 

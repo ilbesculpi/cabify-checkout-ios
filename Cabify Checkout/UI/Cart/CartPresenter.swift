@@ -41,10 +41,21 @@ class CartPresenter: BasePresenter, CartPresenterContract {
         view.displayItemCount(cart.itemCount);
         view.displayTotal(price: cart.total);
         view.displayProducts(cart.cartItems);
+        view.setCheckoutState(enabled: !cart.isEmpty);
     }
     
-    func onProceedToCheckout() {
-        cartService.saveCart(cart).always {}
+    func checkout() {
+        cartService.saveCart(cart).always { [weak self] in
+            guard let ref = self else {
+                return;
+            }
+            if ref.cart.isEmpty {
+                self?.view.displayError(message: "Cart is empty");
+            }
+            else {
+                self?.view.displayCheckoutScreen();
+            }
+        }
     }
     
     

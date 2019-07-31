@@ -49,7 +49,6 @@ class CartViewController: BaseViewController, CartViewContract {
         
         // Cell configuration
         tableView.allowsSelection = false;
-        tableView.rowHeight = 148.0;
         
     }
     
@@ -69,12 +68,19 @@ class CartViewController: BaseViewController, CartViewContract {
         self.products = products;
     }
     
+    func displayCheckoutScreen() {
+        router.displayCheckoutScreen();
+    }
+    
+    func setCheckoutState(enabled: Bool) {
+        buttonProceedToCheckout.isEnabled = enabled;
+    }
+    
     
     // MARK: - IBAction
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
-        presenter.onProceedToCheckout();
-        router.displayCheckoutScreen();
+        presenter.checkout();
     }
 
 }
@@ -109,6 +115,16 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         
         // Return the cell
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        // Get the product to display
+        guard let product = products?[indexPath.row] else {
+            return 140;
+        }
+        
+        return product.hasPromotion ? 180.0 : 148.0;
     }
     
 }

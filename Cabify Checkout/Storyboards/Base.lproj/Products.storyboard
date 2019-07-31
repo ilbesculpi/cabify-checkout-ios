@@ -128,7 +128,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKX-gY-Ukb">
                                 <rect key="frame" x="143" y="112" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.098125841450000001" green="0.50374119719999999" blue="0.47642689780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" name="TextMoney"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="148" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="daH-gR-8gM">
@@ -164,13 +164,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 x 5.00€" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uF9-O2-TWE">
                                                     <rect key="frame" x="119" y="70.666666666666671" width="70" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <color key="textColor" red="0.098125841450000001" green="0.50374119719999999" blue="0.47642689780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" name="TextMoney"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ii-wt-8Pw">
                                                     <rect key="frame" x="315" y="70" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.098125841450000001" green="0.50374119719999999" blue="0.47642689780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" name="TextMoney"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unC-oO-4JU">
@@ -272,13 +272,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 x 5.00€" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rP-p6-V8z">
                                                     <rect key="frame" x="119" y="70.666666666666671" width="70" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <color key="textColor" red="0.098125841450000001" green="0.50374119719999999" blue="0.47642689780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" name="TextMoney"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-vy-hI5">
                                                     <rect key="frame" x="315" y="70" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.098125841450000001" green="0.50374119719999999" blue="0.47642689780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" name="TextMoney"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1U-sO-9dK">
@@ -360,11 +360,13 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xn7-L4-14J">
-                                <rect key="frame" x="32" y="653" width="311" height="44"/>
+                                <rect key="frame" x="16" y="653" width="343" height="44"/>
+                                <color key="backgroundColor" name="PrimaryLight"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="1N0-am-3Ge"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Proceed to checkout"/>
                                 <connections>
                                     <action selector="proceedToCheckout:" destination="Ndq-81-1MR" eventType="touchUpInside" id="XJa-w4-MmS"/>
@@ -381,8 +383,8 @@
                             <constraint firstItem="xn7-L4-14J" firstAttribute="top" secondItem="daH-gR-8gM" secondAttribute="bottom" constant="32" id="Hea-8q-lTO"/>
                             <constraint firstItem="FCQ-tT-eId" firstAttribute="bottom" secondItem="xn7-L4-14J" secondAttribute="bottom" constant="32" id="IIM-2W-phy"/>
                             <constraint firstItem="8fe-Z5-eFU" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" constant="20" id="Uwv-jf-31y"/>
-                            <constraint firstItem="FCQ-tT-eId" firstAttribute="trailing" secondItem="xn7-L4-14J" secondAttribute="trailing" constant="32" id="gdO-s4-Vbl"/>
-                            <constraint firstItem="xn7-L4-14J" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" constant="32" id="wvn-5Z-ZgZ"/>
+                            <constraint firstItem="FCQ-tT-eId" firstAttribute="trailing" secondItem="xn7-L4-14J" secondAttribute="trailing" constant="16" id="gdO-s4-Vbl"/>
+                            <constraint firstItem="xn7-L4-14J" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" constant="16" id="wvn-5Z-ZgZ"/>
                             <constraint firstItem="daH-gR-8gM" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" id="zk9-8Z-iRw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FCQ-tT-eId"/>
@@ -504,6 +506,9 @@
         </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.70980392156862748" green="0.63137254901960782" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextMoney">
+            <color red="0.098039215686274508" green="0.50196078431372548" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
