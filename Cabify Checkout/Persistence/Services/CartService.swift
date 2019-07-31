@@ -126,16 +126,23 @@ class CartService: CartRepository {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate;
             let context = appDelegate.persistentContainer.viewContext;
             
-            for item in cart.cartItems {
-                let persistentCartItem = CartItemModel(context: context);
-                persistentCartItem.code = item.code;
-                persistentCartItem.name = item.name;
-                persistentCartItem.quantity = Int32(item.quantity);
-                persistentCartItem.unitPrice = item.unitPrice;
-            }
+            self.removeCart()
+                .then {
             
-            appDelegate.saveContext();
-            resolve(());
+                    for item in cart.cartItems {
+                        let persistentCartItem = CartItemModel(context: context);
+                        persistentCartItem.code = item.code;
+                        persistentCartItem.name = item.name;
+                        persistentCartItem.quantity = Int32(item.quantity);
+                        persistentCartItem.unitPrice = item.unitPrice;
+                    }
+                    
+                    appDelegate.saveContext();
+                    resolve(());
+                }
+                .catch { (error) in
+                    reject(error);
+                }
         }
         
         return promise;
@@ -149,32 +156,25 @@ class CartService: CartRepository {
  
         let promise = Promise<ProductCart> { (resolve, reject) in
             
-            self.removeCart()
-                .then {
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate;
-                    let context = appDelegate.persistentContainer.viewContext;
-                    let request = CartItemModel.createFetchRequest();
-                    
-                    do {
-                        
-                        let result = try context.fetch(request);
-                        for row in result {
-                            print("[DEBUG] Fetched row: \(row.code) - \(row.quantity)")
-                            let product = Product(code: row.code, name: row.name, price: row.unitPrice);
-                            cart.addProduct(product, quantity: Int(row.quantity));
-                        }
-                        
-                        resolve(cart);
-                    }
-                    catch {
-                        print("[WARN] Error fetching product cart items: \(error)")
-                        resolve(cart);
-                    }
-                }
-                .catch { (error) in
-                    reject(error);
-                }
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate;
+            let context = appDelegate.persistentContainer.viewContext;
+            let request = CartItemModel.createFetchRequest();
             
+            do {
+                
+                let result = try context.fetch(request);
+                for row in result {
+                    print("[DEBUG] Fetched row: \(row.code) - \(row.quantity)")
+                    let product = Product(code: row.code, name: row.name, price: row.unitPrice);
+                    cart.addProduct(product, quantity: Int(row.quantity));
+                }
+                
+                resolve(cart);
+            }
+            catch {
+                print("[WARN] Error fetching product cart items: \(error)")
+                resolve(cart);
+            }
         }
         
         return promise;
@@ -186,8 +186,17 @@ class CartService: CartRepository {
         let promise = Promise<Void> { (resolve, reject) in
             let appDelegate = UIApplication.shared.delegate as! AppDelegate;
             let context = appDelegate.persistentContainer.viewContext;
-            let request = CartItemModel.createFetchRequest();
-            resolve(());
+            let fetchRequest = CartItemModel.createFetchRequest();
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>);
+            do {
+                try context.execute(deleteRequest)
+                resolve(());
+            }
+            catch {
+                print("[ERROR] Error removing items from cart: \(error)");
+                reject(error);
+            }
+            
         }
         
         return promise;

@@ -34,6 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true;
     }
     
+    func applicationWillResignActive(_ application: UIApplication) {
+        if let service = container.resolve(CartRepository.self) {
+            service.saveCart(CartService.defaultCart)
+                .then {
+                    print("[INFO] cart items saved.");
+                }
+        }
+    }
+    
     
     // MARK: - Bootstrap
     
