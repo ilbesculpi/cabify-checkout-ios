@@ -25,8 +25,8 @@ class AppDelegateTests: XCTestCase {
     func testConfigureRootController() {
         
         let containerMock = Container();
-        let tabControllerSpy = UITabBarController();
-        containerMock.register(UITabBarController.self) { r in
+        let tabControllerSpy = RootViewController();
+        containerMock.register(RootViewController.self) { r in
             return tabControllerSpy;
         }
         appDelegate.container = containerMock;
@@ -42,7 +42,7 @@ class AppDelegateTests: XCTestCase {
         // Expect: window should be created
         XCTAssertNotNil(appDelegate.window);
         
-        // Expect: appDelegate should ask UIContainer to provide a UITabBarController
+        // Expect: appDelegate should ask UIContainer to provide a RootViewController
         XCTAssertNotNil(appDelegate.window?.rootViewController, "rootViewController should be created");
         XCTAssertEqual(appDelegate.window?.rootViewController, tabControllerSpy);
         

@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var container: Container = {
-       return UIContainer.container
+        //return UIContainer.app
+        return UIContainer.dummy
     }();
     
     
@@ -30,11 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         bootstrap();
         
-        // configure root view controller
-        if NSClassFromString("XCTestCase") == nil {
-            configureRootController();
-        }
-        
         return true;
     }
     
@@ -42,8 +38,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Bootstrap
     
     func bootstrap() {
+        
         configureAppearance();
-        configureShoppingCart();
+        
+        // skip for Unit Testing
+        if NSClassFromString("XCTestCase") == nil {
+            configureShoppingCart();
+            configureRootController();
+        }
+        
     }
     
     
@@ -74,10 +77,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Load the stored promotions and setup default shopping cart
      */
     func configureShoppingCart() {
-        let service = container.resolve(CartRepository.self);
-        service?.loadPromotions()
-            .then { (promotions) in
-                CartService.defaultCart.addPromotions(promotions);
+        if let service = container.resolve(CartRepository.self) {
+            let cart = CartService.defaultCart;
+            service.loadPromotions()
+                .then { (promotions) in
+                    service.loadCart(into: cart)
+                        .then { (cart) in
+                            cart.addPromotions(promotions);
+                            cart.update();
+                        }
+                }
         }
     }
     

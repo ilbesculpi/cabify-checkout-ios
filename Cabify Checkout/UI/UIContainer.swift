@@ -11,7 +11,7 @@ import Swinject
 
 final class UIContainer {
     
-    static var container: Container = {
+    static var app: Container = {
         
         let container = Container();
         
@@ -79,6 +79,23 @@ final class UIContainer {
             controller.presenter = presenter;
             
             return controller;
+        }
+        
+        return container;
+        
+    }()
+    
+    static var dummy: Container = {
+        
+        let container = UIContainer.app;
+        
+        // Override Repositories
+        container.register(ProductRepository.self) { r in
+            return DummyProductService();
+        }
+        
+        container.register(CartRepository.self) { r in
+            return CartService();
         }
         
         return container;
