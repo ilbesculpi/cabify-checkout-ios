@@ -11,13 +11,11 @@ import Promises
 
 class ProductService: ProductRepository {
     
-    let baseUrl: String = "https://api.myjson.com/bins";
-    
     func fetchProducts() -> Promise<[Product]> {
         
         let promise = Promise<[Product]> { (resolve, reject) in
             
-            let fetchUrl = "\(self.baseUrl)/4bwec";
+            let fetchUrl = Environment.serverUrl;
             
             AF.request(fetchUrl).responseJSON { (response) in
                 

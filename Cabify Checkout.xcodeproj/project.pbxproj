@@ -63,6 +63,7 @@
 		19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F422EB3CEE0053F005 /* UIStoryboard_Extension.swift */; };
 		19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F622EB4BA20053F005 /* UIColor_Extension.swift */; };
 		19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74F822EB56D10053F005 /* ProductListItemCell.swift */; };
+		19CB0A4C22F1E8E10083502C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB0A4B22F1E8E10083502C /* Environment.swift */; };
 		402F2B438AC493B2160FF326 /* Pods_Cabify_CheckoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */; };
 		726D804CE5F3EA31EFC01846 /* Pods_Cabify_CheckoutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */; };
 /* End PBXBuildFile section */
@@ -149,9 +150,18 @@
 		19BE74F422EB3CEE0053F005 /* UIStoryboard_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard_Extension.swift; sourceTree = "<group>"; };
 		19BE74F622EB4BA20053F005 /* UIColor_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Extension.swift; sourceTree = "<group>"; };
 		19BE74F822EB56D10053F005 /* ProductListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListItemCell.swift; sourceTree = "<group>"; };
+		19CB0A4922F1E4890083502C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		19CB0A4A22F1E4A20083502C /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		19CB0A4B22F1E8E10083502C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
+		51C839E6B426A559AA48745C /* Pods-Cabify Checkout.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (development).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (development).xcconfig"; sourceTree = "<group>"; };
+		5D6B3DBE0C36F6DA1EC3E9C3 /* Pods-Cabify Checkout.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (staging).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (staging).xcconfig"; sourceTree = "<group>"; };
 		643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_CheckoutTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6908FD411718562B53D42EAD /* Pods-Cabify CheckoutUITests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutUITests.debug (staging).xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutUITests/Pods-Cabify CheckoutUITests.debug (staging).xcconfig"; sourceTree = "<group>"; };
+		B21D96155D3A51F9403F8EFC /* Pods-Cabify CheckoutTests.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.debug (development).xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.debug (development).xcconfig"; sourceTree = "<group>"; };
+		B9ECF4FFFDB93AA6270AC73B /* Pods-Cabify CheckoutUITests.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutUITests.debug (development).xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutUITests/Pods-Cabify CheckoutUITests.debug (development).xcconfig"; sourceTree = "<group>"; };
 		CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_Checkout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD5AB091084A4901F8504A51 /* Pods-Cabify CheckoutTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.debug (staging).xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
 		D85102F53E5CF7F3B786D611 /* Pods-Cabify CheckoutUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutUITests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutUITests/Pods-Cabify CheckoutUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cabify_CheckoutUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85B92C689D7385CC9411B05 /* Pods-Cabify CheckoutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.debug.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -327,14 +337,12 @@
 			isa = PBXGroup;
 			children = (
 				19BE74AA22EB29ED0053F005 /* AppDelegate.swift */,
+				19CB0A4822F1E42E0083502C /* Config */,
 				19BE74D922EB2CE30053F005 /* Domain */,
 				19BE74DA22EB2CED0053F005 /* UI */,
 				192E8D2722EB8EDD007D348A /* Persistence */,
 				19BE74D822EB2A230053F005 /* Storyboards */,
 				19BE74B122EB29FB0053F005 /* Assets.xcassets */,
-				19BE74B622EB29FB0053F005 /* Info.plist */,
-				192E8D4422EDC835007D348A /* Settings.plist */,
-				192E8D4622EDC889007D348A /* Promotions.plist */,
 				1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */,
 			);
 			path = "Cabify Checkout";
@@ -438,6 +446,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		19CB0A4822F1E42E0083502C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				19BE74B622EB29FB0053F005 /* Info.plist */,
+				192E8D4422EDC835007D348A /* Settings.plist */,
+				192E8D4622EDC889007D348A /* Promotions.plist */,
+				19CB0A4922F1E4890083502C /* Development.xcconfig */,
+				19CB0A4A22F1E4A20083502C /* Staging.xcconfig */,
+				19CB0A4B22F1E8E10083502C /* Environment.swift */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		5618AE68B9A2279223D8C80A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +468,12 @@
 				4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */,
 				06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */,
 				D85102F53E5CF7F3B786D611 /* Pods-Cabify CheckoutUITests.release.xcconfig */,
+				51C839E6B426A559AA48745C /* Pods-Cabify Checkout.debug (development).xcconfig */,
+				5D6B3DBE0C36F6DA1EC3E9C3 /* Pods-Cabify Checkout.debug (staging).xcconfig */,
+				B21D96155D3A51F9403F8EFC /* Pods-Cabify CheckoutTests.debug (development).xcconfig */,
+				CD5AB091084A4901F8504A51 /* Pods-Cabify CheckoutTests.debug (staging).xcconfig */,
+				B9ECF4FFFDB93AA6270AC73B /* Pods-Cabify CheckoutUITests.debug (development).xcconfig */,
+				6908FD411718562B53D42EAD /* Pods-Cabify CheckoutUITests.debug (staging).xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -727,6 +754,7 @@
 				192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */,
 				192E8D6622EF5AA6007D348A /* ProductCartItem.swift in Sources */,
 				192E8D6222EF2D88007D348A /* CartPresenter.swift in Sources */,
+				19CB0A4C22F1E8E10083502C /* Environment.swift in Sources */,
 				192E8D5622EF27EF007D348A /* CheckoutViewController.swift in Sources */,
 				19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */,
 				192E8D5422EF2755007D348A /* CheckoutContracts.swift in Sources */,
@@ -798,8 +826,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		19BE74CD22EB29FB0053F005 /* Debug */ = {
+		19BE74CD22EB29FB0053F005 /* Debug (Development) */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19CB0A4922F1E4890083502C /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -857,10 +886,11 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = "Debug (Development)";
 		};
 		19BE74CE22EB29FB0053F005 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19CB0A4A22F1E4A20083502C /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -914,9 +944,9 @@
 			};
 			name = Release;
 		};
-		19BE74D022EB29FB0053F005 /* Debug */ = {
+		19BE74D022EB29FB0053F005 /* Debug (Development) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */;
+			baseConfigurationReference = 51C839E6B426A559AA48745C /* Pods-Cabify Checkout.debug (development).xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -932,7 +962,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = "Debug (Development)";
 		};
 		19BE74D122EB29FB0053F005 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -954,9 +984,9 @@
 			};
 			name = Release;
 		};
-		19BE74D322EB29FB0053F005 /* Debug */ = {
+		19BE74D322EB29FB0053F005 /* Debug (Development) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F85B92C689D7385CC9411B05 /* Pods-Cabify CheckoutTests.debug.xcconfig */;
+			baseConfigurationReference = B21D96155D3A51F9403F8EFC /* Pods-Cabify CheckoutTests.debug (development).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -976,7 +1006,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cabify Checkout.app/Cabify Checkout";
 			};
-			name = Debug;
+			name = "Debug (Development)";
 		};
 		19BE74D422EB29FB0053F005 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1001,9 +1031,9 @@
 			};
 			name = Release;
 		};
-		19BE74D622EB29FB0053F005 /* Debug */ = {
+		19BE74D622EB29FB0053F005 /* Debug (Development) */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */;
+			baseConfigurationReference = B9ECF4FFFDB93AA6270AC73B /* Pods-Cabify CheckoutUITests.debug (development).xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1020,7 +1050,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Cabify Checkout";
 			};
-			name = Debug;
+			name = "Debug (Development)";
 		};
 		19BE74D722EB29FB0053F005 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1043,13 +1073,141 @@
 			};
 			name = Release;
 		};
+		19CB0A4422F1E27F0083502C /* Debug (Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19CB0A4A22F1E4A20083502C /* Staging.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "Debug (Staging)";
+		};
+		19CB0A4522F1E27F0083502C /* Debug (Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D6B3DBE0C36F6DA1EC3E9C3 /* Pods-Cabify Checkout.debug (staging).xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DGA9HU8SL2;
+				INFOPLIST_FILE = "Cabify Checkout/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ilbesculpi.Cabify-Checkout";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug (Staging)";
+		};
+		19CB0A4622F1E27F0083502C /* Debug (Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD5AB091084A4901F8504A51 /* Pods-Cabify CheckoutTests.debug (staging).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DGA9HU8SL2;
+				INFOPLIST_FILE = "Cabify CheckoutTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ilbesculpi.Cabify-CheckoutTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cabify Checkout.app/Cabify Checkout";
+			};
+			name = "Debug (Staging)";
+		};
+		19CB0A4722F1E27F0083502C /* Debug (Staging) */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6908FD411718562B53D42EAD /* Pods-Cabify CheckoutUITests.debug (staging).xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DGA9HU8SL2;
+				INFOPLIST_FILE = "Cabify CheckoutUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ilbesculpi.Cabify-CheckoutUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Cabify Checkout";
+			};
+			name = "Debug (Staging)";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		19BE74A222EB29ED0053F005 /* Build configuration list for PBXProject "Cabify Checkout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				19BE74CD22EB29FB0053F005 /* Debug */,
+				19BE74CD22EB29FB0053F005 /* Debug (Development) */,
+				19CB0A4422F1E27F0083502C /* Debug (Staging) */,
 				19BE74CE22EB29FB0053F005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1058,7 +1216,8 @@
 		19BE74CF22EB29FB0053F005 /* Build configuration list for PBXNativeTarget "Cabify Checkout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				19BE74D022EB29FB0053F005 /* Debug */,
+				19BE74D022EB29FB0053F005 /* Debug (Development) */,
+				19CB0A4522F1E27F0083502C /* Debug (Staging) */,
 				19BE74D122EB29FB0053F005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1067,7 +1226,8 @@
 		19BE74D222EB29FB0053F005 /* Build configuration list for PBXNativeTarget "Cabify CheckoutTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				19BE74D322EB29FB0053F005 /* Debug */,
+				19BE74D322EB29FB0053F005 /* Debug (Development) */,
+				19CB0A4622F1E27F0083502C /* Debug (Staging) */,
 				19BE74D422EB29FB0053F005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1076,7 +1236,8 @@
 		19BE74D522EB29FB0053F005 /* Build configuration list for PBXNativeTarget "Cabify CheckoutUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				19BE74D622EB29FB0053F005 /* Debug */,
+				19BE74D622EB29FB0053F005 /* Debug (Development) */,
+				19CB0A4722F1E27F0083502C /* Debug (Staging) */,
 				19BE74D722EB29FB0053F005 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
