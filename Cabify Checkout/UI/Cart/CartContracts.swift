@@ -15,7 +15,7 @@ protocol CartViewContract : BaseViewContract {
     
     func displayItemCount(_ count: Int);
     func displayTotal(price: Float);
-    func displayProducts(_ products: [ProductCartItem]);
+    func displayCartItems(_ items: [ProductCartItem]);
     func displayCheckoutScreen();
     func setCheckoutState(enabled: Bool);
     

@@ -40,7 +40,7 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     func updateView() {
         view.displayItemCount(cart.itemCount);
         view.displayTotal(price: cart.total);
-        view.displayProducts(cart.cartItems);
+        view.displayCartItems(cart.cartItems);
         view.setCheckoutState(enabled: !cart.isEmpty);
     }
     
