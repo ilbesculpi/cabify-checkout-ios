@@ -116,6 +116,9 @@ class CartService: CartRepository {
     }
 
     
+    /**
+     Stores the cart items using CoreData.
+     */
     func saveCart(_ cart: ProductCart) -> Promise<Void> {
         
         let promise = Promise<Void> { (resolve, reject) in
@@ -132,6 +135,58 @@ class CartService: CartRepository {
             }
             
             appDelegate.saveContext();
+            resolve(());
+        }
+        
+        return promise;
+    }
+    
+    
+    /**
+     Retrieves previously stored cart items (if any).
+     */
+    func loadCart(into cart: ProductCart) -> Promise<ProductCart> {
+ 
+        let promise = Promise<ProductCart> { (resolve, reject) in
+            
+            self.removeCart()
+                .then {
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate;
+                    let context = appDelegate.persistentContainer.viewContext;
+                    let request = CartItemModel.createFetchRequest();
+                    
+                    do {
+                        
+                        let result = try context.fetch(request);
+                        for row in result {
+                            print("[DEBUG] Fetched row: \(row.code) - \(row.quantity)")
+                            let product = Product(code: row.code, name: row.name, price: row.unitPrice);
+                            cart.addProduct(product, quantity: Int(row.quantity));
+                        }
+                        
+                        resolve(cart);
+                    }
+                    catch {
+                        print("[WARN] Error fetching product cart items: \(error)")
+                        resolve(cart);
+                    }
+                }
+                .catch { (error) in
+                    reject(error);
+                }
+            
+        }
+        
+        return promise;
+        
+    }
+    
+    func removeCart() -> Promise<Void> {
+        
+        let promise = Promise<Void> { (resolve, reject) in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate;
+            let context = appDelegate.persistentContainer.viewContext;
+            let request = CartItemModel.createFetchRequest();
             resolve(());
         }
         

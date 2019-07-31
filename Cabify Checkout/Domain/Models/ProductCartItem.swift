@@ -29,14 +29,18 @@ class ProductCartItem {
     
     // MARK: - Initialization
     
-    init(product: Product, quantity: Int) {
-        //self.product = product;
-        self.code = product.code;
-        self.name = product.name;
-        self.unitPrice = product.price;
+    init(code: String, name: String, unitPrice: Float, quantity: Int) {
+        self.code = code;
+        self.name = name;
+        self.unitPrice = unitPrice;
         self.quantity = quantity;
         self.totalPrice = Float(quantity) * unitPrice;
         self.savings = 0;
+    }
+    
+    convenience init(product: Product, quantity: Int) {
+        //self.product = product;
+        self.init(code: product.code, name: product.name, unitPrice: product.price, quantity: quantity);
     }
     
     

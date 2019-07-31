@@ -24,7 +24,7 @@ class CartRouter: BaseRouter, CartRouterContract {
     
     func displayCheckoutScreen() {
         
-        if let checkoutController = UIContainer.container.resolve(CheckoutViewController.self) {
+        if let checkoutController = UIContainer.app.resolve(CheckoutViewController.self) {
             (view as! UIViewController).navigationController?.pushViewController(checkoutController, animated: true);
         }
         

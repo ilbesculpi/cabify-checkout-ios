@@ -61,6 +61,10 @@ class ProductCart: NSObject {
             let newItem = ProductCartItem(product: product, quantity: quantity);
             items.append(newItem);
         }
+        update();
+    }
+    
+    func update() {
         calculate();
         updatedAt = Date();
     }
@@ -72,8 +76,7 @@ class ProductCart: NSObject {
     func increaseProduct(code: String) {
         if let current = items.first(where: { return $0.code == code }) {
             current.quantity += 1;
-            calculate();
-            updatedAt = Date();
+            update();
         }
     }
     
@@ -85,8 +88,7 @@ class ProductCart: NSObject {
         if let current = items.first(where: { return $0.code == code }) {
             if current.quantity > 1 {
                 current.quantity -= 1;
-                calculate();
-                updatedAt = Date();
+                update();
             }
         }
     }
@@ -97,8 +99,7 @@ class ProductCart: NSObject {
     
     func removeProduct(code: String) {
         items.removeAll(where: { return $0.code == code });
-        calculate();
-        updatedAt = Date();
+        update();
     }
     
     
