@@ -24,7 +24,7 @@ class UIContainerTests: XCTestCase {
     
     func testRootControllerDependencies() {
         
-        guard let tabController = container.resolve(RootViewContract.self) as? RootViewController else {
+        guard let tabController = container.resolve(RootViewController.self) else {
             XCTFail("Unable to instantiate RootViewController controller");
             return;
         }

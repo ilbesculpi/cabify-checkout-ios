@@ -7,6 +7,6 @@
 
 import UIKit
 
-class BasePresenter: NSObject, BaseRouterContract {
+class BasePresenter: NSObject, BasePresenterContract {
 
 }

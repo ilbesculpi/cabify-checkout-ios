@@ -66,7 +66,7 @@ class CartViewControllerTests: XCTestCase {
         
         // Then: tell controller to display a list of cart items.
         let cartItems = fixture.cartItems;
-        controller.displayProducts(cartItems);
+        controller.displayCartItems(cartItems);
         
         // Expect: tableView should display the products
         XCTAssertTrue(tableSpy.reloadDataCalled);
@@ -82,8 +82,8 @@ class CartViewControllerTests: XCTestCase {
         // Then: tap on "Proceed to checkout" button
         controller.buttonProceedToCheckout.sendActions(for: .touchUpInside);
         
-        // Expect: navigate to reset password screen
-        XCTAssertTrue(routerMock.displayCheckoutScreenCalled, "should ask router to display Checkout screen");
+        // Expect: should ask presenter
+        XCTAssertTrue(presenterMock.performCheckoutCalled, "should ask presenter to perform the checkout");
         
     }
 

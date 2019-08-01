@@ -20,7 +20,7 @@ class CartRouter: BaseRouter, CartRouterContract {
         self.view = view;
     }
     
-    // MARK: - Router
+    // MARK: - CartRouterContract
     
     func displayCheckoutScreen() {
         
@@ -29,4 +29,5 @@ class CartRouter: BaseRouter, CartRouterContract {
         }
         
     }
+    
 }

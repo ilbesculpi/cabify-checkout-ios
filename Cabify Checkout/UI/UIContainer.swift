@@ -33,8 +33,12 @@ final class UIContainer {
             return CartService();
         }
         
+        container.register(PaymentRepository.self) { r in
+            return PaymentService();
+        }
+        
         // Instantiate and configure the RootViewController
-        container.register(RootViewContract.self) { r in
+        container.register(RootViewController.self) { r in
             
             let cart = r.resolve(ProductCart.self)!
             let tabController = UIStoryboard.Scene.App.root;
@@ -89,7 +93,23 @@ final class UIContainer {
             let controller = UIStoryboard.Scene.Products.checkout;
             controller.router = CheckoutRouter(view: controller);
             
-            let presenter = CheckoutPresenter(view: controller);
+            let cart = r.resolve(ProductCart.self)!
+            let presenter = CheckoutPresenter(view: controller, cart: cart);
+            controller.presenter = presenter;
+            
+            return controller;
+        }
+        
+        // Instantiate and configure the Payment controller
+        container.register(PaymentViewController.self) { r in
+            
+            let controller = UIStoryboard.Scene.Payments.payment;
+            controller.router = PaymentRouter(view: controller);
+            
+            let cart = r.resolve(ProductCart.self)!
+            let presenter = PaymentPresenter(view: controller, cart: cart, amount: cart.total);
+            presenter.paymentService = r.resolve(PaymentRepository.self);
+            presenter.cartService = r.resolve(CartRepository.self);
             controller.presenter = presenter;
             
             return controller;

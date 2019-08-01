@@ -2,7 +2,7 @@
 //  CartViewController.swift
 //  Cabify Checkout
 //
-//  Display the cart screen
+//  Display the Shopping Cart screen
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class CartViewController: BaseViewController, CartViewContract {
     var presenter: CartPresenterContract!
     var router: CartRouterContract!
     
-    var products: [ProductCartItem]? {
+    var cartItems: [ProductCartItem]? {
         didSet {
             tableView.reloadData();
         }
@@ -64,8 +64,8 @@ class CartViewController: BaseViewController, CartViewContract {
         labelTotalUnits.text = "Total (\(count)) items:";
     }
     
-    func displayProducts(_ products: [ProductCartItem]) {
-        self.products = products;
+    func displayCartItems(_ items: [ProductCartItem]) {
+        self.cartItems = items;
     }
     
     func displayCheckoutScreen() {
@@ -80,7 +80,7 @@ class CartViewController: BaseViewController, CartViewContract {
     // MARK: - IBAction
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
-        presenter.checkout();
+        presenter.performCheckout();
     }
 
 }
@@ -92,13 +92,13 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products?.count ?? 0;
+        return cartItems?.count ?? 0;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Get the product to display
-        guard let product = products?[indexPath.row] else {
+        guard let product = cartItems?[indexPath.row] else {
             fatalError("The product to display is not available");
         }
         
@@ -120,7 +120,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         // Get the product to display
-        guard let product = products?[indexPath.row] else {
+        guard let product = cartItems?[indexPath.row] else {
             return 140;
         }
         

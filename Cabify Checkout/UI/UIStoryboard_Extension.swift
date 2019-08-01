@@ -39,6 +39,16 @@ extension UIStoryboard {
             
         }
         
+        enum Payments {
+            
+            static let storyboard = UIStoryboard(name: "Payments", bundle: nil);
+            
+            static var payment : PaymentViewController {
+                return storyboard.instantiateViewController(withIdentifier: "Payment") as! PaymentViewController;
+            }
+            
+        }
+        
     }
     
 }

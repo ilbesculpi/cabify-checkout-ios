@@ -15,9 +15,14 @@ class CartMocks {
     class Presenter : CartPresenter {
         
         var onViewCreatedCalled: Bool = false;
+        var performCheckoutCalled: Bool = false;
         
         override func onViewCreated() {
             onViewCreatedCalled = true;
+        }
+        
+        override func performCheckout() {
+            performCheckoutCalled = true;
         }
         
     }
