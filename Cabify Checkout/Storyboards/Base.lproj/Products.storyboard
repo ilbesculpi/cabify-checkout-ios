@@ -488,6 +488,9 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Pay"/>
+                                <connections>
+                                    <action selector="payButtonTapped:" destination="Z6U-ao-wcZ" eventType="touchUpInside" id="8hg-ca-cdL"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FrU-TK-35Y">
                                 <rect key="frame" x="0.0" y="88" width="375" height="453"/>
