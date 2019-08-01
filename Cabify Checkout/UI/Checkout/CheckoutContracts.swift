@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CheckoutViewContract : BaseViewContract {
+protocol CheckoutViewContract : BaseViewContract, PaymentViewDelegate {
     
     var presenter: CheckoutPresenterContract! { get set }
     var router: CheckoutRouterContract! { get set }
@@ -36,5 +36,7 @@ protocol CheckoutRouterContract : BaseRouterContract {
     var view: CheckoutViewContract! { get set }
     
     func displayPaymentScreen();
+    
+    func dismiss();
     
 }

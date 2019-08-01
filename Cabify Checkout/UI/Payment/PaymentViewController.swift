@@ -13,12 +13,14 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
     // MARK: - Properties
     var presenter: PaymentPresenterContract!
     var router: PaymentRouterContract!
+    weak var delegate: PaymentViewDelegate?
     
     
     // MARK: - IBOutlet
     @IBOutlet weak var processingView: UIView!
-    @IBOutlet weak var operationSuccessView: UIView!
-    @IBOutlet weak var operationErrorView: UIView!
+    @IBOutlet weak var paymentSuccessView: PaymentSuccessView!
+    @IBOutlet weak var paymentErrorView: UIView!
+    @IBOutlet weak var dismissButton: UIButton!
 
     
     // MARK: - UIViewController
@@ -34,8 +36,9 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
     
     private func configureViews() {
         processingView.isHidden = true;
-        operationSuccessView.isHidden = true;
-        operationErrorView.isHidden = true;
+        paymentSuccessView.isHidden = true;
+        paymentErrorView.isHidden = true;
+        dismissButton.isHidden = true;
     }
     
     
@@ -50,12 +53,24 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
         processingView.isHidden = true;
     }
     
-    func displayOperationSuccessView() {
-        operationSuccessView.isHidden = false;
+    func displayPaymentSuccessView() {
+        paymentSuccessView.isHidden = false;
+        paymentSuccessView.startAnimation();
+        dismissButton.isHidden = false;
     }
     
-    func displayOperationErrorView() {
-        operationErrorView.isHidden = false;
+    func displayPaymentErrorView(message: String) {
+        paymentErrorView.isHidden = false;
+    }
+    
+    
+    // MARK: - IBAction
+    
+    @IBAction func dismissView(_ sender: Any) {
+        router.dismiss() { [weak self] in
+            // Notify delegate the payment has finished.
+            self?.delegate?.didCompletePayment();
+        }
     }
 
 }

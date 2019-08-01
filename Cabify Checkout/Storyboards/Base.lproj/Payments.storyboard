@@ -43,29 +43,6 @@
                                     <constraint firstItem="Yb8-VF-l8O" firstAttribute="top" secondItem="jue-LV-mpA" secondAttribute="topMargin" constant="8" id="z2J-co-V4z"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Zm-7v-IcN">
-                                <rect key="frame" x="41.5" y="337.5" width="331" height="221"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckSuccess" translatesAutoresizingMaskIntoConstraints="NO" id="Duf-xP-NpM">
-                                        <rect key="frame" x="133.5" y="78.5" width="64" height="64"/>
-                                        <color key="tintColor" name="Success"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-d4-Zbj">
-                                        <rect key="frame" x="127" y="24" width="77" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Duf-xP-NpM" firstAttribute="centerY" secondItem="8Zm-7v-IcN" secondAttribute="centerY" id="0an-aO-RyV"/>
-                                    <constraint firstAttribute="width" secondItem="8Zm-7v-IcN" secondAttribute="height" multiplier="3:2" id="3Zx-X1-FwS"/>
-                                    <constraint firstItem="Duf-xP-NpM" firstAttribute="centerX" secondItem="8Zm-7v-IcN" secondAttribute="centerX" id="6Fw-qR-bL2"/>
-                                    <constraint firstItem="LuO-d4-Zbj" firstAttribute="top" secondItem="8Zm-7v-IcN" secondAttribute="topMargin" constant="16" id="8ZB-xC-Km4"/>
-                                    <constraint firstItem="LuO-d4-Zbj" firstAttribute="centerX" secondItem="8Zm-7v-IcN" secondAttribute="centerX" id="erC-EK-oBo"/>
-                                </constraints>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZU-u6-XoC">
                                 <rect key="frame" x="41.5" y="337.5" width="331" height="221"/>
                                 <subviews>
@@ -90,27 +67,48 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="yeB-3v-iek"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwl-u5-SGl" customClass="PaymentSuccessView" customModule="Cabify_Checkout" customModuleProvider="target">
+                                <rect key="frame" x="41.5" y="337.5" width="331" height="221"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lwl-u5-SGl" secondAttribute="height" multiplier="3:2" id="sXH-Qm-Afi"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yz-fD-ONa">
+                                <rect key="frame" x="16" y="786" width="382" height="44"/>
+                                <color key="backgroundColor" name="PrimaryLight"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VtV-V3-EiI"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="dismissView:" destination="m3T-dg-xWu" eventType="touchUpInside" id="EKq-XW-tDa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jue-LV-mpA" firstAttribute="width" secondItem="WUo-gP-xpE" secondAttribute="width" multiplier="0.8" id="0UC-Va-Xzz"/>
-                            <constraint firstItem="8Zm-7v-IcN" firstAttribute="centerY" secondItem="WUo-gP-xpE" secondAttribute="centerY" id="1CS-cw-BGH"/>
                             <constraint firstItem="fZU-u6-XoC" firstAttribute="width" secondItem="WUo-gP-xpE" secondAttribute="width" multiplier="0.8" id="2Mi-8V-Ue1"/>
+                            <constraint firstItem="YrY-b3-NW2" firstAttribute="bottom" secondItem="2Yz-fD-ONa" secondAttribute="bottom" constant="32" id="57l-Ha-3Yp"/>
+                            <constraint firstItem="2Yz-fD-ONa" firstAttribute="leading" secondItem="YrY-b3-NW2" secondAttribute="leading" constant="16" id="7iK-S9-51w"/>
                             <constraint firstItem="jue-LV-mpA" firstAttribute="centerY" secondItem="WUo-gP-xpE" secondAttribute="centerY" id="AIb-PZ-Y7B"/>
                             <constraint firstItem="fZU-u6-XoC" firstAttribute="centerY" secondItem="WUo-gP-xpE" secondAttribute="centerY" id="CZK-c3-Hw2"/>
-                            <constraint firstItem="8Zm-7v-IcN" firstAttribute="width" secondItem="WUo-gP-xpE" secondAttribute="width" multiplier="0.8" id="Hc2-B9-Gpo"/>
                             <constraint firstItem="jue-LV-mpA" firstAttribute="centerX" secondItem="WUo-gP-xpE" secondAttribute="centerX" id="Rgm-M5-QP0"/>
+                            <constraint firstItem="lwl-u5-SGl" firstAttribute="centerX" secondItem="WUo-gP-xpE" secondAttribute="centerX" id="Vk3-6r-4lT"/>
                             <constraint firstItem="fZU-u6-XoC" firstAttribute="centerX" secondItem="WUo-gP-xpE" secondAttribute="centerX" id="WaM-io-1uO"/>
-                            <constraint firstItem="8Zm-7v-IcN" firstAttribute="centerX" secondItem="WUo-gP-xpE" secondAttribute="centerX" id="niu-iF-N20"/>
+                            <constraint firstItem="YrY-b3-NW2" firstAttribute="trailing" secondItem="2Yz-fD-ONa" secondAttribute="trailing" constant="16" id="dMV-v2-QGb"/>
+                            <constraint firstItem="lwl-u5-SGl" firstAttribute="width" secondItem="WUo-gP-xpE" secondAttribute="width" multiplier="0.8" id="iOL-A2-P1k"/>
+                            <constraint firstItem="lwl-u5-SGl" firstAttribute="centerY" secondItem="WUo-gP-xpE" secondAttribute="centerY" id="lpt-Ia-8iB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YrY-b3-NW2"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment" id="SBH-PG-UNM">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="KFp-Il-O8J"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Payment" id="SBH-PG-UNM"/>
                     <connections>
-                        <outlet property="operationErrorView" destination="fZU-u6-XoC" id="582-s1-xP0"/>
-                        <outlet property="operationSuccessView" destination="8Zm-7v-IcN" id="oXd-nG-OxK"/>
+                        <outlet property="dismissButton" destination="2Yz-fD-ONa" id="4vz-Cs-dwG"/>
+                        <outlet property="paymentErrorView" destination="fZU-u6-XoC" id="582-s1-xP0"/>
+                        <outlet property="paymentSuccessView" destination="lwl-u5-SGl" id="0Qm-IY-ERa"/>
                         <outlet property="processingView" destination="jue-LV-mpA" id="53x-sY-Iwz"/>
                     </connections>
                 </viewController>
@@ -147,7 +145,6 @@
     </scenes>
     <resources>
         <image name="CheckError" width="64" height="64"/>
-        <image name="CheckSuccess" width="64" height="64"/>
         <namedColor name="Accent">
             <color red="0.23137254901960785" green="0.62745098039215685" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -157,8 +154,8 @@
         <namedColor name="PrimaryDark">
             <color red="0.45490196078431372" green="0.30980392156862746" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Success">
-            <color red="0.15686274509803921" green="0.65490196078431373" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="PrimaryLight">
+            <color red="0.70980392156862748" green="0.63137254901960782" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

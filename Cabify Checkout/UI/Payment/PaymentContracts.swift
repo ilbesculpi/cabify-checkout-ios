@@ -14,15 +14,18 @@ protocol PaymentViewContract : BaseViewContract {
     
     func displayProcessingPaymentView();
     func hideProcessingPaymentView();
-    func displayOperationSuccessView();
-    func displayOperationErrorView();
+    func displayPaymentSuccessView();
+    func displayPaymentErrorView(message: String);
     
 }
 
 protocol PaymentPresenterContract : BasePresenterContract {
     
     var view: PaymentViewContract! { get set }
+    var cart: ProductCart { get set }
     var amount: Float { get set }
+    var paymentService: PaymentRepository! { get set }
+    var cartService: CartRepository! { get set }
     
     func onViewCreated();
     
@@ -31,5 +34,13 @@ protocol PaymentPresenterContract : BasePresenterContract {
 protocol PaymentRouterContract : BaseRouterContract {
     
     var view: PaymentViewContract! { get set }
+    
+    func dismiss(completion: (()->Void)?)
+    
+}
+
+protocol PaymentViewDelegate : class {
+    
+    func didCompletePayment()
     
 }

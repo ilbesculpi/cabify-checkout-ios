@@ -119,3 +119,12 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
+
+
+extension CheckoutViewController: PaymentViewDelegate {
+    
+    func didCompletePayment() {
+        router.dismiss();
+    }
+    
+}

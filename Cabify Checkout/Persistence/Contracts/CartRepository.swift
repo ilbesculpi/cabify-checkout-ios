@@ -24,6 +24,6 @@ protocol CartRepository {
     
     func saveCart(_ cart: ProductCart) -> Promise<Void>
     
-    func removeCart() -> Promise<Void>
+    func emptyCart(_ cart: ProductCart) -> Promise<Void>
     
 }

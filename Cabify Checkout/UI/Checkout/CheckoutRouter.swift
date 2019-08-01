@@ -20,14 +20,21 @@ class CheckoutRouter: BaseRouter, CheckoutRouterContract {
         self.view = view;
     }
     
+    
     // MARK: - CheckoutRouterContract
     
     func displayPaymentScreen() {
         if let paymentController = UIContainer.app.resolve(PaymentViewController.self) {
+            paymentController.delegate = view;
             let navigation = embedInNavigation(paymentController);
             (view as! UIViewController).navigationController?
                 .present(navigation, animated: true, completion: nil);
         }
+    }
+    
+    func dismiss() {
+        (view as! UIViewController).navigationController?
+            .popToRootViewController(animated: true)
     }
     
 }
