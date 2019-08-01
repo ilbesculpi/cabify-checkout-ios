@@ -87,19 +87,16 @@ class PaymentSuccessView: UIView {
 extension PaymentSuccessView: CAAnimationDelegate {
     
     func animationDidStart(_ anim: CAAnimation) {
-        print("[DEBUG] animationStart");
+        
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if( flag ) {
-            print("[DEBUG] animationComplete");
             checkImage.isHidden = false;
         }
     }
     
     func startAnimation() {
-        
-        print("[DEBUG] startAnimation()");
         
         addAnimationLayer()
         

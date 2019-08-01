@@ -37,6 +37,7 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
         processingView.isHidden = true;
         paymentSuccessView.isHidden = true;
         paymentErrorView.isHidden = true;
+        dismissButton.isHidden = true;
     }
     
     
@@ -54,6 +55,7 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
     func displayPaymentSuccessView() {
         paymentSuccessView.isHidden = false;
         paymentSuccessView.startAnimation();
+        dismissButton.isHidden = false;
     }
     
     func displayPaymentErrorView(message: String) {
@@ -63,7 +65,7 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
     
     // MARK: - IBAction
     
-    func dismissView(_ sender: Any) {
+    @IBAction func dismissView(_ sender: Any) {
         router.dismiss();
     }
 

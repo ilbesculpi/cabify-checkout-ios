@@ -23,6 +23,7 @@ protocol PaymentPresenterContract : BasePresenterContract {
     
     var view: PaymentViewContract! { get set }
     var amount: Float { get set }
+    var paymentService: PaymentRepository! { get set }
     
     func onViewCreated();
     

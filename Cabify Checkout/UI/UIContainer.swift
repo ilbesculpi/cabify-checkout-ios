@@ -33,6 +33,10 @@ final class UIContainer {
             return CartService();
         }
         
+        container.register(PaymentRepository.self) { r in
+            return PaymentService();
+        }
+        
         // Instantiate and configure the RootViewController
         container.register(RootViewController.self) { r in
             
@@ -104,6 +108,7 @@ final class UIContainer {
             
             let cart = r.resolve(ProductCart.self)!
             let presenter = PaymentPresenter(view: controller, amount: cart.total);
+            presenter.paymentService = r.resolve(PaymentRepository.self);
             controller.presenter = presenter;
             
             return controller;

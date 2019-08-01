@@ -56,6 +56,8 @@
 		19ABC14A22F2E22C00D89814 /* PaymentSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14922F2E22C00D89814 /* PaymentSuccessView.swift */; };
 		19ABC14C22F2E24C00D89814 /* PaymentSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19ABC14B22F2E24C00D89814 /* PaymentSuccessView.xib */; };
 		19ABC14E22F2EA9D00D89814 /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14D22F2EA9D00D89814 /* PaymentRouter.swift */; };
+		19ABC15022F2EC3100D89814 /* PaymentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14F22F2EC3100D89814 /* PaymentRepository.swift */; };
+		19ABC15222F2ED2F00D89814 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC15122F2ED2F00D89814 /* PaymentService.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -149,6 +151,8 @@
 		19ABC14922F2E22C00D89814 /* PaymentSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessView.swift; sourceTree = "<group>"; };
 		19ABC14B22F2E24C00D89814 /* PaymentSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentSuccessView.xib; sourceTree = "<group>"; };
 		19ABC14D22F2EA9D00D89814 /* PaymentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRouter.swift; sourceTree = "<group>"; };
+		19ABC14F22F2EC3100D89814 /* PaymentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRepository.swift; sourceTree = "<group>"; };
+		19ABC15122F2ED2F00D89814 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 			children = (
 				192E8D2922EB8F13007D348A /* ProductRepository.swift */,
 				192E8D4822EDC981007D348A /* CartRepository.swift */,
+				19ABC14F22F2EC3100D89814 /* PaymentRepository.swift */,
 			);
 			path = Contracts;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				192E8D2C22EC862E007D348A /* ProductService.swift */,
 				1906FAD422F1264D0070B36C /* DummyProductService.swift */,
 				192E8D4A22EDCA32007D348A /* CartService.swift */,
+				19ABC15122F2ED2F00D89814 /* PaymentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 				192E8D6822EF5C2A007D348A /* CartProductItemCell.swift in Sources */,
 				19ABC14422F2698F00D89814 /* PaymentContracts.swift in Sources */,
 				192E8D6422EF2D97007D348A /* CartRouter.swift in Sources */,
+				19ABC15022F2EC3100D89814 /* PaymentRepository.swift in Sources */,
 				19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */,
 				192E8D6D22F07D86007D348A /* RootViewController.swift in Sources */,
 				1906FAD522F1264D0070B36C /* DummyProductService.swift in Sources */,
@@ -807,6 +814,7 @@
 				19ABC14A22F2E22C00D89814 /* PaymentSuccessView.swift in Sources */,
 				192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */,
 				192E8D6622EF5AA6007D348A /* ProductCartItem.swift in Sources */,
+				19ABC15222F2ED2F00D89814 /* PaymentService.swift in Sources */,
 				192E8D6222EF2D88007D348A /* CartPresenter.swift in Sources */,
 				19CB0A4C22F1E8E10083502C /* Environment.swift in Sources */,
 				192E8D5622EF27EF007D348A /* CheckoutViewController.swift in Sources */,

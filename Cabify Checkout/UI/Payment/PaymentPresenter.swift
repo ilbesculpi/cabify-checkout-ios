@@ -12,6 +12,7 @@ class PaymentPresenter: BasePresenter, PaymentPresenterContract {
     // MARK: - Properties
     weak var view: PaymentViewContract!
     var amount: Float
+    var paymentService: PaymentRepository!
     
     
     // MARK: - Initialization
@@ -29,11 +30,20 @@ class PaymentPresenter: BasePresenter, PaymentPresenterContract {
         print("[DEBUG] PaymentPresenter::onViewCreated()");
         view.displayProcessingPaymentView();
         
-        // wait 5 seconds to simulate processing...
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
-            self?.view.hideProcessingPaymentView();
-            self?.view.displayPaymentSuccessView();
+        paymentService.processPayment(amount: amount) { [weak self] (result) in
+            
+            if case .success(_) = result {
+                self?.view.hideProcessingPaymentView();
+                self?.view.displayPaymentSuccessView();
+            }
+        
+            if case .failure(_) = result {
+                self?.view.hideProcessingPaymentView();
+                self?.view.displayPaymentErrorView(message: "Operation failed.");
+            }
+            
         }
+        
     }
     
     

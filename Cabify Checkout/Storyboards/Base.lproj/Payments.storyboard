@@ -82,6 +82,9 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="dismissView:" destination="m3T-dg-xWu" eventType="touchUpInside" id="EKq-XW-tDa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -103,6 +106,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Payment" id="SBH-PG-UNM"/>
                     <connections>
+                        <outlet property="dismissButton" destination="2Yz-fD-ONa" id="4vz-Cs-dwG"/>
                         <outlet property="paymentErrorView" destination="fZU-u6-XoC" id="582-s1-xP0"/>
                         <outlet property="paymentSuccessView" destination="lwl-u5-SGl" id="0Qm-IY-ERa"/>
                         <outlet property="processingView" destination="jue-LV-mpA" id="53x-sY-Iwz"/>
