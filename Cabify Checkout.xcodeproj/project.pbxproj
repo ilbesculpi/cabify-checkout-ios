@@ -78,6 +78,7 @@
 		19CB0A4C22F1E8E10083502C /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB0A4B22F1E8E10083502C /* Environment.swift */; };
 		19CB0A4E22F1F4B00083502C /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB0A4D22F1F4B00083502C /* RootPresenter.swift */; };
 		19CB0A5022F1F4BD0083502C /* RootContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CB0A4F22F1F4BD0083502C /* RootContracts.swift */; };
+		19D3677522F35515009743CC /* RootViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D3677422F35515009743CC /* RootViewTests.swift */; };
 		402F2B438AC493B2160FF326 /* Pods_Cabify_CheckoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643C1DB8A8B81077EDD35FA7 /* Pods_Cabify_CheckoutTests.framework */; };
 		726D804CE5F3EA31EFC01846 /* Pods_Cabify_CheckoutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED1F88B7DA4C8434A5F6B38F /* Pods_Cabify_CheckoutUITests.framework */; };
 /* End PBXBuildFile section */
@@ -187,6 +188,7 @@
 		19D3676D22F33466009743CC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		19D3676F22F3349D009743CC /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = NOTES.md; path = Documentation/NOTES.md; sourceTree = SOURCE_ROOT; };
 		19D3677122F344AD009743CC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PaymentSuccessView.strings; sourceTree = "<group>"; };
+		19D3677422F35515009743CC /* RootViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewTests.swift; sourceTree = "<group>"; };
 		4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
 		51C839E6B426A559AA48745C /* Pods-Cabify Checkout.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (development).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (development).xcconfig"; sourceTree = "<group>"; };
 		5D6B3DBE0C36F6DA1EC3E9C3 /* Pods-Cabify Checkout.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (staging).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 		19BE74C922EB29FB0053F005 /* Cabify CheckoutUITests */ = {
 			isa = PBXGroup;
 			children = (
+				19D3677222F354E4009743CC /* UI */,
 				19BE74CA22EB29FB0053F005 /* Cabify_CheckoutUITests.swift */,
 				19BE74CC22EB29FB0053F005 /* Info.plist */,
 			);
@@ -523,6 +526,22 @@
 				19CB0A4B22F1E8E10083502C /* Environment.swift */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		19D3677222F354E4009743CC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				19D3677322F354F5009743CC /* RootView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		19D3677322F354F5009743CC /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				19D3677422F35515009743CC /* RootViewTests.swift */,
+			);
+			path = RootView;
 			sourceTree = "<group>";
 		};
 		5618AE68B9A2279223D8C80A /* Pods */ = {
@@ -868,6 +887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D3677522F35515009743CC /* RootViewTests.swift in Sources */,
 				19BE74CB22EB29FB0053F005 /* Cabify_CheckoutUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

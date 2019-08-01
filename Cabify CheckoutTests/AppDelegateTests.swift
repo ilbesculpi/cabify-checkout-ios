@@ -70,4 +70,37 @@ class AppDelegateTests: XCTestCase {
         
     }
     
+    func testContainerSetupForTesting() {
+        
+        // When: application launches
+        
+        // Then: call setupContainer()
+        appDelegate.setupContainer(testing: true);
+        
+        // Expect: container should be dummy
+        XCTAssertNotNil(appDelegate.container);
+        
+        // Expect: ProductRepository should be DummyProductService
+        let repository = appDelegate.container.resolve(ProductRepository.self)
+        
+        XCTAssertTrue(repository is DummyProductService, "container should provide DummyProductService");
+    }
+    
+    func testContainerSetup() {
+        
+        // When: application launches
+        
+        // Then: call setupContainer()
+        appDelegate.setupContainer();
+        
+        // Expect: container should be real
+        XCTAssertNotNil(appDelegate.container);
+        
+        // Expect: ProductRepository should be DummyProductService
+        let repository = appDelegate.container.resolve(ProductRepository.self)
+        
+        XCTAssertTrue(repository is ProductService, "container should provide ProductService");
+    }
+    
+    
 }
