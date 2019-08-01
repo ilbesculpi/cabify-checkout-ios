@@ -87,8 +87,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func boostrap(testing: Bool = false) {
         configureAppearance();
-        configureShoppingCart();
-        configureRootController();
+        if !testing {
+            // avoid loading promotions for testing
+            configureShoppingCart();
+        }
+        
+        if NSClassFromString("XCTestCase") == nil {
+            // avoid loading the root view controller for testing
+            configureRootController();
+        }
     }
     
     /**
@@ -119,17 +126,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      Load the stored promotions and setup default shopping cart
      */
     func configureShoppingCart() {
-        if let service = container.resolve(CartRepository.self) {
-            let cart = service.defaultCart;
-            service.loadPromotions()
-                .then { (promotions) in
-                    service.loadCart(into: cart)
-                        .then { (cart) in
-                            cart.addPromotions(promotions);
-                            cart.update();
-                        }
-                }
-        }
+        cartService.loadPromotions()
+            .then { [unowned self] (promotions) in
+                self.cartService.loadCart(into: self.shoppingCart)
+                    .then { (cart) in
+                        cart.addPromotions(promotions);
+                        cart.update();
+                    }
+            }
     }
     
     
