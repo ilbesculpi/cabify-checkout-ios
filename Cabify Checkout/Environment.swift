@@ -16,6 +16,7 @@ enum Environment {
             static let environment = "APP_ENVIRONMENT"
             static let serverUrl = "SERVER_URL"
             static let containerName = "APP_CONTAINER"
+            static let currencySymbol = "APP_CURRENCY_SYMBOL"
         }
     }
     
@@ -56,5 +57,15 @@ enum Environment {
         }
         return container
     }()
+    
+    /** Access APP_CONTAINER from Plist Config file. */
+    static let currencySymbol: String = {
+        guard let currency = Environment.infoDictionary["APP_CURRENCY_SYMBOL"] as? String else {
+            print("[WARN] Currency Symbol not set in plist for this environment. Fallback to '$'");
+            return "$"
+        }
+        return currency
+    }()
+    
     
 }

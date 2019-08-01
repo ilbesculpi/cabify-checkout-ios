@@ -20,6 +20,8 @@ class BaseViewController: UIViewController, BaseViewContract {
         return appDelegate.window?.rootViewController as! RootViewController;
     }
     
+    var currency: String = Environment.currencySymbol;
+    
     
     // MARK: - UIViewController
     
@@ -41,7 +43,7 @@ class BaseViewController: UIViewController, BaseViewContract {
     func displayError(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert);
         alert.addAction(UIAlertAction(
-            title: "Dismiss",
+            title: "Dismiss".localized(),
             style: .default,
             handler: nil
         ));

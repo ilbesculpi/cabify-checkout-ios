@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Cabify Checkout
+
+  Created by Ilbert Esculpi on 8/1/19.
+  Copyright © 2019 Cabify. All rights reserved.
+*/
+
+/* Class = "BaseViewController#displayError"; normalTitle = "Dismiss"; */
+"Dismiss" = "Cerrar";
+
+/* Class = "ProductListPresenter#fetchProducts"; normalTitle = "Failed to retrieve the product list."; */
+"Failed to retrieve the product list." = "Error obteniendo los productos.";
+
+/* Class = "CartProductItemCell#display"; normalTitle = "You save: %@"; */
+"You save: %@" = "Ahorras: %@";

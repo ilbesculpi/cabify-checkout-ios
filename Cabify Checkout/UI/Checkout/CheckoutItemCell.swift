@@ -11,6 +11,9 @@ import UIKit
 class CheckoutItemCell: UITableViewCell {
     
     
+    // MARK: - Properties
+    var currency: String = Environment.currencySymbol
+    
     // MARK: - IBOutlet
     @IBOutlet weak var labelCode: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
@@ -19,9 +22,12 @@ class CheckoutItemCell: UITableViewCell {
     @IBOutlet weak var labelPromotion: UILabel!
     @IBOutlet weak var labelPromotionSaves: UILabel!
 
+    
+    
+    // MARK: - UITableViewCell
+    
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+        super.awakeFromNib();
     }
 
     
@@ -35,19 +41,18 @@ class CheckoutItemCell: UITableViewCell {
         labelCode.text = product.code;
         labelTitle.text = product.name;
         
-        let unitPrice = String.format(amount: product.unitPrice, currency: "€");
+        let unitPrice = String.format(amount: product.unitPrice, currency: currency);
         labelQuantity.text = "\(product.quantity) x \(unitPrice)";
         
-        let totalPrice = String.format(amount: product.totalPrice, currency: "€");
+        let totalPrice = String.format(amount: product.totalPrice, currency: currency);
         labelPrice.text = totalPrice;
         
         // item has promotion?
         if product.hasPromotion {
-            let discountPrice = String.format(amount: product.discountPrice, currency: "€");
+            let discountPrice = String.format(amount: product.discountPrice, currency: currency);
             labelQuantity.text = "\(product.quantity) x \(discountPrice)";
-            //labelPromotion.text = product.promotion;
-            let savings = String.format(amount: product.savings, currency: "€");
-            labelPromotionSaves.text = "You save: \(savings)";
+            let savings = String.format(amount: product.savings, currency: currency);
+            labelPromotionSaves.text = String(format: "You save: %@".localized(), savings);
         }
         else {
             labelPromotionSaves.text = nil;

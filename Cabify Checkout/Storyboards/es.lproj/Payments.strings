@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "2Yz-fD-ONa"; */
+"2Yz-fD-ONa.normalTitle" = "Cerrar";
+
+/* Class = "UINavigationItem"; title = "Payment"; ObjectID = "SBH-PG-UNM"; */
+"SBH-PG-UNM.title" = "Pagar";
+
+/* Class = "UILabel"; text = "Processing your payment..."; ObjectID = "Yb8-VF-l8O"; */
+"Yb8-VF-l8O.text" = "Procesando tu pago...";
+
+/* Class = "UILabel"; text = "Operation Failed!"; ObjectID = "kBp-lJ-Mri"; */
+"kBp-lJ-Mri.text" = "¡Operación fallida!";

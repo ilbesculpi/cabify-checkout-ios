@@ -1,5 +1,5 @@
 //
-//  StringUtils.swift
+//  String_Extension.swift
 //  Cabify Checkout
 //
 //  String Helper
@@ -19,6 +19,10 @@ extension String {
         formatter.maximumFractionDigits = 2;
         
         return formatter.string(from: NSNumber(value: amount))!
+    }
+    
+    func localized(comment: String = "") -> String {
+        return NSLocalizedString(self, comment: comment);
     }
     
 }
