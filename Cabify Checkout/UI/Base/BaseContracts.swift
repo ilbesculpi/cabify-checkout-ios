@@ -5,7 +5,7 @@
 //  Define the UI contracts shared between main views
 //
 
-import Foundation
+import UIKit
 
 protocol BaseViewContract : class {
     
@@ -20,6 +20,8 @@ protocol BasePresenterContract : class {
 }
 
 protocol BaseRouterContract : class {
+    
+    func embedInNavigation(_ controller: UIViewController);
     
 }
 

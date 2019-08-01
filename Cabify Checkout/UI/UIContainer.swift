@@ -96,6 +96,15 @@ final class UIContainer {
             return controller;
         }
         
+        // Instantiate and configure the Payment controller
+        container.register(PaymentViewController.self) { r in
+            
+            let controller = UIStoryboard.Scene.Payments.payment;
+            
+            
+            return controller;
+        }
+        
         return container;
         
     }()

@@ -49,6 +49,9 @@
 		192E8D6A22F065E5007D348A /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D6922F065E5007D348A /* StringUtils.swift */; };
 		192E8D6D22F07D86007D348A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192E8D6C22F07D86007D348A /* RootViewController.swift */; };
 		19ABC13E22F2590F00D89814 /* CheckoutItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC13D22F2590F00D89814 /* CheckoutItemCell.swift */; };
+		19ABC14122F2689B00D89814 /* Payments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19ABC13F22F2689B00D89814 /* Payments.storyboard */; };
+		19ABC14422F2698F00D89814 /* PaymentContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14322F2698F00D89814 /* PaymentContracts.swift */; };
+		19ABC14622F269A000D89814 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14522F269A000D89814 /* PaymentViewController.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -135,6 +138,9 @@
 		192E8D6922F065E5007D348A /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		192E8D6C22F07D86007D348A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		19ABC13D22F2590F00D89814 /* CheckoutItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemCell.swift; sourceTree = "<group>"; };
+		19ABC14022F2689B00D89814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Payments.storyboard; sourceTree = "<group>"; };
+		19ABC14322F2698F00D89814 /* PaymentContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContracts.swift; sourceTree = "<group>"; };
+		19ABC14522F269A000D89814 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -326,6 +332,15 @@
 			path = RootController;
 			sourceTree = "<group>";
 		};
+		19ABC14222F2697800D89814 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				19ABC14322F2698F00D89814 /* PaymentContracts.swift */,
+				19ABC14522F269A000D89814 /* PaymentViewController.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 		19BE749E22EB29ED0053F005 = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +404,7 @@
 			children = (
 				19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */,
 				19BE74DE22EB2D2A0053F005 /* Products.storyboard */,
+				19ABC13F22F2689B00D89814 /* Payments.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -413,6 +429,7 @@
 				19BE74DB22EB2CF90053F005 /* ProductList */,
 				192E8D5C22EF2D0E007D348A /* Cart */,
 				192E8D5222EF2741007D348A /* Checkout */,
+				19ABC14222F2697800D89814 /* Payment */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -618,6 +635,7 @@
 				192E8D4722EDC889007D348A /* Promotions.plist in Resources */,
 				19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */,
 				19BE74E022EB2D2A0053F005 /* Products.storyboard in Resources */,
+				19ABC14122F2689B00D89814 /* Payments.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +764,7 @@
 				19BE74EF22EB35AE0053F005 /* ProductListRouter.swift in Sources */,
 				19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */,
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
+				19ABC14622F269A000D89814 /* PaymentViewController.swift in Sources */,
 				192E8D6022EF2D7A007D348A /* CartViewController.swift in Sources */,
 				192E8D5A22EF2B21007D348A /* CheckoutRouter.swift in Sources */,
 				19CB0A5022F1F4BD0083502C /* RootContracts.swift in Sources */,
@@ -764,6 +783,7 @@
 				192E8D2D22EC862E007D348A /* ProductService.swift in Sources */,
 				19BE74DD22EB2D160053F005 /* ProductListViewController.swift in Sources */,
 				192E8D6822EF5C2A007D348A /* CartProductItemCell.swift in Sources */,
+				19ABC14422F2698F00D89814 /* PaymentContracts.swift in Sources */,
 				192E8D6422EF2D97007D348A /* CartRouter.swift in Sources */,
 				19BE74F722EB4BA20053F005 /* UIColor_Extension.swift in Sources */,
 				192E8D6D22F07D86007D348A /* RootViewController.swift in Sources */,
@@ -827,6 +847,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		19ABC13F22F2689B00D89814 /* Payments.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				19ABC14022F2689B00D89814 /* Base */,
+			);
+			name = Payments.storyboard;
+			sourceTree = "<group>";
+		};
 		19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

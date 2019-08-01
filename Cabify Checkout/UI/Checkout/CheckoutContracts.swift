@@ -32,4 +32,6 @@ protocol CheckoutRouterContract : BaseRouterContract {
     
     var view: CheckoutViewContract! { get set }
     
+    func displayPaymentScreen();
+    
 }
