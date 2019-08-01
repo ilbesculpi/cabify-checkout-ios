@@ -185,7 +185,8 @@ Una vez que la compra se concreta, el carrito es vaciado y los productos son eli
 
 ## Internacionalización
 
-La aplicación da soporte a dos idiomas (inglés y español). La traducción base está en inglés, y los storyboards 
+La aplicación da soporte a dos idiomas (inglés y español). La traducción base está en inglés.
+
 
 ## Mejoras 
 
