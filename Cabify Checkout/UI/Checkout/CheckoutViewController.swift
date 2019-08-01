@@ -50,7 +50,7 @@ class CheckoutViewController: BaseViewController, CheckoutViewContract {
         
         // Cell configuration
         tableView.allowsSelection = false;
-        
+        tableView.rowHeight = 108.0;
     }
     
     
@@ -65,7 +65,7 @@ class CheckoutViewController: BaseViewController, CheckoutViewContract {
     }
     
     func displayDiscounts(price: Float) {
-        labelDiscounts.text = String.format(amount: price, currency: "€");
+        labelDiscounts.text = "-" + String.format(amount: price, currency: "€");
     }
     
     func displayCartItems(_ items: [ProductCartItem]) {
@@ -104,16 +104,6 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         
         // Return the cell
         return cell;
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        // Get the product to display
-        guard let product = cartItems?[indexPath.row] else {
-            return 140;
-        }
-        
-        return product.hasPromotion ? 180.0 : 148.0;
     }
     
 }

@@ -493,7 +493,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="453"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CheckoutItemCell" rowHeight="108" id="1pe-uP-v2A">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CheckoutItemCell" rowHeight="108" id="1pe-uP-v2A" customClass="CheckoutItemCell" customModule="Cabify_Checkout" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1pe-uP-v2A" id="n6d-e9-z1Q">
@@ -524,10 +524,9 @@
                                                     <color key="textColor" name="TextMoney"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUO-70-e2Z">
-                                                    <rect key="frame" x="108" y="68" width="45" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You save: 0.00€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUO-70-e2Z">
+                                                    <rect key="frame" x="101" y="68" width="103" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -540,10 +539,19 @@
                                                 <constraint firstItem="N8A-pw-C5N" firstAttribute="leading" secondItem="eCN-Md-Kn6" secondAttribute="leading" id="Sgz-Xp-vzT"/>
                                                 <constraint firstItem="eCN-Md-Kn6" firstAttribute="leading" secondItem="Ri3-k2-ncn" secondAttribute="leading" id="UMM-r4-lro"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="9Qg-pJ-MJi" secondAttribute="bottom" constant="8" id="Xdm-nb-hk2"/>
+                                                <constraint firstItem="cUO-70-e2Z" firstAttribute="centerY" secondItem="N8A-pw-C5N" secondAttribute="centerY" id="fAI-mb-UBr"/>
+                                                <constraint firstItem="cUO-70-e2Z" firstAttribute="leading" secondItem="N8A-pw-C5N" secondAttribute="trailing" constant="16" id="nSI-Xq-pfU"/>
                                                 <constraint firstItem="N8A-pw-C5N" firstAttribute="top" secondItem="eCN-Md-Kn6" secondAttribute="bottom" constant="8" id="onf-Vc-pkC"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9Qg-pJ-MJi" secondAttribute="trailing" constant="8" id="qY2-cB-GQz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelCode" destination="Ri3-k2-ncn" id="99s-iu-drt"/>
+                                            <outlet property="labelPrice" destination="9Qg-pJ-MJi" id="HDI-A6-OQc"/>
+                                            <outlet property="labelPromotionSaves" destination="cUO-70-e2Z" id="nTJ-Sb-dD7"/>
+                                            <outlet property="labelQuantity" destination="N8A-pw-C5N" id="a1P-PR-Gfe"/>
+                                            <outlet property="labelTitle" destination="eCN-Md-Kn6" id="fer-SQ-J40"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

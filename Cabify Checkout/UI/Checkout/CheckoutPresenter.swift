@@ -26,6 +26,10 @@ class CheckoutPresenter: BasePresenter, CheckoutPresenterContract {
     
     func onViewCreated() {
         print("[DEBUG] CheckoutPresenter::onViewCreated()");
+        view.displayTotal(price: cart.total);
+        view.displaySubtotal(price: cart.subtotal);
+        view.displayDiscounts(price: cart.discount);
+        view.displayCartItems(cart.cartItems);
     }
     
     
