@@ -90,8 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible();
         self.window = window;
         
-        // Instantiate RootController
-        guard let rootController = container.resolve(RootViewContract.self) as? UIViewController else {
+        // Instantiate RootViewController
+        guard let rootController = container.resolve(RootViewController.self) else {
             fatalError("Unable to instantiate Root controller");
         }
         

@@ -28,7 +28,7 @@ protocol CartPresenterContract : BasePresenterContract, CartListItemDelegate {
     var cartService: CartRepository! { get set }
     
     func onViewCreated();
-    func checkout();
+    func performCheckout();
     
 }
 

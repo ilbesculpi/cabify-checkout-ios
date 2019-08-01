@@ -44,7 +44,7 @@ class CartPresenter: BasePresenter, CartPresenterContract {
         view.setCheckoutState(enabled: !cart.isEmpty);
     }
     
-    func checkout() {
+    func performCheckout() {
         cartService.saveCart(cart).always { [weak self] in
             guard let ref = self else {
                 return;

@@ -80,7 +80,7 @@ class CartViewController: BaseViewController, CartViewContract {
     // MARK: - IBAction
     
     @IBAction func proceedToCheckout(_ sender: UIButton) {
-        presenter.checkout();
+        presenter.performCheckout();
     }
 
 }

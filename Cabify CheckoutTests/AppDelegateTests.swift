@@ -25,8 +25,13 @@ class AppDelegateTests: XCTestCase {
     func testConfigureRootController() {
         
         let containerMock = Container();
-        let tabControllerSpy = RootViewController();
+        let tabControllerSpy = UIStoryboard.Scene.App.root;
         containerMock.register(RootViewController.self) { r in
+            let cart = ProductCart();
+            tabControllerSpy.presenter = RootPresenter(view: tabControllerSpy, cart: cart);
+            let tab0 = UIViewController();
+            let tab1 = UIViewController();
+            tabControllerSpy.viewControllers = [tab0, tab1];
             return tabControllerSpy;
         }
         appDelegate.container = containerMock;
