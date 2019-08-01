@@ -40,6 +40,7 @@ class ProductListPresenterTests: XCTestCase {
         
     }
     
+    /*
     func testShouldNotifyViewToDisplayProducts() {
         
         // When:
@@ -57,5 +58,6 @@ class ProductListPresenterTests: XCTestCase {
         // Wait for the expectation to be fullfilled
         waitForExpectations(timeout: 3, handler: nil);
     }
-
+    */
+    
 }
