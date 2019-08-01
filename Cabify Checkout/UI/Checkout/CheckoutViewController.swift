@@ -71,7 +71,19 @@ class CheckoutViewController: BaseViewController, CheckoutViewContract {
     func displayCartItems(_ items: [ProductCartItem]) {
         self.cartItems = items;
     }
+    
+    func displayPaymentScreen() {
+        router.displayPaymentScreen();
+    }
 
+    
+    // MARK: - IBAction
+    
+    @IBAction func payButtonTapped(_ sender: UIButton) {
+        presenter.paymentAction();
+    }
+    
+    
 }
 
 

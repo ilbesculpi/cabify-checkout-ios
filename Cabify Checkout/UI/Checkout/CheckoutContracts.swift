@@ -17,6 +17,8 @@ protocol CheckoutViewContract : BaseViewContract {
     func displayDiscounts(price: Float);
     func displayCartItems(_ items: [ProductCartItem]);
     
+    func displayPaymentScreen();
+    
 }
 
 protocol CheckoutPresenterContract : BasePresenterContract {
@@ -25,6 +27,7 @@ protocol CheckoutPresenterContract : BasePresenterContract {
     var cart: ProductCart { get set }
     
     func onViewCreated();
+    func paymentAction();
     
 }
 

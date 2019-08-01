@@ -32,5 +32,9 @@ class CheckoutPresenter: BasePresenter, CheckoutPresenterContract {
         view.displayCartItems(cart.cartItems);
     }
     
+    func paymentAction() {
+        view.displayPaymentScreen();
+    }
+    
     
 }

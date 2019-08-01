@@ -21,7 +21,7 @@ protocol BasePresenterContract : class {
 
 protocol BaseRouterContract : class {
     
-    func embedInNavigation(_ controller: UIViewController);
+    func embedInNavigation(_ controller: UIViewController) -> UINavigationController
     
 }
 
