@@ -184,6 +184,8 @@
 		19CB0A4B22F1E8E10083502C /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		19CB0A4D22F1F4B00083502C /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		19CB0A4F22F1F4BD0083502C /* RootContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContracts.swift; sourceTree = "<group>"; };
+		19D3676D22F33466009743CC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		19D3676F22F3349D009743CC /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = NOTES.md; path = Documentation/NOTES.md; sourceTree = SOURCE_ROOT; };
 		4AE0787DBC601074DA1BC828 /* Pods-Cabify CheckoutTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutTests.release.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutTests/Pods-Cabify CheckoutTests.release.xcconfig"; sourceTree = "<group>"; };
 		51C839E6B426A559AA48745C /* Pods-Cabify Checkout.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (development).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (development).xcconfig"; sourceTree = "<group>"; };
 		5D6B3DBE0C36F6DA1EC3E9C3 /* Pods-Cabify Checkout.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug (staging).xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug (staging).xcconfig"; sourceTree = "<group>"; };
@@ -396,6 +398,8 @@
 		19BE74A922EB29ED0053F005 /* Cabify Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				19D3676F22F3349D009743CC /* NOTES.md */,
+				19D3676D22F33466009743CC /* README.md */,
 				19BE74AA22EB29ED0053F005 /* AppDelegate.swift */,
 				1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */,
 				19ABC15422F2F93600D89814 /* Resources */,
