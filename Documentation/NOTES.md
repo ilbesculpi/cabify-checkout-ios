@@ -174,7 +174,7 @@ Las promociones están definidas en el archivo `Promotions.plist`
 
 ![promotions plist](/Documentation/images/promotions_plist.png)
 
-Se pueden activar las promociones utilizando las fechas de `start` y `end`
+Se pueden agregar más promociones, agregando entradas al plist. De igual manera, se pueden activar y desactivar utilizando las fechas de `start` y `end`. Si una promoción no tiene fechas, se considera activa. De lo contrario, se evalúan las fechas para determinar si al momento de la consulta, la promoción está activa.
 
 
 ## Persistencia
