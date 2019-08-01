@@ -183,6 +183,10 @@ Los productos agregados al carrito de compra se guardan utilizando `Core Data`. 
 Una vez que la compra se concreta, el carrito es vaciado y los productos son eliminados.
 
 
+## Internacionalización
+
+La aplicación da soporte a dos idiomas (inglés y español). La traducción base está en inglés, y los storyboards 
+
 ## Mejoras 
 
 - [  ] Para dispositivos más grandes (iPads), se podría utilizar un UICollectionView en lugar de UITableView para mostrar varias columnas en el listado de productos.
