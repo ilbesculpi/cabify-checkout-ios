@@ -31,19 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        // Configure container
-        if Environment.containerName == "development" {
-            container = UIContainer.dummy;
+        // print environment config
+        print("[INFO] Environment: \(Environment.environment)");
+        
+        // Bootstrap app
+        if CommandLine.arguments.contains("enable-testing") || Environment.environment == "development" {
+            setupContainer(testing: true)
         }
         else {
-            container = UIContainer.app;
+            setupContainer(testing: false);
         }
+        
         
         // Ask the container to provide service dependencies
         cartService = container.resolve(CartRepository.self);
-        
-        // print environment config
-        print("[INFO] Environment: \(Environment.environment)");
         
         return true;
     }
@@ -51,7 +52,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
-        bootstrap();
+        
+        // skip for Unit Testing
+        if NSClassFromString("XCTestCase") == nil {
+            boostrap(testing: true)
+        }
+        else {
+            boostrap(testing: false)
+        }
         
         return true;
     }
@@ -63,18 +71,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Bootstrap
     
-    func bootstrap() {
+    func setupContainer(testing: Bool = false) {
         
-        configureAppearance();
-        
-        // skip for Unit Testing
-        if NSClassFromString("XCTestCase") == nil {
-            configureShoppingCart();
-            configureRootController();
+        // Configure container
+        if testing {
+            // Use dummy container for testing
+            container = UIContainer.dummy;
+        }
+        else {
+            // Use default container
+            container = UIContainer.app;
         }
         
     }
     
+    func boostrap(testing: Bool = false) {
+        configureAppearance();
+        configureShoppingCart();
+        configureRootController();
+    }
     
     /**
      Creates and configures the controller to be presented at launch.
