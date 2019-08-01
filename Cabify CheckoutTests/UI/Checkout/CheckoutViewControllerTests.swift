@@ -1,41 +1,37 @@
 //
-//  CartViewControllerTests.swift
+//  CheckoutViewControllerTests.swift
 //  Cabify CheckoutTests
 //
-//  Created by Ilbert Esculpi on 7/31/19.
+//  Created by Ilbert Esculpi on 8/1/19.
 //  Copyright © 2019 Cabify. All rights reserved.
 //
 
 import XCTest
 @testable import Cabify_Checkout
 
-class CartViewControllerTests: XCTestCase {
+class CheckoutViewControllerTests: XCTestCase {
 
-    var controller: CartViewController!
-    var presenterMock: CartMocks.Presenter!
-    var routerMock: CartMocks.Router!
-    var cartServiceMock: CartMocks.CartService!
-    var fixture: CartFixture!
+    var controller: CheckoutViewController!
+    var presenterMock: CheckoutMocks.Presenter!
+    var routerMock: CheckoutMocks.Router!
+    var fixture: CheckoutFixture!
     
     override func setUp() {
-        controller = UIStoryboard.Scene.Products.cart;
-        presenterMock = CartMocks.Presenter(view: controller, cart: ProductCart());
-        cartServiceMock = CartMocks.CartService();
-        presenterMock.cartService = cartServiceMock;
+        controller = UIStoryboard.Scene.Products.checkout;
+        presenterMock = CheckoutMocks.Presenter(view: controller, cart: ProductCart());
         controller.presenter = presenterMock;
-        routerMock = CartMocks.Router(view: controller);
+        routerMock = CheckoutMocks.Router(view: controller);
         controller.router = routerMock;
-        fixture = CartFixture();
+        fixture = CheckoutFixture();
     }
 
     override func tearDown() {
         controller = nil;
         presenterMock = nil;
-        cartServiceMock = nil;
         routerMock = nil;
         fixture = nil;
     }
-    
+
     func testOutlets() {
         
         // When: controller loads view
@@ -57,10 +53,10 @@ class CartViewControllerTests: XCTestCase {
         XCTAssertTrue(presenterMock.onViewCreatedCalled, "controller should call presenter::onViewCreated()");
     }
     
-    func testDisplayProducts() {
+    func testDisplayCartItems() {
         
         // When: controller loads view
-        let tableSpy = CartMocks.TableView(frame: CGRect.zero);
+        let tableSpy = CheckoutMocks.TableView(frame: CGRect.zero);
         let _ = controller.view;
         controller.tableView = tableSpy;
         
@@ -71,19 +67,6 @@ class CartViewControllerTests: XCTestCase {
         // Expect: tableView should display the products
         XCTAssertTrue(tableSpy.reloadDataCalled);
         XCTAssertEqual(2, controller.tableView(tableSpy, numberOfRowsInSection: 0));
-        
-    }
-    
-    func testProceedToCheckout() {
-        
-        // When: controller loads view
-        let _ = controller.view;
-        
-        // Then: tap on "Proceed to checkout" button
-        controller.buttonProceedToCheckout.sendActions(for: .touchUpInside);
-        
-        // Expect: should ask presenter
-        XCTAssertTrue(presenterMock.performCheckoutCalled, "should ask presenter to perform the checkout");
         
     }
 

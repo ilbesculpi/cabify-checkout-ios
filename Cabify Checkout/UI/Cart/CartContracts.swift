@@ -13,6 +13,8 @@ protocol CartViewContract : BaseViewContract {
     var presenter: CartPresenterContract! { get set }
     var router: CartRouterContract! { get set }
     
+    func displayCart();
+    func displayEmptyCart();
     func displayItemCount(_ count: Int);
     func displayTotal(price: Float);
     func displayCartItems(_ items: [ProductCartItem]);

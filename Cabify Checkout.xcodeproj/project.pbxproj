@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0F08E6C75BBC0D47C89EE94D /* Pods_Cabify_Checkout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD40DD1743374B5874AEF4B8 /* Pods_Cabify_Checkout.framework */; };
+		19000BB122F3952E008E3262 /* CheckoutViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BB022F3952E008E3262 /* CheckoutViewControllerTests.swift */; };
+		19000BB322F3953C008E3262 /* CheckoutPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BB222F3953C008E3262 /* CheckoutPresenterTests.swift */; };
+		19000BB522F3954A008E3262 /* PaymentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BB422F3954A008E3262 /* PaymentViewControllerTests.swift */; };
+		19000BB722F39559008E3262 /* PaymentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BB622F39559008E3262 /* PaymentPresenterTests.swift */; };
+		19000BB922F39570008E3262 /* CartServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BB822F39570008E3262 /* CartServiceTests.swift */; };
+		19000BBB22F3957F008E3262 /* PaymentServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BBA22F3957F008E3262 /* PaymentServiceTests.swift */; };
+		19000BBD22F395E9008E3262 /* CheckoutMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BBC22F395E9008E3262 /* CheckoutMocks.swift */; };
+		19000BBF22F396D2008E3262 /* CheckoutFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19000BBE22F396D2008E3262 /* CheckoutFixture.swift */; };
 		1906FAC422F0F3770070B36C /* CabifyCheckout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1906FAC222F0F3770070B36C /* CabifyCheckout.xcdatamodeld */; };
 		1906FAD522F1264D0070B36C /* DummyProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1906FAD422F1264D0070B36C /* DummyProductService.swift */; };
 		1906FADC22F12C850070B36C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906FADB22F12C850070B36C /* CoreData.framework */; };
@@ -104,6 +112,14 @@
 		06B42FCC7CCCB3C3215070FD /* Pods-Cabify CheckoutUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify CheckoutUITests.debug.xcconfig"; path = "Target Support Files/Pods-Cabify CheckoutUITests/Pods-Cabify CheckoutUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		07919D045E4AA00DD5628310 /* Pods-Cabify Checkout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.release.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.release.xcconfig"; sourceTree = "<group>"; };
 		162934F283FD0F2E9C2BB7E1 /* Pods-Cabify Checkout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cabify Checkout.debug.xcconfig"; path = "Target Support Files/Pods-Cabify Checkout/Pods-Cabify Checkout.debug.xcconfig"; sourceTree = "<group>"; };
+		19000BB022F3952E008E3262 /* CheckoutViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewControllerTests.swift; sourceTree = "<group>"; };
+		19000BB222F3953C008E3262 /* CheckoutPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPresenterTests.swift; sourceTree = "<group>"; };
+		19000BB422F3954A008E3262 /* PaymentViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewControllerTests.swift; sourceTree = "<group>"; };
+		19000BB622F39559008E3262 /* PaymentPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPresenterTests.swift; sourceTree = "<group>"; };
+		19000BB822F39570008E3262 /* CartServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartServiceTests.swift; sourceTree = "<group>"; };
+		19000BBA22F3957F008E3262 /* PaymentServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentServiceTests.swift; sourceTree = "<group>"; };
+		19000BBC22F395E9008E3262 /* CheckoutMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutMocks.swift; sourceTree = "<group>"; };
+		19000BBE22F396D2008E3262 /* CheckoutFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFixture.swift; sourceTree = "<group>"; };
 		1906FAC322F0F3770070B36C /* CabifyCheckoutModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CabifyCheckoutModel.xcdatamodel; sourceTree = "<group>"; };
 		1906FAD422F1264D0070B36C /* DummyProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyProductService.swift; sourceTree = "<group>"; };
 		1906FADB22F12C850070B36C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -232,6 +248,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19000BAE22F394F9008E3262 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				19000BB422F3954A008E3262 /* PaymentViewControllerTests.swift */,
+				19000BB622F39559008E3262 /* PaymentPresenterTests.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		19000BAF22F39503008E3262 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				19000BBC22F395E9008E3262 /* CheckoutMocks.swift */,
+				19000BBE22F396D2008E3262 /* CheckoutFixture.swift */,
+				19000BB022F3952E008E3262 /* CheckoutViewControllerTests.swift */,
+				19000BB222F3953C008E3262 /* CheckoutPresenterTests.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
 		1906FAC922F0F47D0070B36C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +331,8 @@
 			isa = PBXGroup;
 			children = (
 				192E8D3022EC880C007D348A /* ProductServiceTests.swift */,
+				19000BB822F39570008E3262 /* CartServiceTests.swift */,
+				19000BBA22F3957F008E3262 /* PaymentServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -490,6 +528,8 @@
 				192E8D3222EC8F85007D348A /* UIContainerTests.swift */,
 				19BE74E222EB2D720053F005 /* ProductList */,
 				1906FAE122F18EE20070B36C /* Cart */,
+				19000BAF22F39503008E3262 /* Checkout */,
+				19000BAE22F394F9008E3262 /* Payment */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -867,12 +907,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				192E8D4122ECA5FE007D348A /* ProductCartTests.swift in Sources */,
+				19000BB722F39559008E3262 /* PaymentPresenterTests.swift in Sources */,
 				19BE74F122EB3A940053F005 /* AppDelegateTests.swift in Sources */,
 				1906FAE722F18F200070B36C /* ProductListPresenterTests.swift in Sources */,
+				19000BBD22F395E9008E3262 /* CheckoutMocks.swift in Sources */,
 				1906FAEB22F1BE5D0070B36C /* CartFixture.swift in Sources */,
 				192E8D3122EC880C007D348A /* ProductServiceTests.swift in Sources */,
 				19BE74E422EB2DB30053F005 /* ProductListViewControllerTests.swift in Sources */,
 				1906FAE322F18EFF0070B36C /* CartViewControllerTests.swift in Sources */,
+				19000BB922F39570008E3262 /* CartServiceTests.swift in Sources */,
+				19000BB522F3954A008E3262 /* PaymentViewControllerTests.swift in Sources */,
+				19000BBB22F3957F008E3262 /* PaymentServiceTests.swift in Sources */,
+				19000BB122F3952E008E3262 /* CheckoutViewControllerTests.swift in Sources */,
+				19000BBF22F396D2008E3262 /* CheckoutFixture.swift in Sources */,
+				19000BB322F3953C008E3262 /* CheckoutPresenterTests.swift in Sources */,
 				192E8D4F22EF1D35007D348A /* PromotionTests.swift in Sources */,
 				192E8D3322EC8F85007D348A /* UIContainerTests.swift in Sources */,
 				1906FAE522F18F0C0070B36C /* CartPresenterTests.swift in Sources */,

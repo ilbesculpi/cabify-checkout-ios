@@ -38,10 +38,16 @@ class CartPresenter: BasePresenter, CartPresenterContract {
     }
     
     func updateView() {
-        view.displayItemCount(cart.itemCount);
-        view.displayTotal(price: cart.total);
-        view.displayCartItems(cart.cartItems);
-        view.setCheckoutState(enabled: !cart.isEmpty);
+        if( cart.isEmpty ) {
+            view.displayEmptyCart();
+        }
+        else {
+            view.displayCart();
+            view.displayItemCount(cart.itemCount);
+            view.displayTotal(price: cart.total);
+            view.displayCartItems(cart.cartItems);
+            view.setCheckoutState(enabled: !cart.isEmpty);
+        }
     }
     
     func performCheckout() {

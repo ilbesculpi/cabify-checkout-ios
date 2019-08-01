@@ -25,7 +25,9 @@ class CartViewController: BaseViewController, CartViewContract {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var labelTotalUnits: UILabel!
     @IBOutlet weak var labelTotalPrice: UILabel!
+    @IBOutlet weak var totalsView: UIView!
     @IBOutlet weak var buttonProceedToCheckout: UIButton!
+    @IBOutlet weak var emptyCartView: UIView!
     
     
     // MARK: - UIViewController
@@ -54,6 +56,20 @@ class CartViewController: BaseViewController, CartViewContract {
     
     
     // MARK: - CartViewContract
+    
+    func displayCart() {
+        totalsView.isHidden = false;
+        tableView.isHidden = false;
+        buttonProceedToCheckout.isHidden = false;
+        emptyCartView.isHidden = true;
+    }
+    
+    func displayEmptyCart() {
+        totalsView.isHidden = true;
+        tableView.isHidden = true;
+        buttonProceedToCheckout.isHidden = true;
+        emptyCartView.isHidden = false;
+    }
     
     func displayTotal(price: Float) {
         labelTotalPrice.text = String.format(amount: price, currency: currency);

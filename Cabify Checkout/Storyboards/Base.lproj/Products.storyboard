@@ -119,6 +119,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYp-db-rPh">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShoppingCart" translatesAutoresizingMaskIntoConstraints="NO" id="fl9-kK-zXa">
+                                        <rect key="frame" x="123.66666666666669" y="256.66666666666669" width="128" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="e2g-gx-YnX"/>
+                                            <constraint firstAttribute="height" constant="128" id="gKn-Fi-lqK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your cart is empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9y-ZB-2QN">
+                                        <rect key="frame" x="117.66666666666669" y="186.66666666666669" width="140" height="22"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fl9-kK-zXa" firstAttribute="top" secondItem="w9y-ZB-2QN" secondAttribute="bottom" constant="48" id="75K-IO-YL1"/>
+                                    <constraint firstItem="w9y-ZB-2QN" firstAttribute="centerX" secondItem="hYp-db-rPh" secondAttribute="centerX" id="93E-iy-8Ti"/>
+                                    <constraint firstItem="fl9-kK-zXa" firstAttribute="centerX" secondItem="hYp-db-rPh" secondAttribute="centerX" id="fdC-OJ-Jlz"/>
+                                    <constraint firstItem="fl9-kK-zXa" firstAttribute="centerY" secondItem="hYp-db-rPh" secondAttribute="centerY" id="pgA-dP-Ccf"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1G-q1-fJr" userLabel="TotalsView">
                                 <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                 <subviews>
@@ -388,15 +413,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hYp-db-rPh" firstAttribute="bottom" secondItem="FCQ-tT-eId" secondAttribute="bottom" id="2ry-bS-0B0"/>
                             <constraint firstItem="FCQ-tT-eId" firstAttribute="trailing" secondItem="daH-gR-8gM" secondAttribute="trailing" id="CfI-DW-yYh"/>
                             <constraint firstItem="xn7-L4-14J" firstAttribute="top" secondItem="daH-gR-8gM" secondAttribute="bottom" constant="32" id="Hea-8q-lTO"/>
                             <constraint firstItem="FCQ-tT-eId" firstAttribute="trailing" secondItem="x1G-q1-fJr" secondAttribute="trailing" id="Hfy-Hn-fY1"/>
                             <constraint firstItem="FCQ-tT-eId" firstAttribute="bottom" secondItem="xn7-L4-14J" secondAttribute="bottom" constant="32" id="IIM-2W-phy"/>
+                            <constraint firstItem="hYp-db-rPh" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" id="JP6-lJ-AUy"/>
+                            <constraint firstItem="hYp-db-rPh" firstAttribute="trailing" secondItem="FCQ-tT-eId" secondAttribute="trailing" id="deS-bK-DMi"/>
                             <constraint firstItem="FCQ-tT-eId" firstAttribute="trailing" secondItem="xn7-L4-14J" secondAttribute="trailing" constant="16" id="gdO-s4-Vbl"/>
                             <constraint firstItem="x1G-q1-fJr" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" id="hRL-BZ-5Ez"/>
                             <constraint firstItem="daH-gR-8gM" firstAttribute="top" secondItem="x1G-q1-fJr" secondAttribute="bottom" id="mAT-Gq-C2D"/>
                             <constraint firstItem="x1G-q1-fJr" firstAttribute="top" secondItem="FCQ-tT-eId" secondAttribute="top" id="p9W-7Q-S7c"/>
                             <constraint firstItem="xn7-L4-14J" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" constant="16" id="wvn-5Z-ZgZ"/>
+                            <constraint firstItem="hYp-db-rPh" firstAttribute="top" secondItem="FCQ-tT-eId" secondAttribute="top" id="yMA-ZW-gbb"/>
                             <constraint firstItem="daH-gR-8gM" firstAttribute="leading" secondItem="FCQ-tT-eId" secondAttribute="leading" id="zk9-8Z-iRw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FCQ-tT-eId"/>
@@ -404,9 +433,11 @@
                     <navigationItem key="navigationItem" title="My Cart" id="E2G-hS-H6Y"/>
                     <connections>
                         <outlet property="buttonProceedToCheckout" destination="xn7-L4-14J" id="Zlp-se-OjN"/>
+                        <outlet property="emptyCartView" destination="hYp-db-rPh" id="OC2-Mp-6gL"/>
                         <outlet property="labelTotalPrice" destination="FKX-gY-Ukb" id="zJl-Yf-pQt"/>
                         <outlet property="labelTotalUnits" destination="8fe-Z5-eFU" id="jwE-40-Vu1"/>
                         <outlet property="tableView" destination="daH-gR-8gM" id="ORz-v1-J5p"/>
+                        <outlet property="totalsView" destination="x1G-q1-fJr" id="vNm-x2-atm"/>
                         <segue destination="Z6U-ao-wcZ" kind="show" id="Nzq-KQ-tPY"/>
                     </connections>
                 </viewController>
@@ -664,6 +695,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ShoppingCart" width="128" height="128"/>
         <image name="add_icon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="add_product_icon" width="42.666667938232422" height="42.666667938232422"/>
         <image name="browse_icon" width="29" height="30"/>
