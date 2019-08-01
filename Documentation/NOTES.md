@@ -168,6 +168,15 @@ performApiRequest(serverUrl)
 ```
 
 
+## Promociones
+
+Las promociones están definidas en el archivo `Promotions.plist`
+
+![promotions plist](/Documentation/images/promotions_plist.png)
+
+Se pueden activar las promociones utilizando las fechas de `start` y `end`
+
+
 ## Persistencia
 
 Los productos agregados al carrito de compra se guardan utilizando `Core Data`. Por lo que, al salir y volver a ingresar, los productos se mantienen en el carrito.
