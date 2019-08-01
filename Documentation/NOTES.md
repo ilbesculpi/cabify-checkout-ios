@@ -120,3 +120,49 @@ Luego, cuando necesitamos crear las instancias para esa pantalla, lo hacemos a t
 let productController = container.resolve(ProductListViewController.self)
 ```
 
+De esta manera, se tiene mayor control al momento de escribir pruebas unitarias:
+
+```
+// ProductListViewControllerTests.swift
+
+let controller = ProductListViewController()
+controller.presenter = ProductListPresenterMock()
+
+XCTAssert(...)
+```
+
+
+## Ambientes y Configuración
+
+La aplicación contiene 2 ambientes *Development* y *Staging* (se pueden agregar más) 
+
+![environments image](/Documentation/images/environments.png)
+
+Para cada ambiente, hay un archivo .xcconfig donde se definen las variables, por ejemplo:
+
+```
+SERVER_URL = https:/$()/api.myjson.com/bins/4bwec
+APP_BUNDLE_ID = com.ilbesculpi.Cabify-Checkout.dev
+APP_NAME = Cabify Checkout (DEV)
+APP_CONTAINER = development
+APP_ENVIRONMENT = development
+APP_CURRENCY_SYMBOL = €
+```
+
+![config folder image](/Documentation/images/config_folder.png)
+
+Y para acceder a ellas desde la aplicación, existe el archivo `Environment.swift`
+
+```
+// Environment.swift
+enum Environment {
+
+    static let serverUrl: URL = { ... }
+
+}
+
+
+// Usage
+let serverUrl = Environment.serverUrl;
+performApiRequest(serverUrl)
+```
