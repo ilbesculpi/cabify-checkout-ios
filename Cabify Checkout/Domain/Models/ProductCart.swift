@@ -41,6 +41,12 @@ class ProductCart: NSObject {
         })
     }
     
+    var subtotal: Float {
+        return items.reduce(0, { (result, item) -> Float in
+            return result + item.subtotal;
+        })
+    }
+    
     var cartItems: [ProductCartItem] {
         return items;
     }
@@ -157,6 +163,7 @@ class ProductCart: NSObject {
         
         let noDiscountPrice: Float = ( item.unitPrice * Float(item.quantity) );
         item.totalPrice = noDiscountPrice;
+        item.subtotal = noDiscountPrice;
         item.savings = 0;
         
         if( !promotion.isActive ) {

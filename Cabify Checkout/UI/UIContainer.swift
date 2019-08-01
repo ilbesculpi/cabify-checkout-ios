@@ -89,7 +89,8 @@ final class UIContainer {
             let controller = UIStoryboard.Scene.Products.checkout;
             controller.router = CheckoutRouter(view: controller);
             
-            let presenter = CheckoutPresenter(view: controller);
+            let cart = r.resolve(ProductCart.self)!
+            let presenter = CheckoutPresenter(view: controller, cart: cart);
             controller.presenter = presenter;
             
             return controller;

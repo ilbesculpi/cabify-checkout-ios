@@ -17,6 +17,7 @@ class ProductCartItem {
     var name: String;
     var unitPrice: Float;
     var discountPrice: Float = 0;
+    var subtotal: Float = 0;
     var totalPrice: Float = 0;
     var savings: Float = 0;
     
@@ -34,8 +35,9 @@ class ProductCartItem {
         self.name = name;
         self.unitPrice = unitPrice;
         self.quantity = quantity;
-        self.totalPrice = Float(quantity) * unitPrice;
+        self.subtotal = Float(quantity) * unitPrice;
         self.savings = 0;
+        self.totalPrice = subtotal - savings;
     }
     
     convenience init(product: Product, quantity: Int) {
