@@ -2,7 +2,7 @@
 //  CartViewController.swift
 //  Cabify Checkout
 //
-//  Display the cart screen
+//  Display the Shopping Cart screen
 //
 
 import UIKit

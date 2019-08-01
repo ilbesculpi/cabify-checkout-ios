@@ -18,12 +18,101 @@
                     <view key="view" contentMode="scaleToFill" id="WUo-gP-xpE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jue-LV-mpA">
+                                <rect key="frame" x="41.5" y="337.5" width="331" height="221"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processing your payment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb8-VF-l8O">
+                                        <rect key="frame" x="69" y="16" width="193.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="csV-uq-yAJ">
+                                        <rect key="frame" x="147" y="92" width="37" height="37"/>
+                                        <color key="tintColor" name="Accent"/>
+                                        <color key="color" name="Accent"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Yb8-VF-l8O" firstAttribute="centerX" secondItem="jue-LV-mpA" secondAttribute="centerX" id="763-eE-vSk"/>
+                                    <constraint firstAttribute="width" secondItem="jue-LV-mpA" secondAttribute="height" multiplier="3:2" id="FIZ-yj-Kso"/>
+                                    <constraint firstItem="csV-uq-yAJ" firstAttribute="centerY" secondItem="jue-LV-mpA" secondAttribute="centerY" id="gls-Al-UvK"/>
+                                    <constraint firstItem="csV-uq-yAJ" firstAttribute="centerX" secondItem="jue-LV-mpA" secondAttribute="centerX" id="tjo-rH-lFY"/>
+                                    <constraint firstItem="Yb8-VF-l8O" firstAttribute="top" secondItem="jue-LV-mpA" secondAttribute="topMargin" constant="8" id="z2J-co-V4z"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Zm-7v-IcN">
+                                <rect key="frame" x="41.5" y="337.5" width="331" height="221"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckSuccess" translatesAutoresizingMaskIntoConstraints="NO" id="Duf-xP-NpM">
+                                        <rect key="frame" x="133.5" y="78.5" width="64" height="64"/>
+                                        <color key="tintColor" name="Success"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-d4-Zbj">
+                                        <rect key="frame" x="127" y="24" width="77" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Duf-xP-NpM" firstAttribute="centerY" secondItem="8Zm-7v-IcN" secondAttribute="centerY" id="0an-aO-RyV"/>
+                                    <constraint firstAttribute="width" secondItem="8Zm-7v-IcN" secondAttribute="height" multiplier="3:2" id="3Zx-X1-FwS"/>
+                                    <constraint firstItem="Duf-xP-NpM" firstAttribute="centerX" secondItem="8Zm-7v-IcN" secondAttribute="centerX" id="6Fw-qR-bL2"/>
+                                    <constraint firstItem="LuO-d4-Zbj" firstAttribute="top" secondItem="8Zm-7v-IcN" secondAttribute="topMargin" constant="16" id="8ZB-xC-Km4"/>
+                                    <constraint firstItem="LuO-d4-Zbj" firstAttribute="centerX" secondItem="8Zm-7v-IcN" secondAttribute="centerX" id="erC-EK-oBo"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZU-u6-XoC">
+                                <rect key="frame" x="41.5" y="337.5" width="331" height="221"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckError" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-eG-9LN">
+                                        <rect key="frame" x="133.5" y="78.5" width="64" height="64"/>
+                                        <color key="tintColor" name="Danger"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operation Failed!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBp-lJ-Mri">
+                                        <rect key="frame" x="93.5" y="24" width="144" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="RiI-eG-9LN" firstAttribute="centerX" secondItem="fZU-u6-XoC" secondAttribute="centerX" id="1vv-Tk-Ism"/>
+                                    <constraint firstItem="kBp-lJ-Mri" firstAttribute="top" secondItem="fZU-u6-XoC" secondAttribute="topMargin" constant="16" id="B4K-DB-Rbk"/>
+                                    <constraint firstItem="RiI-eG-9LN" firstAttribute="centerY" secondItem="fZU-u6-XoC" secondAttribute="centerY" id="Z42-UE-hZZ"/>
+                                    <constraint firstAttribute="width" secondItem="fZU-u6-XoC" secondAttribute="height" multiplier="3:2" id="egi-Ek-fBL"/>
+                                    <constraint firstItem="kBp-lJ-Mri" firstAttribute="centerX" secondItem="fZU-u6-XoC" secondAttribute="centerX" id="jXn-TE-P8Y"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="yeB-3v-iek"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jue-LV-mpA" firstAttribute="width" secondItem="WUo-gP-xpE" secondAttribute="width" multiplier="0.8" id="0UC-Va-Xzz"/>
+                            <constraint firstItem="8Zm-7v-IcN" firstAttribute="centerY" secondItem="WUo-gP-xpE" secondAttribute="centerY" id="1CS-cw-BGH"/>
+                            <constraint firstItem="fZU-u6-XoC" firstAttribute="width" secondItem="WUo-gP-xpE" secondAttribute="width" multiplier="0.8" id="2Mi-8V-Ue1"/>
+                            <constraint firstItem="jue-LV-mpA" firstAttribute="centerY" secondItem="WUo-gP-xpE" secondAttribute="centerY" id="AIb-PZ-Y7B"/>
+                            <constraint firstItem="fZU-u6-XoC" firstAttribute="centerY" secondItem="WUo-gP-xpE" secondAttribute="centerY" id="CZK-c3-Hw2"/>
+                            <constraint firstItem="8Zm-7v-IcN" firstAttribute="width" secondItem="WUo-gP-xpE" secondAttribute="width" multiplier="0.8" id="Hc2-B9-Gpo"/>
+                            <constraint firstItem="jue-LV-mpA" firstAttribute="centerX" secondItem="WUo-gP-xpE" secondAttribute="centerX" id="Rgm-M5-QP0"/>
+                            <constraint firstItem="fZU-u6-XoC" firstAttribute="centerX" secondItem="WUo-gP-xpE" secondAttribute="centerX" id="WaM-io-1uO"/>
+                            <constraint firstItem="8Zm-7v-IcN" firstAttribute="centerX" secondItem="WUo-gP-xpE" secondAttribute="centerX" id="niu-iF-N20"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YrY-b3-NW2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Payment" id="SBH-PG-UNM">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="KFp-Il-O8J"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="operationErrorView" destination="fZU-u6-XoC" id="582-s1-xP0"/>
+                        <outlet property="operationSuccessView" destination="8Zm-7v-IcN" id="oXd-nG-OxK"/>
+                        <outlet property="processingView" destination="jue-LV-mpA" id="53x-sY-Iwz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6B-qF-bjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,8 +146,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CheckError" width="64" height="64"/>
+        <image name="CheckSuccess" width="64" height="64"/>
+        <namedColor name="Accent">
+            <color red="0.23137254901960785" green="0.62745098039215685" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Danger">
+            <color red="0.86274509803921573" green="0.20784313725490197" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PrimaryDark">
             <color red="0.45490196078431372" green="0.30980392156862746" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Success">
+            <color red="0.15686274509803921" green="0.65490196078431373" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
