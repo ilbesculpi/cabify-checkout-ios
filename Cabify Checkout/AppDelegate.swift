@@ -92,12 +92,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Instantiate RootViewController
         guard let rootController = container.resolve(RootViewController.self) else {
-            fatalError("Unable to instantiate Root controller");
+            fatalError("Unable to instantiate RootViewController");
         }
         
         // Set as root view controller
         window.rootViewController = rootController;
     }
+    
     
     /**
      Load the stored promotions and setup default shopping cart

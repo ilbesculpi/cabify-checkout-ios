@@ -14,8 +14,8 @@ protocol PaymentViewContract : BaseViewContract {
     
     func displayProcessingPaymentView();
     func hideProcessingPaymentView();
-    func displayOperationSuccessView();
-    func displayOperationErrorView();
+    func displayPaymentSuccessView();
+    func displayPaymentErrorView(message: String);
     
 }
 
@@ -31,5 +31,7 @@ protocol PaymentPresenterContract : BasePresenterContract {
 protocol PaymentRouterContract : BaseRouterContract {
     
     var view: PaymentViewContract! { get set }
+    
+    func dismiss()
     
 }

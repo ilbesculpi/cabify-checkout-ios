@@ -30,9 +30,9 @@ class PaymentPresenter: BasePresenter, PaymentPresenterContract {
         view.displayProcessingPaymentView();
         
         // wait 5 seconds to simulate processing...
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.view.hideProcessingPaymentView();
-            self?.view.displayOperationSuccessView();
+            self?.view.displayPaymentSuccessView();
         }
     }
     

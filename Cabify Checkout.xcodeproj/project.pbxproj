@@ -53,6 +53,9 @@
 		19ABC14422F2698F00D89814 /* PaymentContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14322F2698F00D89814 /* PaymentContracts.swift */; };
 		19ABC14622F269A000D89814 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14522F269A000D89814 /* PaymentViewController.swift */; };
 		19ABC14822F2770E00D89814 /* PaymentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14722F2770E00D89814 /* PaymentPresenter.swift */; };
+		19ABC14A22F2E22C00D89814 /* PaymentSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14922F2E22C00D89814 /* PaymentSuccessView.swift */; };
+		19ABC14C22F2E24C00D89814 /* PaymentSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19ABC14B22F2E24C00D89814 /* PaymentSuccessView.xib */; };
+		19ABC14E22F2EA9D00D89814 /* PaymentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABC14D22F2EA9D00D89814 /* PaymentRouter.swift */; };
 		19BE74AB22EB29ED0053F005 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BE74AA22EB29ED0053F005 /* AppDelegate.swift */; };
 		19BE74B222EB29FB0053F005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B122EB29FB0053F005 /* Assets.xcassets */; };
 		19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19BE74B322EB29FB0053F005 /* LaunchScreen.storyboard */; };
@@ -143,6 +146,9 @@
 		19ABC14322F2698F00D89814 /* PaymentContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContracts.swift; sourceTree = "<group>"; };
 		19ABC14522F269A000D89814 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		19ABC14722F2770E00D89814 /* PaymentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPresenter.swift; sourceTree = "<group>"; };
+		19ABC14922F2E22C00D89814 /* PaymentSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessView.swift; sourceTree = "<group>"; };
+		19ABC14B22F2E24C00D89814 /* PaymentSuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentSuccessView.xib; sourceTree = "<group>"; };
+		19ABC14D22F2EA9D00D89814 /* PaymentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRouter.swift; sourceTree = "<group>"; };
 		19BE74A722EB29ED0053F005 /* Cabify Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabify Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19BE74AA22EB29ED0053F005 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19BE74B122EB29FB0053F005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -340,6 +346,9 @@
 				19ABC14322F2698F00D89814 /* PaymentContracts.swift */,
 				19ABC14522F269A000D89814 /* PaymentViewController.swift */,
 				19ABC14722F2770E00D89814 /* PaymentPresenter.swift */,
+				19ABC14D22F2EA9D00D89814 /* PaymentRouter.swift */,
+				19ABC14922F2E22C00D89814 /* PaymentSuccessView.swift */,
+				19ABC14B22F2E24C00D89814 /* PaymentSuccessView.xib */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -633,6 +642,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19ABC14C22F2E24C00D89814 /* PaymentSuccessView.xib in Resources */,
 				19BE74B522EB29FB0053F005 /* LaunchScreen.storyboard in Resources */,
 				192E8D4522EDC835007D348A /* Settings.plist in Resources */,
 				192E8D4722EDC889007D348A /* Promotions.plist in Resources */,
@@ -767,6 +777,7 @@
 				19BE74EF22EB35AE0053F005 /* ProductListRouter.swift in Sources */,
 				19BE74F922EB56D10053F005 /* ProductListItemCell.swift in Sources */,
 				19BE74F522EB3CEE0053F005 /* UIStoryboard_Extension.swift in Sources */,
+				19ABC14E22F2EA9D00D89814 /* PaymentRouter.swift in Sources */,
 				19ABC14622F269A000D89814 /* PaymentViewController.swift in Sources */,
 				192E8D6022EF2D7A007D348A /* CartViewController.swift in Sources */,
 				192E8D5A22EF2B21007D348A /* CheckoutRouter.swift in Sources */,
@@ -793,6 +804,7 @@
 				192E8D6D22F07D86007D348A /* RootViewController.swift in Sources */,
 				1906FAD522F1264D0070B36C /* DummyProductService.swift in Sources */,
 				1906FAE022F12D070070B36C /* CartItemModel+CoreDataProperties.swift in Sources */,
+				19ABC14A22F2E22C00D89814 /* PaymentSuccessView.swift in Sources */,
 				192E8D2A22EB8F13007D348A /* ProductRepository.swift in Sources */,
 				192E8D6622EF5AA6007D348A /* ProductCartItem.swift in Sources */,
 				192E8D6222EF2D88007D348A /* CartPresenter.swift in Sources */,

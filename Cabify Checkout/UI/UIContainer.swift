@@ -100,7 +100,7 @@ final class UIContainer {
         container.register(PaymentViewController.self) { r in
             
             let controller = UIStoryboard.Scene.Payments.payment;
-            //controller.router = PaymentRouter(view: controller);
+            controller.router = PaymentRouter(view: controller);
             
             let cart = r.resolve(ProductCart.self)!
             let presenter = PaymentPresenter(view: controller, amount: cart.total);
