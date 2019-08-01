@@ -193,4 +193,4 @@ La aplicación da soporte a dos idiomas (inglés y español). La traducción bas
 - [  ] Para dispositivos más grandes (iPads), se podría utilizar un UICollectionView en lugar de UITableView para mostrar varias columnas en el listado de productos.
 - [  ] Si el dispositivo no tiene conexión a internet, el listado de productos no tiene nada para mostrar. Podría utilizarse un cache para guardar la respuesta del listado de productos y mostrar estos productos aún cuando no haya conexión.
 - [  ] Agregar pruebas de integración y UI
-
+- [  ] Agregar URLSessionConfiguration a Alamofire para mockear los servicios de red
