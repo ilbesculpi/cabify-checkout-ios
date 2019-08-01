@@ -24,10 +24,10 @@ class PaymentRouter: BaseRouter, PaymentRouterContract {
     
     // MARK: - PaymentViewContract
     
-    func dismiss() {
+    func dismiss(completion: (() -> Void)?) {
         (view as! UIViewController).navigationController?
             .presentingViewController?
-            .dismiss(animated: true, completion: nil)
+            .dismiss(animated: true, completion: completion)
     }
     
 }

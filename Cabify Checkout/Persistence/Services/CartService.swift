@@ -135,7 +135,7 @@ class CartService: CartRepository {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate;
             let context = appDelegate.persistentContainer.viewContext;
             
-            self.removeCart()
+            self.removeItems()
                 .then {
             
                     for item in cart.cartItems {
@@ -193,7 +193,8 @@ class CartService: CartRepository {
         
     }
     
-    func removeCart() -> Promise<Void> {
+    
+    func removeItems() -> Promise<Void> {
         
         let promise = Promise<Void> { (resolve, reject) in
             let appDelegate = UIApplication.shared.delegate as! AppDelegate;
@@ -201,7 +202,7 @@ class CartService: CartRepository {
             let fetchRequest = CartItemModel.createFetchRequest();
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>);
             do {
-                try context.execute(deleteRequest)
+                try context.execute(deleteRequest);
                 resolve(());
             }
             catch {
@@ -212,6 +213,15 @@ class CartService: CartRepository {
         }
         
         return promise;
+    }
+    
+    func emptyCart(_ cart: ProductCart) -> Promise<Void> {
+        
+        return self.removeItems()
+            .then {
+                print("[INFO] cart emptied.");
+                cart.empty();
+            }
     }
     
 }

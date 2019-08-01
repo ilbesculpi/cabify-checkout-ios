@@ -107,8 +107,9 @@ final class UIContainer {
             controller.router = PaymentRouter(view: controller);
             
             let cart = r.resolve(ProductCart.self)!
-            let presenter = PaymentPresenter(view: controller, amount: cart.total);
+            let presenter = PaymentPresenter(view: controller, cart: cart, amount: cart.total);
             presenter.paymentService = r.resolve(PaymentRepository.self);
+            presenter.cartService = r.resolve(CartRepository.self);
             controller.presenter = presenter;
             
             return controller;

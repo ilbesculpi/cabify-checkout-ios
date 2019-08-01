@@ -13,6 +13,7 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
     // MARK: - Properties
     var presenter: PaymentPresenterContract!
     var router: PaymentRouterContract!
+    weak var delegate: PaymentViewDelegate?
     
     
     // MARK: - IBOutlet
@@ -66,7 +67,10 @@ class PaymentViewController: BaseViewController, PaymentViewContract {
     // MARK: - IBAction
     
     @IBAction func dismissView(_ sender: Any) {
-        router.dismiss();
+        router.dismiss() { [weak self] in
+            // Notify delegate the payment has finished.
+            self?.delegate?.didCompletePayment();
+        }
     }
 
 }
