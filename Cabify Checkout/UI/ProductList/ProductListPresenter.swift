@@ -58,7 +58,7 @@ class ProductListPresenter: BasePresenter, ProductListPresenterContract {
             }
             .catch { [weak self] (error) in
                 self?.isLoading = false;
-                self?.view.displayError(message: "Failed to retrieve the product list.");
+                self?.view.displayError(message: "Failed to retrieve the product list.".localized());
             }
     }
     

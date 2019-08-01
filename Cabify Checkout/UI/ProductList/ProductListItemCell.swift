@@ -13,7 +13,7 @@ class ProductListItemCell: UITableViewCell {
     // MARK: - Properties
     weak var delegate: ProductListItemDelegate?
     private var product: Product!
-    
+    private var currency: String = Environment.currencySymbol
     
     // MARK: - IBOutlet
     @IBOutlet weak var productImage: UIImageView!
@@ -40,7 +40,7 @@ class ProductListItemCell: UITableViewCell {
         self.product = product;
         labelCode.text = product.code;
         labelTitle.text = product.name;
-        labelPrice.text = String.format(amount: product.price, currency: "€")
+        labelPrice.text = String.format(amount: product.price, currency: currency)
     }
     
     

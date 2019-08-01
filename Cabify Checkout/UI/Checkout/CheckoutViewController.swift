@@ -57,15 +57,15 @@ class CheckoutViewController: BaseViewController, CheckoutViewContract {
     // MARK: - CheckoutViewContract
     
     func displayTotal(price: Float) {
-        labelTotal.text = String.format(amount: price, currency: "€");
+        labelTotal.text = String.format(amount: price, currency: currency);
     }
     
     func displaySubtotal(price: Float) {
-        labelSubtotal.text = String.format(amount: price, currency: "€");
+        labelSubtotal.text = String.format(amount: price, currency: currency);
     }
     
     func displayDiscounts(price: Float) {
-        labelDiscounts.text = "-" + String.format(amount: price, currency: "€");
+        labelDiscounts.text = "-" + String.format(amount: price, currency: currency);
     }
     
     func displayCartItems(_ items: [ProductCartItem]) {

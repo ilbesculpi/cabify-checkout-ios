@@ -1,0 +1,51 @@
+
+/* Class = "UIButton"; normalTitle = "Remove"; ObjectID = "2rh-Rf-06H"; */
+"2rh-Rf-06H.normalTitle" = "Eliminar";
+
+/* Class = "UILabel"; text = "Discounts:"; ObjectID = "7jg-uk-55F"; */
+"7jg-uk-55F.text" = "Descuentos:";
+
+/* Class = "UILabel"; text = "Total (0 items):"; ObjectID = "8fe-Z5-eFU"; */
+"8fe-Z5-eFU.text" = "Total (0 artículos):";
+
+/* Class = "UINavigationItem"; title = "My Cart"; ObjectID = "E2G-hS-H6Y"; */
+"E2G-hS-H6Y.title" = "Mi Carrito";
+
+/* Class = "UINavigationItem"; title = "Product List"; ObjectID = "Gab-aE-uZe"; */
+"Gab-aE-uZe.title" = "Listado de Productos";
+
+/* Class = "UITabBarItem"; title = "Shop"; ObjectID = "Iu3-5w-xe2"; */
+"Iu3-5w-xe2.title" = "Explorar";
+
+/* Class = "UILabel"; text = "Total:"; ObjectID = "KTG-d9-lE2"; */
+"KTG-d9-lE2.text" = "Total:";
+
+/* Class = "UIButton"; normalTitle = "Remove"; ObjectID = "Kmm-DK-pcW"; */
+"Kmm-DK-pcW.normalTitle" = "Eliminar";
+
+/* Class = "UIViewController"; title = "My Cart"; ObjectID = "Ndq-81-1MR"; */
+"Ndq-81-1MR.title" = "Mi Carrito";
+
+/* Class = "UIViewController"; title = "Checkout"; ObjectID = "Z6U-ao-wcZ"; */
+"Z6U-ao-wcZ.title" = "Checkout";
+
+/* Class = "UILabel"; text = "You save: 0.00€"; ObjectID = "cUO-70-e2Z"; */
+"cUO-70-e2Z.text" = "Ahorras: 0.00€";
+
+/* Class = "UILabel"; text = "Subtotal:"; ObjectID = "dtg-FJ-Zkd"; */
+"dtg-FJ-Zkd.text" = "Subtotal:";
+
+/* Class = "UILabel"; text = "You save: 0.00€"; ObjectID = "f00-t3-Yjw"; */
+"f00-t3-Yjw.text" = "Ahorras: 0.00€";
+
+/* Class = "UITabBarItem"; title = "My Cart"; ObjectID = "pjY-gU-lqy"; */
+"pjY-gU-lqy.title" = "Mi Carrito";
+
+/* Class = "UIViewController"; title = "Shop"; ObjectID = "qeh-Zd-dy6"; */
+"qeh-Zd-dy6.title" = "Explorar";
+
+/* Class = "UIButton"; normalTitle = "Proceed to checkout"; ObjectID = "xn7-L4-14J"; */
+"xn7-L4-14J.normalTitle" = "Continuar";
+
+/* Class = "UIButton"; normalTitle = "Pay"; ObjectID = "yaq-kB-JrJ"; */
+"yaq-kB-JrJ.normalTitle" = "Pagar";

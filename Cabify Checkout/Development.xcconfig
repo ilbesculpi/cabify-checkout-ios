@@ -14,3 +14,4 @@ APP_BUNDLE_ID = com.ilbesculpi.Cabify-Checkout.dev
 APP_NAME = Cabify Checkout (DEV)
 APP_CONTAINER = development
 APP_ENVIRONMENT = development
+APP_CURRENCY_SYMBOL = €

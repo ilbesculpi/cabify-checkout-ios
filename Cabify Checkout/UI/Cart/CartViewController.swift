@@ -56,7 +56,7 @@ class CartViewController: BaseViewController, CartViewContract {
     // MARK: - CartViewContract
     
     func displayTotal(price: Float) {
-        labelTotalPrice.text = String.format(amount: price, currency: "€");
+        labelTotalPrice.text = String.format(amount: price, currency: currency);
     }
     
     func displayItemCount(_ count: Int) {

@@ -14,3 +14,4 @@ APP_BUNDLE_ID = com.ilbesculpi.Cabify-Checkout
 APP_NAME = Cabify Checkout
 APP_CONTAINER = app
 APP_ENVIRONMENT = staging
+APP_CURRENCY_SYMBOL = €
